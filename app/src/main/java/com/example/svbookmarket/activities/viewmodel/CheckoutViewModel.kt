@@ -50,6 +50,8 @@ class CheckoutViewModel @Inject constructor( private val cartRepository: CartRep
                             doc.data["author"].toString(),
                             doc.data["Quantity"].toString().toDouble().roundToInt(),
                             doc.data["price"].toString().toLong(),
+                            doc.data["saler"].toString(),
+                            doc.data["salerName"].toString(),
                             true
                         )
                         item.id = doc.id

@@ -34,6 +34,7 @@ class CheckoutAdapter(private val context: Context, private var items: MutableLi
         holder.bookname.text = items[position].name
         holder.price.text = items[position].price.toString() + " đ"
         holder.cartNumber.text = items[position].numbers.toString()
+        holder.salerName.text = items[position].salerName
         Glide
             .with(holder.itemView)
             .load(items[position].imgUrl)
@@ -59,6 +60,7 @@ class CheckoutAdapter(private val context: Context, private var items: MutableLi
         val bookname: TextView = view.findViewById(R.id.tv_bookname)
         val cartNumber: TextView = view.findViewById(R.id.tv_numbers)
         val imgCover: ImageView = view.findViewById(R.id.img_cover)
+        val salerName: TextView = view.findViewById(R.id.tv_salerName)
     }
 
     fun onChange(newData: MutableList<Cart>)

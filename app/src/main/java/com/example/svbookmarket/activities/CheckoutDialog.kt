@@ -8,8 +8,10 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.LinearLayout
 import android.widget.TextView
 import android.widget.Toast
+import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.svbookmarket.R
@@ -19,9 +21,11 @@ import com.example.svbookmarket.activities.data.FullBookList
 import com.example.svbookmarket.activities.model.AppAccount
 import com.example.svbookmarket.activities.model.Cart
 import com.example.svbookmarket.activities.model.UserDeliverAddress
+import com.example.svbookmarket.databinding.BillingBlockBinding
 import com.example.svbookmarket.databinding.ItemBillingBinding
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 import com.google.android.material.button.MaterialButton
+import com.google.api.Billing
 import com.google.firebase.firestore.*
 import com.google.firebase.firestore.EventListener
 import dagger.hilt.android.AndroidEntryPoint
@@ -46,11 +50,11 @@ class CheckoutDialog : BottomSheetDialogFragment() {
         return view
     }
 
-
+    private var lstSalerID: MutableList<String> = mutableListOf()
+    private  var lstSalerFullName: MutableList<String> = mutableListOf()
     private var items: MutableList<Cart> = mutableListOf()
     private var sum: Long = 0
-    private var itemAdapter: ItemAdapter = ItemAdapter(items)
-    lateinit var tvSum: TextView
+    private var billingAdapter: BillAdapter =  BillAdapter(items, lstSalerID, lstSalerFullName)
     lateinit var tvName: TextView
     lateinit var tvAddress: TextView
     lateinit var tvPhonenumber: TextView
@@ -62,15 +66,23 @@ class CheckoutDialog : BottomSheetDialogFragment() {
 
 
         btn_buy = view.findViewById(R.id.mdco_checkout)
-        tvSum = view.findViewById(R.id.tv_sum)
+//        tvSum = view.findViewById(R.id.tv_sum)
         tvName = view.findViewById(R.id.tv_Name)
         tvAddress = view.findViewById(R.id.tv_address)
         tvPhonenumber = view.findViewById(R.id.tv_phonenumber)
 
-        tvSum.text = sum.toString() + " đ"
-        billingItemList = view.findViewById(R.id.mdco_itemBill)
+//        tvSum.text = sum.toString() + " đ"
+
+
+        billingItemList = view.findViewById(R.id.rc_Billing)
         billingItemList.layoutManager = LinearLayoutManager(context)
-        billingItemList.adapter = itemAdapter
+        billingItemList.addItemDecoration(
+            DividerItemDecoration(
+                context,
+                LinearLayoutManager.VERTICAL,
+            )
+        )
+        billingItemList.adapter = billingAdapter
 
         btn_buy.setOnClickListener {
             var num: Int = 0
@@ -168,7 +180,6 @@ class CheckoutDialog : BottomSheetDialogFragment() {
     }
 
     suspend fun moveToUserOrDer(
-
         user: AppAccount,
         listNeedToMove: MutableList<Cart>,
         deliverAddress: UserDeliverAddress
@@ -188,26 +199,36 @@ class CheckoutDialog : BottomSheetDialogFragment() {
             "userId" to AppUtil.currentAccount.email
         )
 
-        val newOrderId: String =
-            FirebaseFirestore.getInstance().collection("accounts").document(user.email)
-                .collection("userOrder").add(mapOfAddress).await().get().await().id
+//        val newOrderId: String =
+//            FirebaseFirestore.getInstance().collection("accounts").document(user.email)
+//                .collection("userOrder").add(mapOfAddress).await().get().await().id
 
         var lstIdOnMove: MutableList<String> = mutableListOf()
         var lstNumOnMove: MutableList<Int> = mutableListOf()
+        var lstSaler: MutableList<String> = mutableListOf()
+        var lstSalerName: MutableList<String> = mutableListOf()
         for (i in 0 until listNeedToMove.size) {
             if (listNeedToMove[i].isChose) {
+                if (!lstSaler.contains(listNeedToMove[i].saler))
+                {
+                    lstSaler.add(listNeedToMove[i].saler)
+                    lstSalerName.add(listNeedToMove[i].salerName)
+                    onMoveForDifferenceSaler(user, listNeedToMove[i].saler, listNeedToMove,mapOfAddress)
+                }
                 lstIdOnMove.add(listNeedToMove[i].id)
                 lstNumOnMove.add(listNeedToMove[i].numbers)
-                val mapOfOrder = hashMapOf<String, Any>(
-                    "Quantity" to listNeedToMove[i].numbers,
-                    "author" to listNeedToMove[i].author,
-                    "image" to listNeedToMove[i].imgUrl,
-                    "price" to listNeedToMove[i].price,
-                    "title" to listNeedToMove[i].name
-                )
-                FirebaseFirestore.getInstance().collection("accounts").document(user.email)
-                    .collection("userOrder").document(newOrderId).collection("books")
-                    .document(listNeedToMove[i].id).set(mapOfOrder)
+//                val mapOfOrder = hashMapOf<String, Any>(
+//                    "Quantity" to listNeedToMove[i].numbers,
+//                    "author" to listNeedToMove[i].author,
+//                    "image" to listNeedToMove[i].imgUrl,
+//                    "price" to listNeedToMove[i].price,
+//                    "title" to listNeedToMove[i].name,
+//                    "saler" to listNeedToMove[i].saler,
+//                    "salerName" to listNeedToMove[i].salerName
+//                )
+//                FirebaseFirestore.getInstance().collection("accounts").document(user.email)
+//                    .collection("userOrder").document(newOrderId).collection("books")
+//                    .document(listNeedToMove[i].id).set(mapOfOrder)
             }
         }
 
@@ -219,6 +240,35 @@ class CheckoutDialog : BottomSheetDialogFragment() {
             FirebaseFirestore.getInstance().collection("books").document(lstIdOnMove[i])
                 .update("Counts", FieldValue.increment(-lstNumOnMove[i].toDouble()))
         }
+    }
+
+    suspend fun onMoveForDifferenceSaler(user: AppAccount, Saler: String,
+                                 listNeedToMove: MutableList<Cart>, mapOfAddress: MutableMap<String, Any>)
+    {
+        val newOrderId: String =
+            FirebaseFirestore.getInstance().collection("accounts").document(user.email)
+                .collection("userOrder").add(mapOfAddress).await().get().await().id
+        for (i in 0 until listNeedToMove.size) {
+                if (listNeedToMove[i].saler == Saler)
+                {
+//                    var lstIdOnMove: MutableList<String> = mutableListOf()
+//                    var lstNumOnMove: MutableList<Int> = mutableListOf()
+//                    lstIdOnMove.add(listNeedToMove[i].id)
+//                    lstNumOnMove.add(listNeedToMove[i].numbers)
+                    val mapOfOrder = hashMapOf<String, Any>(
+                        "Quantity" to listNeedToMove[i].numbers,
+                        "author" to listNeedToMove[i].author,
+                        "image" to listNeedToMove[i].imgUrl,
+                        "price" to listNeedToMove[i].price,
+                        "title" to listNeedToMove[i].name,
+                        "saler" to listNeedToMove[i].saler,
+                        "salerName" to listNeedToMove[i].salerName
+                    )
+                    FirebaseFirestore.getInstance().collection("accounts").document(user.email)
+                        .collection("userOrder").document(newOrderId).collection("books")
+                        .document(listNeedToMove[i].id).set(mapOfOrder)
+                }
+            }
     }
 
     fun checkIfComeFirst(): Boolean {
@@ -255,6 +305,8 @@ class CheckoutDialog : BottomSheetDialogFragment() {
                                 doc.data["author"].toString(),
                                 doc.data["Quantity"].toString().toDouble().roundToInt(),
                                 doc.data["price"].toString().toLong(),
+                                doc.data["saler"].toString(),
+                                doc.data["salerName"].toString(),
                                 true
                             )
                             item.id = doc.id
@@ -262,13 +314,20 @@ class CheckoutDialog : BottomSheetDialogFragment() {
                         }
                     }
                     items = checkoutList
+                    for (i in 0 until  items.size)
+                    {
+                        if (!lstSalerID.contains(items[i].saler))
+                        {
+                            lstSalerID.add(items[i].saler)
+                            lstSalerFullName.add(items[i].salerName)
+                        }
+                    }
                     sum = 0
                     for (item in items) {
                         sum += item.price * item.numbers
                     }
-                    tvSum.text = sum.toString() + " đ"
-                    itemAdapter.onChange(items)
-                    itemAdapter.notifyDataSetChanged()
+                    billingAdapter.onChange(items, lstSalerID, lstSalerFullName)
+                    billingAdapter.notifyDataSetChanged()
                 }
 
             })
@@ -309,6 +368,59 @@ class CheckoutDialog : BottomSheetDialogFragment() {
 
         override fun getItemCount(): Int {
             return billingItem.size
+        }
+    }
+
+
+    private inner class BillingViewHolder internal constructor(binding: BillingBlockBinding) :
+        RecyclerView.ViewHolder(binding.root) {
+        internal var Saler = binding.idSalerName
+        var Sum = binding.tvSum
+        var rcBilling = binding.mdcoItemBill
+    }
+    private inner class BillAdapter internal constructor(private var billingItem: MutableList<Cart>,
+                                                         private var lstSaler: MutableList<String>,
+                                                         private var lstSalerName: MutableList<String>) :
+        RecyclerView.Adapter<BillingViewHolder>() {
+
+        override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): BillingViewHolder {
+
+            return BillingViewHolder(
+                BillingBlockBinding.inflate(
+                    LayoutInflater.from(
+                        parent.context
+                    ), parent, false
+                )
+            )
+
+        }
+
+        fun onChange(newItems: MutableList<Cart>, newSaler: MutableList<String>, newSalerName: MutableList<String>) {
+            billingItem = newItems
+            lstSaler = newSaler
+            lstSalerName = newSalerName
+        }
+
+        override fun onBindViewHolder(holder: BillingViewHolder, position: Int) {
+            holder.Saler.text = lstSalerName[position]
+            var lstCartOfSaler: MutableList<Cart> = mutableListOf()
+            var sum: Long = 0
+            for (i in 0 until  billingItem.size)
+            {
+                if (billingItem[i].saler == lstSaler[position])
+                {
+                    lstCartOfSaler.add(billingItem[i])
+                    sum += billingItem[i].price * billingItem[i].numbers
+                }
+            }
+            holder.Sum.text = sum.toString() + " đ"
+            var billItemAdapter: ItemAdapter = ItemAdapter(lstCartOfSaler)
+            holder.rcBilling.layoutManager = LinearLayoutManager(context)
+            holder.rcBilling.adapter = billItemAdapter
+        }
+
+        override fun getItemCount(): Int {
+            return lstSaler.size
         }
     }
 }

@@ -33,6 +33,7 @@ class CartItemAdapter(val listener: OnButtonClickListener, private var cartList:
 
         holder.price.text = cartList[position].price.toString() + " đ"
         holder.number.text = cartList[position].numbers.toString()
+        holder.salerName.text = cartList[position].salerName
 
         (holder.itemView as MaterialCardView).isChecked = cartList[position].isChose
         // increase and decrease button listenerc
@@ -85,7 +86,7 @@ class CartItemAdapter(val listener: OnButtonClickListener, private var cartList:
         var author : TextView = view.findViewById(R.id.tv_author)
         var coverimg : ImageView = view.findViewById(R.id.img_cover)
         var price : TextView = view.findViewById(R.id.tv_price)
-
+        var salerName: TextView = view.findViewById(R.id.tv_salerName)
         fun toggleChecked(isChecked:Boolean){
             (this.itemView as MaterialCardView).isChecked = isChecked
         }

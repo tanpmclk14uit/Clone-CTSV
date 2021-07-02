@@ -55,7 +55,11 @@ class CheckoutActivity : AppCompatActivity() {
 
     private fun setCheckoutButton() {
         binding.coCheckout.setOnClickListener {
-            if (viewModel.deliverAddress.value?.fullName != null) {
+            if (viewModel.deliverAddress.value?.fullName != null && viewModel.deliverAddress.value?.addressLane != null &&
+                viewModel.deliverAddress.value?.city != null && viewModel.deliverAddress.value?.district != null &&
+                viewModel.deliverAddress.value?.phoneNumber != null && viewModel.deliverAddress.value?.fullName.toString() != "" &&
+                viewModel.deliverAddress.value?.addressLane.toString() != "" && viewModel.deliverAddress.value?.city.toString() != "" &&
+                viewModel.deliverAddress.value?.district.toString() != "" && viewModel.deliverAddress.value?.phoneNumber.toString() != "") {
                 launchReviewDialog()
             } else
                 launchEmptyAddressNotificationDialog()

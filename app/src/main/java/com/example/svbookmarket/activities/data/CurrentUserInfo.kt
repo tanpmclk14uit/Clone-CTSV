@@ -94,6 +94,8 @@ public class CurrentUserInfo private constructor(var currentProfile: AppAccount 
                                 doc.data["author"].toString(),
                                 (doc.data["Quantity"].toString().toDouble()).roundToInt(),
                                 doc.data["price"].toString().toLong(),
+                                doc.data["saler"].toString(),
+                                doc.data["salerName"].toString(),
                                 bool
                             )
                             item.id = doc.id

@@ -73,53 +73,13 @@
     </LinearLayout>
 
     <androidx.recyclerview.widget.RecyclerView
-        app:layout_constraintTop_toBottomOf="@id/linearLayout3"
-        android:layout_width="match_parent"
-        android:id="@+id/mdco_itemBill"
-        android:layout_height="wrap_content"
-        tools:context=".activities.CheckoutDialog"
-        tools:listitem="@layout/item_billing"
-        android:scrollbarFadeDuration="@integer/google_play_services_version" />
-
-
-    <View
-        app:layout_constraintTop_toBottomOf="@id/mdco_itemBill"
-        android:id="@+id/divider2"
-        android:layout_width="match_parent"
-        android:layout_height="1dp"
-        android:layout_marginTop="8dp"
-        android:background="#12000000" />
-
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/constraintLayout7"
+        android:id="@+id/rc_Billing"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        app:layout_constraintTop_toBottomOf="@id/divider2"
-        tools:layout_editor_absoluteX="24dp">
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Total"
-            android:textColor="#353536"
-            android:textSize="22sp"
-            android:textStyle="bold"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <TextView
-            android:id="@+id/tv_sum"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="100.000đ"
-            android:textColor="#434343"
-            android:textSize="16sp"
-            android:textStyle="bold"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-    </androidx.constraintlayout.widget.ConstraintLayout>
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout3"
+        tools:listitem="@layout/billing_block"/>
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/mdco_checkout"
@@ -136,5 +96,5 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/constraintLayout7" />
+        app:layout_constraintTop_toBottomOf="@+id/rc_Billing" />
 </androidx.constraintlayout.widget.ConstraintLayout>

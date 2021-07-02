@@ -45,6 +45,8 @@ class CheckoutDialogViewModel @Inject constructor( private  val cartRepository: 
                             doc.data["author"].toString(),
                             doc.data["Quantity"].toString().toInt(),
                             doc.data["price"].toString().toLong(),
+                            doc.data["saler"].toString(),
+                            doc.data["salerName"].toString(),
                             true
                         )
                         item.id = doc.id

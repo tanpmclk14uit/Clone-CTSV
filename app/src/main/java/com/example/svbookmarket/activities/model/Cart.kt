@@ -7,5 +7,7 @@ data class Cart(
     var author: String="",
     var numbers: Int=0,
     var price: Long=0,
+    var saler: String="",
+    var salerName: String="",
     var isChose: Boolean=false,
 )

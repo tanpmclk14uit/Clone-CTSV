@@ -99,7 +99,9 @@ class CartRepository @Inject constructor(
                     "image" to book.Image,
                     "title" to book.Name,
                     "isChose" to false,
-                    "price" to book.Price
+                    "price" to book.Price,
+                    "saler" to book.Saler,
+                    "salerName" to book.SalerName,
                 )
                 FirebaseFirestore.getInstance().collection("accounts").document(user.email)
                     .collection("userCart").document(book.id!!).set(newCart)

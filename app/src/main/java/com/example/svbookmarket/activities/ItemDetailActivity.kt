@@ -1,5 +1,6 @@
 package com.example.svbookmarket.activities
 
+import android.annotation.SuppressLint
 import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
@@ -44,6 +45,7 @@ class ItemDetailActivity : AppCompatActivity() {
                 binding.idAuthor.text = it.Author
                 binding.idRate.text = it.rate.toString()
                 binding.idDescription.text = it.Description
+                binding.idSalerName.text = "sale by " + it.SalerName
                 it.Image?.let { uri -> loadImageFromUri(Uri.parse(uri)) }
             } else {
                 startActivity(Intent(this, HomeActivity::class.java))
@@ -98,7 +100,6 @@ class ItemDetailActivity : AppCompatActivity() {
                     when (dc.type) {
                         DocumentChange.Type.REMOVED -> {
                             if (currentFocus == ItemDetailActivity::class.java) {
-                                Log.d("000000000000000", "dcmmmmmmmmmmmmmmmmm")
                                 startActivity(Intent(this, HomeActivity::class.java))
                             }
                             finish()
