@@ -213,7 +213,7 @@ class CheckoutDialog : BottomSheetDialogFragment() {
                 {
                     lstSaler.add(listNeedToMove[i].saler)
                     lstSalerName.add(listNeedToMove[i].salerName)
-                    onMoveForDifferenceSaler(user, listNeedToMove[i].saler, listNeedToMove,mapOfAddress)
+                    onMoveForDifferenceSaler(user, listNeedToMove[i].saler, listNeedToMove[i].salerName, listNeedToMove,mapOfAddress)
                 }
                 lstIdOnMove.add(listNeedToMove[i].id)
                 lstNumOnMove.add(listNeedToMove[i].numbers)
@@ -242,9 +242,12 @@ class CheckoutDialog : BottomSheetDialogFragment() {
         }
     }
 
-    suspend fun onMoveForDifferenceSaler(user: AppAccount, Saler: String,
+    suspend fun onMoveForDifferenceSaler(user: AppAccount, Saler: String, SalerName: String,
                                  listNeedToMove: MutableList<Cart>, mapOfAddress: MutableMap<String, Any>)
     {
+        var mapOfAddressFix: MutableMap<String, Any> = mapOfAddress
+        mapOfAddressFix.put("Saler", Saler)
+        mapOfAddressFix.put("salerName", SalerName)
         val newOrderId: String =
             FirebaseFirestore.getInstance().collection("accounts").document(user.email)
                 .collection("userOrder").add(mapOfAddress).await().get().await().id
