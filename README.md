@@ -40,10 +40,10 @@
 ## Yêu cầu thiết bị
 
 -Android:
-+Android studio : 3.0.1
-+Gradle : 4.1
-+Min sdk : 19
-+Target sdk : 26
+   -Android studio : 3.0.1
+   -Gradle : 4.1
+   -Min sdk : 19
+   -Target sdk : 26
 
 ## Thư viện và công nghệ
 
