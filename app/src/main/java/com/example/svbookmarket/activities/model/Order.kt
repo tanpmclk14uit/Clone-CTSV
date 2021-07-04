@@ -7,4 +7,6 @@ data class Order(
     var totalPrince: String = "0",
     var dateTime: String ="",
     var listbooks: ArrayList<Cart> = ArrayList(),
+    var seller: String ="",
+    var sellerId: String=""
 )

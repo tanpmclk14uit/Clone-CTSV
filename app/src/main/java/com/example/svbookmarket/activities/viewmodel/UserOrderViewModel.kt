@@ -67,13 +67,15 @@ class UserOrderViewModel @Inject constructor(private val orderRepository: OrderR
                     val timeStamp = doc["dateTime"] as Timestamp
                     order.dateTime = getFormatDate(timeStamp.toDate())
                     order.status = doc["status"].toString()
-                    order.totalPrince = doc["totalPrince"].toString() +" đ"
+                    order.totalPrince = doc["totalPrince"].toString()
                     order.userDeliverAddress.addressLane = doc["addressLane"].toString()
                     order.userDeliverAddress.fullName = doc["fullName"].toString()
                     order.userDeliverAddress.phoneNumber = doc["phoneNumber"].toString()
                     order.userDeliverAddress.city = doc["city"].toString()
                     order.userDeliverAddress.district = doc["district"].toString()
+                    order.seller = doc["salerName"].toString()
 
+                    order.sellerId = doc["Saler"].toString()
                     setBillingItem( order.id )
                     orderList.add(order)
                 }

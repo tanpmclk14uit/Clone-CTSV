@@ -10,6 +10,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.resource.drawable.DrawableTransitionOptions
+import com.example.svbookmarket.activities.common.AppUtil
 import com.example.svbookmarket.activities.common.Constants.DEFAULT_IMG_PLACEHOLDER
 import com.example.svbookmarket.activities.model.Book
 import com.example.svbookmarket.activities.viewmodel.ItemDetailViewModel
@@ -17,6 +18,7 @@ import com.example.svbookmarket.databinding.ActivityItemDetailBinding
 import com.google.firebase.firestore.DocumentChange
 import com.google.firebase.firestore.FirebaseFirestore
 import dagger.hilt.android.AndroidEntryPoint
+import java.text.DecimalFormat
 
 @AndroidEntryPoint
 class ItemDetailActivity : AppCompatActivity() {
@@ -35,17 +37,23 @@ class ItemDetailActivity : AppCompatActivity() {
         //getItemToDisplayFromBundle()
         setupOnlickListener()
         onDeleteListen()
+        binding.idSalerName.setOnClickListener {
+            startActivity(Intent(baseContext, ProfileActivity::class.java))
+        }
+
     }
 
     private val changeObserver = Observer<Book> { value ->
         value?.let {
             if (value.Name != "null") {
                 binding.idTitle.text = it.Name
-                binding.idPrice.text = it.Price.toString()
+                val formatter = DecimalFormat("#,###")
+                binding.idPrice.text = formatter.format(it.Price.toLong()) + " đ"
                 binding.idAuthor.text = it.Author
                 binding.idRate.text = it.rate.toString()
                 binding.idDescription.text = it.Description
-                binding.idSalerName.text = "sale by " + it.SalerName
+                binding.idSalerName.text = "Sale by " + it.SalerName
+                AppUtil.currentSeller.email = it.Saler.toString()
                 it.Image?.let { uri -> loadImageFromUri(Uri.parse(uri)) }
             } else {
                 startActivity(Intent(this, HomeActivity::class.java))

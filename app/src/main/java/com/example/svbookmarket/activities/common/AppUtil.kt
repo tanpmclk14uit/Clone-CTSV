@@ -11,6 +11,7 @@ object AppUtil {
     var currentUser: User = User()
     var currentAccount: AppAccount = AppAccount("", "", currentUser)
     var currentOrder: Order = Order()
+    var currentSeller: AppAccount =AppAccount("","", User())
 
     fun toBook(doc: QueryDocumentSnapshot): Book {
         var bookItem = Book()

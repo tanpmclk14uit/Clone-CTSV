@@ -5,6 +5,7 @@ import android.app.Activity
 import android.content.Intent
 import android.os.Bundle
 import android.os.Handler
+import android.util.Log
 import android.view.View
 import android.widget.ImageView
 import android.widget.SearchView
@@ -14,6 +15,7 @@ import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.cardview.widget.CardView
 import androidx.core.view.marginTop
+import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -23,6 +25,7 @@ import com.etebarian.meowbottomnavigation.MeowBottomNavigation
 import com.example.svbookmarket.R
 import com.example.svbookmarket.activities.adapter.*
 import com.example.svbookmarket.activities.animation.TranslateAnimationUtil
+import com.example.svbookmarket.activities.common.AppUtil
 import com.example.svbookmarket.activities.common.Constants
 import com.example.svbookmarket.activities.common.Constants.ACTIVITY
 import com.example.svbookmarket.activities.common.Constants.ACTIVITY.*
@@ -31,7 +34,9 @@ import com.example.svbookmarket.activities.common.MarginItemDecoration
 import com.example.svbookmarket.activities.common.RecyclerViewItemMargin
 import com.example.svbookmarket.activities.data.DataSource
 import com.example.svbookmarket.activities.data.Response.*
+import com.example.svbookmarket.activities.model.AppAccount
 import com.example.svbookmarket.activities.model.Book
+import com.example.svbookmarket.activities.model.Cart
 import com.example.svbookmarket.activities.viewmodel.HomeViewModel
 import com.example.svbookmarket.databinding.ActivityHomeBinding
 import com.google.android.material.textfield.TextInputEditText
@@ -55,6 +60,7 @@ class HomeActivity : AppCompatActivity(), FeaturedAdapter.OnBookClickLitener,
 
     var isBackPressedOnce = false
 
+
     @SuppressLint("ClickableViewAccessibility")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -64,7 +70,7 @@ class HomeActivity : AppCompatActivity(), FeaturedAdapter.OnBookClickLitener,
 
         // watch data change
         watchForDataChange()
-        setAdsAdapter()
+
         setCategoryAdapter()
         setSuggestAdapter() // feature
         setMoreAdapter()
@@ -88,10 +94,10 @@ class HomeActivity : AppCompatActivity(), FeaturedAdapter.OnBookClickLitener,
             // filter theo so luot mua
             val b = changes.toList().sortedByDescending { it.rate }
             val top15 = b.take(15)
-            val rest = b.drop(15)
+
 
             suggestAdapter.addBooks(top15)
-            moreAdapter.addBooks(rest)
+            moreAdapter.addBooks(b)
         })
 
     }
@@ -110,17 +116,7 @@ class HomeActivity : AppCompatActivity(), FeaturedAdapter.OnBookClickLitener,
 
         }
     }
-    private fun setAdsAdapter() {
-        viewModel.ads.observe(this, Observer { newAds ->
-            binding.advertise.apply {
-                adapter = AdvertiseAdapter(newAds)
-                addItemDecoration(MarginItemDecoration(spaceSize = 24, isHorizontalLayout = true))
 
-                LinearSnapHelper().attachToRecyclerView(this)
-            }
-        })
-
-    }
 
     private fun setCategoryAdapter() {
         viewModel.category.observe(this, Observer { newCategory ->
@@ -247,12 +243,17 @@ class HomeActivity : AppCompatActivity(), FeaturedAdapter.OnBookClickLitener,
 
         Handler().postDelayed(Runnable { isBackPressedOnce = false }, 2000)
     }
+    private fun setCountOfBottomMeow() {
+        viewModel.getCart(AppUtil.currentAccount).observe(this, Observer { change ->
+            binding.bottomNavigation.setCount(id = 3, change.size.toString())
+        })
+    }
     private fun setUpBottomNavigationView(){
 
         binding.bottomNavigation.add(MeowBottomNavigation.Model(id= 1, R.drawable.ic_baseline_person_24))
         binding.bottomNavigation.add(MeowBottomNavigation.Model(id= 2, R.drawable.ic_home))
         binding.bottomNavigation.add(MeowBottomNavigation.Model(id= 3, R.drawable.ic_baseline_shopping_cart_24))
-        binding.bottomNavigation.setCount( id=3, "3")
+       setCountOfBottomMeow()
         binding.bottomNavigation.show(id = 2,   true)
         binding.bottomNavigation.setOnClickMenuListener {
             if(it.id ==3){

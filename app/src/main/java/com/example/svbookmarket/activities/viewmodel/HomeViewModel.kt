@@ -4,11 +4,15 @@ import android.util.Log
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.example.svbookmarket.activities.common.AppUtil
+import com.example.svbookmarket.activities.common.Constants
 import com.example.svbookmarket.activities.common.Constants.VMTAG
 import com.example.svbookmarket.activities.data.AdsRepository
 import com.example.svbookmarket.activities.data.BookRepository
+import com.example.svbookmarket.activities.data.CartRepository
 import com.example.svbookmarket.activities.data.CategoryRepository
+import com.example.svbookmarket.activities.model.AppAccount
 import com.example.svbookmarket.activities.model.Book
+import com.example.svbookmarket.activities.model.Cart
 import com.google.firebase.firestore.EventListener
 import com.google.firebase.firestore.FirebaseFirestoreException
 import com.google.firebase.firestore.QuerySnapshot
@@ -19,19 +23,30 @@ import javax.inject.Inject
 class HomeViewModel @Inject constructor(
     private val bookRepository: BookRepository,
     adsRepository: AdsRepository,
-    categoryRepository: CategoryRepository
+    categoryRepository: CategoryRepository,
+    private val cartRepository: CartRepository
 ) : ViewModel() {
     private var _books = MutableLiveData<MutableList<Book>>()
     val books get() = _books
+    private var _carts = MutableLiveData<MutableList<Cart>>()
+    val carts get() = _carts
 
-    // giu lai funtion nay de sau nay lam loader
-//    fun getBookFrom() = liveData(Dispatchers.IO) {
-//        bookRepository.getBookFrom().collect { respone ->
-//            Log.i(VMTAG, "$respone")
-//            emit(respone)
-//        }
-//    }
 
+    fun getCart(user: AppAccount): MutableLiveData<MutableList<Cart>> {
+        cartRepository.getCart(user).addSnapshotListener { value, error ->
+            if (error != null) {
+                Log.w(Constants.VMTAG, "Listen failed.", error)
+            } else {
+                val cartList: MutableList<Cart> = ArrayList()
+                for (doc in value!!) {
+                    val bookItem = Cart(id = System.currentTimeMillis().toString())
+                    cartList.add(bookItem)
+                }
+                carts.value = cartList
+            }
+        }
+        return carts
+    }
     fun getBookFrom(): MutableLiveData<MutableList<Book>> {
         bookRepository.getBooksFromCloudFirestore1().addSnapshotListener(object :
             EventListener<QuerySnapshot> {

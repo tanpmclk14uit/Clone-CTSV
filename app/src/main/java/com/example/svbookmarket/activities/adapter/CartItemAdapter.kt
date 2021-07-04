@@ -12,6 +12,7 @@ import com.example.svbookmarket.R
 import com.example.svbookmarket.activities.common.Constants
 import com.example.svbookmarket.activities.model.Cart
 import com.google.android.material.card.MaterialCardView
+import java.text.DecimalFormat
 
 class CartItemAdapter(val listener: OnButtonClickListener, private var cartList:MutableList<Cart>):RecyclerView.Adapter<CartItemAdapter.VH>(){
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): VH {
@@ -30,10 +31,11 @@ class CartItemAdapter(val listener: OnButtonClickListener, private var cartList:
             .centerCrop()
             .placeholder(Constants.DEFAULT_IMG_PLACEHOLDER)
             .into(holder.coverimg);
+        val formatter = DecimalFormat("#,###")
+        holder.price.text = formatter.format(cartList[position].price) + " đ"
 
-        holder.price.text = cartList[position].price.toString() + " đ"
         holder.number.text = cartList[position].numbers.toString()
-        holder.salerName.text = cartList[position].salerName
+        holder.salerName.text = "Seller:" + cartList[position].salerName
 
         (holder.itemView as MaterialCardView).isChecked = cartList[position].isChose
         // increase and decrease button listenerc

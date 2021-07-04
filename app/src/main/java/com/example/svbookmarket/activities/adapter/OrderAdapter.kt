@@ -19,11 +19,13 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.svbookmarket.R
 import com.example.svbookmarket.activities.CancelOrder
 import com.example.svbookmarket.activities.CheckoutDialog
+import com.example.svbookmarket.activities.ProfileActivity
 import com.example.svbookmarket.activities.RegisterActivity
 import com.example.svbookmarket.activities.common.AppUtil
 import com.example.svbookmarket.activities.model.Cart
 import com.example.svbookmarket.activities.model.Order
 import com.example.svbookmarket.databinding.ItemBillingBinding
+import java.text.DecimalFormat
 
 class OrderAdapter(
     var listOder: MutableList<Order>,
@@ -42,6 +44,7 @@ class OrderAdapter(
         val addressLayout: LinearLayout = view.findViewById(R.id.addressLayout)
         val cancelOrderLayout: ConstraintLayout = view.findViewById(R.id.cancelOrder)
         val cancelOrderButton: Button = view.findViewById(R.id.cancelOrderButton)
+        val sellerName: TextView = view.findViewById(R.id.seller)
 
     }
 
@@ -65,12 +68,14 @@ class OrderAdapter(
             if(currentOrder.status == "WAITING" || currentOrder.status == "CONFIRMED"){
                 cancelOrderLayout.visibility = View.VISIBLE
             }
+            sellerName.text = currentOrder.seller
             status.text = currentOrder.status
             name.text = currentOrder.userDeliverAddress.fullName
             phone.text = currentOrder.userDeliverAddress.phoneNumber
             address.text = currentOrder.userDeliverAddress.addressLane +", "+ currentOrder.userDeliverAddress.district +", "+ currentOrder.userDeliverAddress.city+"."
             dateTime.text = currentOrder.dateTime
-            totalPrice.text = currentOrder.totalPrince
+            val formatter = DecimalFormat("#,###")
+            totalPrice.text = formatter.format(currentOrder.totalPrince.toString().toLong()) +" đ"
             val billingItemAdapter = BillingItemAdapter(currentOrder.listbooks)
             listItemOrder.adapter = billingItemAdapter
             listItemOrder.layoutManager = LinearLayoutManager(context)
@@ -85,6 +90,10 @@ class OrderAdapter(
             cancelOrderButton.setOnClickListener {
                 AppUtil.currentOrder = currentOrder
                gotoOrderCancel()
+            }
+            sellerName.setOnClickListener {
+                AppUtil.currentSeller.email = currentOrder.sellerId
+                startActivity(context,Intent(context, ProfileActivity::class.java), Bundle())
             }
 
         }

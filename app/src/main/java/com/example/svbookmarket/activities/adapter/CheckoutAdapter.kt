@@ -13,6 +13,7 @@ import com.example.svbookmarket.R
 import com.example.svbookmarket.activities.common.Constants
 import com.example.svbookmarket.activities.model.Cart
 import com.google.android.material.card.MaterialCardView
+import java.text.DecimalFormat
 
 class CheckoutAdapter(private val context: Context, private var items: MutableList<Cart>) :
     RecyclerView.Adapter<CheckoutAdapter.ItemViewHolder>() {
@@ -32,9 +33,10 @@ class CheckoutAdapter(private val context: Context, private var items: MutableLi
         holder.author.text = items[position].author
 //        holder.cover.text = context.resources.getString(item.cover)
         holder.bookname.text = items[position].name
-        holder.price.text = items[position].price.toString() + " đ"
+        val formatter = DecimalFormat("#,###")
+        holder.price.text = formatter.format(items[position].price) + " đ"
         holder.cartNumber.text = items[position].numbers.toString()
-        holder.salerName.text = items[position].salerName
+        holder.salerName.text ="Seller:" + items[position].salerName
         Glide
             .with(holder.itemView)
             .load(items[position].imgUrl)
