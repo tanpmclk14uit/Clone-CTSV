@@ -248,12 +248,14 @@ class CheckoutDialog : BottomSheetDialogFragment() {
         var mapOfAddressFix: MutableMap<String, Any> = mapOfAddress
         mapOfAddressFix.put("Saler", Saler)
         mapOfAddressFix.put("salerName", SalerName)
+        var sum: Long = 0
         val newOrderId: String =
             FirebaseFirestore.getInstance().collection("accounts").document(user.email)
                 .collection("userOrder").add(mapOfAddress).await().get().await().id
         for (i in 0 until listNeedToMove.size) {
                 if (listNeedToMove[i].saler == Saler)
                 {
+                    sum += listNeedToMove[i].numbers * listNeedToMove[i].price
 //                    var lstIdOnMove: MutableList<String> = mutableListOf()
 //                    var lstNumOnMove: MutableList<Int> = mutableListOf()
 //                    lstIdOnMove.add(listNeedToMove[i].id)
@@ -270,6 +272,8 @@ class CheckoutDialog : BottomSheetDialogFragment() {
                     FirebaseFirestore.getInstance().collection("accounts").document(user.email)
                         .collection("userOrder").document(newOrderId).collection("books")
                         .document(listNeedToMove[i].id).set(mapOfOrder)
+                    FirebaseFirestore.getInstance().collection("accounts").document(user.email)
+                        .collection("userOrder").document(newOrderId).update("totalPrince", sum)
                 }
             }
     }
