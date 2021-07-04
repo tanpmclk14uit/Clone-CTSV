@@ -1,26 +1,24 @@
 package com.example.svbookmarket.activities
 
+import android.content.Context
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import android.view.LayoutInflater
 import android.view.View
-import android.view.inputmethod.InputMethod
+import android.view.ViewGroup
 import android.widget.*
+import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
-import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.LinearSnapHelper
-import androidx.recyclerview.widget.RecyclerView
 import com.example.svbookmarket.R
-import com.example.svbookmarket.activities.adapter.RecentSearchAdapter
 import com.example.svbookmarket.activities.common.Constants
-import com.example.svbookmarket.activities.common.Constants.ITEM
 import com.example.svbookmarket.activities.data.FullBookList
 import com.example.svbookmarket.activities.model.Book
 import com.google.firebase.firestore.EventListener
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.FirebaseFirestoreException
 import com.google.firebase.firestore.QuerySnapshot
+
 
 class SearchActivity : AppCompatActivity() {
     lateinit var suggestSearch: ListView
@@ -34,23 +32,24 @@ class SearchActivity : AppCompatActivity() {
         suggestSearch = findViewById(R.id.rc_suggest_search)
         searchBar = findViewById(R.id.tb_searchView)
 
-        adapter = ArrayAdapter(this, android.R.layout.simple_list_item_1, mutableListOf())
+        adapter = ArrayAdapter(this, android.R.layout.simple_list_item_1,  mutableListOf())
 
         for (i in 0 until FullBookList.getInstance().lstFullBook.size - 1) {
-            dataset.add(FullBookList.getInstance().lstFullBook[i].Name!!)
+            dataset.add(FullBookList.getInstance().lstFullBook[i].Name!! )
         }
+
         suggestSearch.adapter = adapter
 
         //Click suggest search
         suggestSearch.setOnItemClickListener(
             AdapterView.OnItemClickListener { parent, view, position, id ->
+                var Name: String = suggestSearch.getItemAtPosition(position).toString().split("\n")[0];
+                Log.d("00000000000000", Name)
                 for (book in FullBookList.getInstance().lstFullBook) {
-                    if (book.Name == suggestSearch.getItemAtPosition(position)) {
-
+                    if (book.Name == Name) {
                         ContextCompat.startActivity(parent.context, putBookIntoIntent(book), null);
                     }
                 }
-
             }
         )
         //show keyboard on search bar click
@@ -113,16 +112,18 @@ class SearchActivity : AppCompatActivity() {
                     Log.w(Constants.VMTAG, "Listen failed.", error)
                     return
                 }
-
                 adapter.clear()
+                dataset = mutableListOf()
                 for (i in 0 until FullBookList.getInstance().lstFullBook.size-1)
                 {
                     dataset.add(FullBookList.getInstance().lstFullBook[i].Name!!)
-                    adapter.add(FullBookList.getInstance().lstFullBook[i].Name!!)
+                    adapter.add(FullBookList.getInstance().lstFullBook[i].Name!! + "\n" + "Selled by: "+ FullBookList.getInstance().lstFullBook[i].SalerName!!)
                 }
                 adapter.notifyDataSetChanged()
             }
         })
     }
+
+
 
 }
