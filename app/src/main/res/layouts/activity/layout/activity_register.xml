@@ -6,7 +6,6 @@
     android:layout_height="match_parent"
     tools:context=".activities.RegisterActivity"
     >
-
     <include
         android:id="@+id/include"
         layout="@layout/action_bar"

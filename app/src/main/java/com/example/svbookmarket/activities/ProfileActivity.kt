@@ -24,8 +24,6 @@ import kotlin.math.log
 class ProfileActivity() : AppCompatActivity() {
 
     lateinit var binding: ActivityProfileBinding
-
-
     val viewModel: UserViewModel by viewModels()
 
 
