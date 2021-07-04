@@ -10,9 +10,11 @@
 
     <androidx.appcompat.widget.AppCompatImageView
         android:id="@+id/imgAppLogo"
+        android:scaleX="0.7"
+        android:scaleY="0.7"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:background="@drawable/ic_splash"
+        android:background="@drawable/logo"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
@@ -21,19 +23,5 @@
         app:layout_constraintVertical_bias="0.33">
     </androidx.appcompat.widget.AppCompatImageView>
 
-    <TextView
-        android:id="@+id/tvAppName"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="30dp"
-        android:fontFamily="@font/roboto_regular"
-        android:text="Online Book Shop"
-        android:layout_marginHorizontal="24dp"
-        android:textColor="@color/white"
-        android:textSize="40sp"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imgAppLogo" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
