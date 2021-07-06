@@ -232,7 +232,7 @@
                 android:layout_width="match_parent"
                 android:id="@+id/cancelOrder"
                 android:layout_marginTop="5dp"
-                android:visibility="visible"
+                android:visibility="gone"
                 android:layout_height="wrap_content">
                 <androidx.appcompat.widget.AppCompatImageView
                     android:layout_width="12dp"

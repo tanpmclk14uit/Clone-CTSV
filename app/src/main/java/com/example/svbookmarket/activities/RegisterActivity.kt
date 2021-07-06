@@ -11,6 +11,7 @@ import com.example.svbookmarket.R
 import com.example.svbookmarket.activities.model.AppAccount
 import com.example.svbookmarket.activities.model.User
 import com.example.svbookmarket.activities.model.UserDeliverAddress
+import com.example.svbookmarket.activities.viewmodel.LoadDialog
 import com.google.android.material.textfield.TextInputLayout
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
@@ -77,9 +78,11 @@ class RegisterActivity : AppCompatActivity() {
     override fun onBackPressed() {
         startActivity(Intent(baseContext,LoginActivity::class.java))
     }
-
+    private lateinit var loadDialog: LoadDialog
     private fun signUpClick() {
         if (isValidName() && isValidEmail() && isValidPassword() && isValidConfirmPassword()) {
+            loadDialog= LoadDialog(this)
+            loadDialog.startLoading()
             dbReference.get().addOnSuccessListener() { result ->
                 var emailExist: Boolean=false
                 for (document in result) {
@@ -89,6 +92,7 @@ class RegisterActivity : AppCompatActivity() {
                 }
                 if(emailExist){
                     edtEmailLayout.error = "Email is exists"
+                    loadDialog.dismissDialog()
                 }else {
                     email = edtEmail.text.toString()
                     password = edtPassword.text.toString()
@@ -96,12 +100,13 @@ class RegisterActivity : AppCompatActivity() {
                         .addOnCompleteListener(this) { task ->
                             if (task.isSuccessful) {
                                 // Sign in success, update UI with the signed-in user's information
-                                Log.d(TAG, "createUserWithEmail:success")
+                                loadDialog.dismissDialog()
                                 val user = auth.currentUser
                                 updateData()
                             } else {
                                 // If sign in fails, display a message to the user.
                                 Log.w(TAG, "createUserWithEmail:failure", task.exception)
+                                loadDialog.dismissDialog()
                                 Toast.makeText(baseContext, "Authentication failed.",
                                     Toast.LENGTH_SHORT).show()
                             }
