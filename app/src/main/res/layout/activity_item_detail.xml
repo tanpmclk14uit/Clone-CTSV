@@ -56,17 +56,7 @@
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
 
-<!--                <ImageButton-->
-<!--                    android:id="@+id/id_cart"-->
-<!--                    android:layout_width="70dp"-->
-<!--                    android:layout_height="40dp"-->
-<!--                    android:layout_marginTop="16dp"-->
-<!--                    android:background="#00000000"-->
-<!--                    android:scaleX="0.65"-->
-<!--                    android:scaleY="0.65"-->
-<!--                    android:src="@drawable/ic_outline_cart_white"-->
-<!--                    app:layout_constraintEnd_toEndOf="parent"-->
-<!--                    app:layout_constraintTop_toTopOf="parent" />-->
+
 
                 <ImageView
                     android:id="@+id/id_thumbnail"
@@ -83,8 +73,35 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@drawable/bg_linear_layout_item_info"
-                android:padding="24dp">
+                android:padding="20dp">
+                <LinearLayout
+                    android:layout_marginBottom="10dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent">
+                    <TextView
+                        android:id="@+id/tv_counts"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Number of books remaining: "
+                        app:layout_constraintHorizontal_bias="0"
+                        app:layout_constraintEnd_toStartOf="@+id/id_Count"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
 
+                    <TextView
+                        android:id="@+id/id_Count"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="top"
+                        android:text="5"
+                        android:singleLine="true"
+                        android:background="@android:color/transparent"
+                        android:textSize="14sp"
+                        />
+                </LinearLayout>
                 <TextView
                     android:id="@+id/id_title"
                     android:layout_width="match_parent"

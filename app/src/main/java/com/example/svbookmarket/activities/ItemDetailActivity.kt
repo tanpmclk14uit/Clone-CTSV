@@ -1,6 +1,5 @@
 package com.example.svbookmarket.activities
 
-import android.annotation.SuppressLint
 import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
@@ -53,6 +52,7 @@ class ItemDetailActivity : AppCompatActivity() {
                 binding.idRate.text = it.rate.toString()
                 binding.idDescription.text = it.Description
                 binding.idSalerName.text = "Sale by " + it.SalerName
+                binding.idCount.text = it.Counts.toString()
                 AppUtil.currentSeller.email = it.Saler.toString()
                 it.Image?.let { uri -> loadImageFromUri(Uri.parse(uri)) }
             } else {
