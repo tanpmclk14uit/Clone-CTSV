@@ -111,9 +111,7 @@
                 android:id="@+id/LoginEmail"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:autofillHints="@string/email"
                 android:background="@android:color/transparent"
-                android:inputType="textEmailAddress"
                 app:layout_constraintEnd_toEndOf="parent" />
         </com.google.android.material.textfield.TextInputLayout>
 
