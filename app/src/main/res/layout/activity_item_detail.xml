@@ -207,6 +207,7 @@
 
                 <TextView
                     android:id="@+id/id_description"
+                    android:justificationMode="inter_word"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/roboto_regular"

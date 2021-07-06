@@ -120,6 +120,9 @@ class SearchActivity : AppCompatActivity() {
                     adapter.add(FullBookList.getInstance().lstFullBook[i].Name!! + "\n" + "Selled by: "+ FullBookList.getInstance().lstFullBook[i].SalerName!!)
                 }
                 adapter.notifyDataSetChanged()
+                var newString: String = searchBar.query.toString()
+                searchBar.setQuery(searchBar.query.toString() + "a", false)
+                searchBar.setQuery(newString, false)
             }
         })
     }
