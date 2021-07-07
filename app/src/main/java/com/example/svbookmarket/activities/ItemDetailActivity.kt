@@ -4,14 +4,23 @@ import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
 import android.util.Log
+import android.view.View
+import android.widget.Button
+import android.widget.LinearLayout
+import android.widget.Toast
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.resource.drawable.DrawableTransitionOptions
+import com.example.svbookmarket.R
+import com.example.svbookmarket.activities.adapter.CommentAdapter
+import com.example.svbookmarket.activities.adapter.OrderAdapter
 import com.example.svbookmarket.activities.common.AppUtil
 import com.example.svbookmarket.activities.common.Constants.DEFAULT_IMG_PLACEHOLDER
 import com.example.svbookmarket.activities.model.Book
+import com.example.svbookmarket.activities.model.Comment
 import com.example.svbookmarket.activities.viewmodel.ItemDetailViewModel
 import com.example.svbookmarket.databinding.ActivityItemDetailBinding
 import com.google.firebase.firestore.DocumentChange
@@ -40,11 +49,35 @@ class ItemDetailActivity : AppCompatActivity() {
             startActivity(Intent(baseContext, ProfileActivity::class.java))
         }
 
+        binding.expandDes.setOnClickListener {
+            onExpandClick()
+        }
+        setUpComment()
+        binding.postComment.setOnClickListener {
+            postComment()
+        }
     }
+    private val commentAdapter: CommentAdapter = CommentAdapter(mutableListOf())
+    private fun setUpComment(){
 
+        binding.recycleViewComment.apply {
+            adapter = commentAdapter
+            layoutManager = LinearLayoutManager(binding.root.context)
+        }
+    }
+    private fun getAllComment(){
+        if(currentBookId != null){
+            viewModel.loadComment(currentBookId!!).observe(this, { changes ->
+                commentAdapter.onChange(changes)
+            })
+        }
+    }
+    private var currentBookId: String? = null
     private val changeObserver = Observer<Book> { value ->
         value?.let {
             if (value.Name != "null") {
+                currentBookId = it.id
+                getAllComment()
                 binding.idTitle.text = it.Name
                 val formatter = DecimalFormat("#,###")
                 binding.idPrice.text = formatter.format(it.Price.toLong()) + " đ"
@@ -55,11 +88,30 @@ class ItemDetailActivity : AppCompatActivity() {
                 binding.idCount.text = it.Counts.toString()
                 AppUtil.currentSeller.email = it.Saler.toString()
                 it.Image?.let { uri -> loadImageFromUri(Uri.parse(uri)) }
+
             } else {
                 startActivity(Intent(this, HomeActivity::class.java))
             }
         }
     }
+
+    private fun onExpandClick(){
+        if(binding.idDescription.visibility == View.GONE){
+            binding.idDescription.visibility = View.VISIBLE
+            binding.expandDes.setBackgroundResource(R.drawable.ic_baseline_expand_less_24)
+
+        }else{
+            binding.idDescription.visibility = View.GONE
+            binding.expandDes.setBackgroundResource(R.drawable.ic_baseline_expand_more_24)
+        }
+    }
+    private fun postComment(){
+        if(binding.comment.text.isNotBlank() && currentBookId != null){
+            viewModel.postComment(currentBookId!!, AppUtil.currentAccount.email,binding.comment.text.toString())
+            binding.comment.text.clear()
+        }
+    }
+
 
 
     private fun startIntent(type: String) {

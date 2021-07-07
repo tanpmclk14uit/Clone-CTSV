@@ -74,7 +74,6 @@ class WaitingForDeliveryViewModel @Inject constructor(private val orderRepositor
                         setBillingItem( order.id, deliveryOrder )
                         orderList.add(order)
                     }
-
                 }
                 deliveryOrder.value = orderList
             }

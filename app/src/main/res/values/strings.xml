@@ -70,5 +70,6 @@
     <string name="description">Description</string>
     <string name="forgot_password">Forgot password?</string>
     <string name="already_have_an_account">Already have an account ?</string>
+    <string name="comment">Comment</string>
 
 </resources>

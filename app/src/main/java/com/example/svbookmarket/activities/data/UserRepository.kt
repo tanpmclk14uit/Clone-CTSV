@@ -31,5 +31,6 @@ class UserRepository @Inject constructor(
         userCollRef.document(AppUtil.currentAccount.email).set(AppUtil.currentAccount)
     }
 
+
 }
 

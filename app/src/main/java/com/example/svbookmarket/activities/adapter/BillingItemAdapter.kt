@@ -27,6 +27,7 @@ class BillingItemAdapter(
     }
     fun onChange(newItems: ArrayList<Cart>) {
         billingItem = newItems
+        notifyDataSetChanged()
     }
     @SuppressLint("SetTextI18n")
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {

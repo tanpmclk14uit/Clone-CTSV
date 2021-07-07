@@ -2,6 +2,7 @@ package com.example.svbookmarket.activities.viewmodel
 
 import android.net.Uri
 import android.util.Log
+import android.widget.Toast
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.SavedStateHandle
 import androidx.lifecycle.ViewModel
@@ -10,9 +11,13 @@ import com.example.svbookmarket.activities.common.Constants
 import com.example.svbookmarket.activities.common.Constants.ITEM
 import com.example.svbookmarket.activities.data.BookRepository
 import com.example.svbookmarket.activities.data.CartRepository
+import com.example.svbookmarket.activities.data.CommentRepository
 import com.example.svbookmarket.activities.model.Book
+import com.example.svbookmarket.activities.model.Comment
 import com.google.common.base.Objects
 import com.google.firebase.firestore.*
+import com.google.firebase.firestore.ktx.firestore
+import com.google.firebase.ktx.Firebase
 import dagger.hilt.android.lifecycle.HiltViewModel
 import dagger.hilt.android.scopes.ViewModelScoped
 import kotlinx.coroutines.launch
@@ -22,6 +27,7 @@ import kotlin.math.roundToInt
 @HiltViewModel
 class ItemDetailViewModel @Inject constructor (private val savedStateHandle: SavedStateHandle,
                                                private val cartRepository: CartRepository,
+                                               private val commentRepository: CommentRepository,
                                                private  val bookRepository: BookRepository) : ViewModel() {
     private var _books = MutableLiveData<MutableList<Book>>()
     val books get() = _books
@@ -31,9 +37,32 @@ class ItemDetailViewModel @Inject constructor (private val savedStateHandle: Sav
 
     fun addItemToCart() = itemToDisplay.value?.let { _books.value?.add(it) }
 
+    private var _comment = MutableLiveData<MutableList<Comment>>()
+    val comment get() = _comment
     init {
         loadBooks()
         loadItem()
+    }
+    private val db = Firebase.firestore
+    private val dbAccountsReference = db.collection("accounts")
+
+    fun postComment(bookId: String, userID: String, comment: String){
+       commentRepository.createNewComment(bookId,comment, userID)
+    }
+    fun loadComment(bookId: String): MutableLiveData<MutableList<Comment>>{
+        commentRepository.getAllCommentOfBook(bookId).addSnapshotListener { value, error ->
+            if (error != null) {
+                Log.w(Constants.VMTAG, "Listen failed.", error)
+            }else{
+                val commentArray: MutableList<Comment> = ArrayList()
+                for(doc in value!!){
+                    val userID: String = doc["userId"].toString()
+                    commentArray.add(Comment(userID,doc["comment"].toString() ))
+                }
+                comment.value = commentArray
+            }
+        }
+        return comment
     }
 
     private fun loadBooks() {
