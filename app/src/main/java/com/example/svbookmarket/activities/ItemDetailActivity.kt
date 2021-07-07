@@ -69,6 +69,7 @@ class ItemDetailActivity : AppCompatActivity() {
         if(currentBookId != null){
             viewModel.loadComment(currentBookId!!).observe(this, { changes ->
                 commentAdapter.onChange(changes)
+                binding.commentCount.text = changes.size.toString()
             })
         }
     }
