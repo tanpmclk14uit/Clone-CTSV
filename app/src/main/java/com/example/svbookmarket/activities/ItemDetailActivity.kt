@@ -34,7 +34,6 @@ class ItemDetailActivity : AppCompatActivity() {
     lateinit var binding: ActivityItemDetailBinding
     private val viewModel: ItemDetailViewModel by viewModels()
 
-    // TODO: 11/06/2021 thay bttoin add to cart to material button</todo>
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 

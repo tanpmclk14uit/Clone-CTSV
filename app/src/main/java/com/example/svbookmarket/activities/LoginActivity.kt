@@ -3,17 +3,13 @@ package com.example.svbookmarket.activities
 import CurrentUserInfo
 import android.content.Intent
 import android.os.Bundle
-import android.util.Log
 import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
-import android.widget.Toast
-import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.AppCompatImageView
 import com.example.svbookmarket.R
 import com.example.svbookmarket.activities.common.AppUtil
-import com.example.svbookmarket.activities.data.FullBookList
 import com.example.svbookmarket.activities.model.AppAccount
 import com.example.svbookmarket.activities.model.User
 import com.example.svbookmarket.activities.viewmodel.LoadDialog
@@ -35,7 +31,6 @@ class LoginActivity : AppCompatActivity() {
     private lateinit var loginPassword: EditText
     private lateinit var loginSignUp: TextView
     private lateinit var loginButton: Button
-    private val TAG = "LOGIN"
 
 
     //init database reference
@@ -87,7 +82,7 @@ class LoginActivity : AppCompatActivity() {
             loadDialog= LoadDialog(this)
             loadDialog.startLoading()
             dbAccountsReference.get().addOnSuccessListener { result ->
-                var emailExist: Boolean = false
+                var emailExist = false
                 for (document in result) {
                     if (document.id == loginEmail.text.toString()) {
                         emailExist = true
@@ -120,7 +115,7 @@ class LoginActivity : AppCompatActivity() {
         dbAccountsReference.document(email).get()
             .addOnSuccessListener { result ->
                 val userMap = result["user"] as HashMap<*, *>
-                val recentUser: User = User(
+                val recentUser = User(
                     fullName = userMap["fullName"].toString(),
                     gender = userMap["gender"].toString(),
                     birthDay = userMap["birthDay"].toString(),
@@ -135,11 +130,6 @@ class LoginActivity : AppCompatActivity() {
                     result["password"].toString(),
                     recentUser
                 )
-//                LoginActivity.recentAccountLogin = AppAccount(
-//                    result["email"].toString(),
-//                    result["password"].toString(),
-//                    recentUser
-//                )
                 CurrentUserInfo.destroyOld()
                 startActivity(Intent(baseContext, HomeActivity::class.java))
                 finish()

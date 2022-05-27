@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.svbookmarket">
+<manifest xmlns:android="http://schemas.android.com/apk/res/android">
 
     <application
         android:name=".activities.CoreApplication"
@@ -35,7 +34,8 @@
         <activity android:name=".activities.AddressActivity" />
         <activity android:name=".activities.HomeActivity" android:theme="@style/Theme.MaterialComponents.Light.NoActionBar" android:screenOrientation="locked"   />
         <activity android:name=".activities.CategoryActivity" />
-        <activity android:name=".activities.SplashActivity">
+        <activity android:name=".activities.SplashActivity"
+            android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
