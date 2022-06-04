@@ -1,13 +1,10 @@
 package com.example.svbookmarket.activities.adapter
 
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.example.svbookmarket.activities.model.Cart
 import com.example.svbookmarket.activities.model.Comment
 import com.example.svbookmarket.databinding.CommentCardBinding
-import com.example.svbookmarket.databinding.ItemBillingBinding
 
 class CommentAdapter(
     private var commentList: MutableList<Comment>

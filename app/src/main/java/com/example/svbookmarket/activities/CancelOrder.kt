@@ -3,14 +3,12 @@ package com.example.svbookmarket.activities
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
-import android.widget.Toast
 import androidx.activity.viewModels
 import androidx.appcompat.widget.AppCompatImageView
-import com.example.svbookmarket.R
 import com.example.svbookmarket.activities.common.AppUtil
 import com.example.svbookmarket.activities.viewmodel.CancelOrderViewModel
 import com.example.svbookmarket.databinding.ActivityCancelOrderBinding
+import com.example.svbookmarket.R
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint

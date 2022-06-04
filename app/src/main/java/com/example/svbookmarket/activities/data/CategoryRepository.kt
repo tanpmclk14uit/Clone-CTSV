@@ -3,8 +3,6 @@ package com.example.svbookmarket.activities.data
 import androidx.annotation.DrawableRes
 import androidx.lifecycle.MutableLiveData
 import com.example.svbookmarket.R
-import com.example.svbookmarket.activities.CategoryActivity
-import com.example.svbookmarket.activities.common.Constants
 import com.example.svbookmarket.activities.common.Constants.CATEGORY.*
 import com.example.svbookmarket.activities.model.Category
 import javax.inject.Inject

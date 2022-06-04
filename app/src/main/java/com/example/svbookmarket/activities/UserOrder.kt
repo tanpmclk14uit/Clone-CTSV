@@ -4,9 +4,7 @@ import android.os.Bundle
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
 import com.example.svbookmarket.activities.adapter.OrderAdapter
-import com.example.svbookmarket.activities.model.Cart
 import com.example.svbookmarket.activities.viewmodel.UserOrderViewModel
 import com.example.svbookmarket.databinding.ActivityUserOrderBinding
 import dagger.hilt.android.AndroidEntryPoint

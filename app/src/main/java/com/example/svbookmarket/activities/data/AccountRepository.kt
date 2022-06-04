@@ -1,10 +1,8 @@
 package com.example.svbookmarket.activities.data
 
-import com.example.svbookmarket.activities.LoginActivity
 import com.example.svbookmarket.activities.common.AppUtil
 import com.example.svbookmarket.activities.common.Constants
 import com.example.svbookmarket.activities.model.AppAccount
-import com.example.svbookmarket.activities.model.User
 import com.google.firebase.firestore.CollectionReference
 import javax.inject.Inject
 import javax.inject.Named

@@ -1,7 +1,6 @@
 package com.example.svbookmarket.activities.adapter
 
 import CurrentUserInfo
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -11,7 +10,6 @@ import com.example.svbookmarket.activities.AddressActivity
 import com.example.svbookmarket.activities.model.UserDeliverAddress
 import com.example.svbookmarket.databinding.CardAddressBinding
 import com.google.android.material.card.MaterialCardView
-import kotlin.properties.Delegates
 
 
 class AddressAdapter(

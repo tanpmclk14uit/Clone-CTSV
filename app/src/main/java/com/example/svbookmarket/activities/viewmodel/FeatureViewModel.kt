@@ -1,27 +1,17 @@
 package com.example.svbookmarket.activities.viewmodel
 
 import android.content.Context
-import android.graphics.Color
-import android.os.Build
 import android.util.Log
-import androidx.annotation.RequiresApi
-import androidx.core.graphics.drawable.toBitmap
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import androidx.lifecycle.viewModelScope
-import androidx.palette.graphics.Palette
 import com.example.svbookmarket.activities.common.Constants.VMTAG
 import com.example.svbookmarket.activities.data.BookRepository
 import com.example.svbookmarket.activities.model.Book
-import com.example.svbookmarket.activities.model.DominantColors
 import com.google.firebase.firestore.EventListener
 import com.google.firebase.firestore.FirebaseFirestoreException
 import com.google.firebase.firestore.QuerySnapshot
 import dagger.hilt.android.lifecycle.HiltViewModel
 import dagger.hilt.android.qualifiers.ApplicationContext
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.launch
-import kotlinx.coroutines.withContext
 import javax.inject.Inject
 
 @HiltViewModel

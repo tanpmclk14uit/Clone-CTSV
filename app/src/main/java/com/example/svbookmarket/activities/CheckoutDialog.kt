@@ -8,13 +8,11 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.LinearLayout
 import android.widget.TextView
 import android.widget.Toast
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.example.svbookmarket.R
 import com.example.svbookmarket.activities.common.AppUtil
 import com.example.svbookmarket.activities.common.Constants
 import com.example.svbookmarket.activities.data.FullBookList
@@ -25,7 +23,6 @@ import com.example.svbookmarket.databinding.BillingBlockBinding
 import com.example.svbookmarket.databinding.ItemBillingBinding
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 import com.google.android.material.button.MaterialButton
-import com.google.api.Billing
 import com.google.firebase.firestore.*
 import com.google.firebase.firestore.EventListener
 import dagger.hilt.android.AndroidEntryPoint
@@ -36,6 +33,7 @@ import kotlinx.coroutines.tasks.await
 import kotlinx.coroutines.withContext
 import java.text.SimpleDateFormat
 import java.util.*
+import com.example.svbookmarket.R
 import kotlin.collections.ArrayList
 import kotlin.math.roundToInt
 

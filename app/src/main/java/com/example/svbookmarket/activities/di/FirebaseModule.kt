@@ -1,6 +1,5 @@
 package com.example.svbookmarket.activities.di
 
-import com.example.svbookmarket.activities.common.Constants.ADDRESS_REF
 import com.example.svbookmarket.activities.common.Constants.BOOK_REF
 import com.example.svbookmarket.activities.common.Constants.USERS_REF
 import com.google.firebase.firestore.CollectionReference

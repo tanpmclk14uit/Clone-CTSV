@@ -1,7 +1,5 @@
 package com.example.svbookmarket.activities.model
 
-import com.google.android.material.resources.MaterialResources
-
 data class Feature_Item (var imgBookCover: Int,
                          var textAuthor: String,
                          var textBookName: String,

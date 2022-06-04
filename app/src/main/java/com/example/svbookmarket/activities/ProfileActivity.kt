@@ -1,26 +1,18 @@
 package com.example.svbookmarket.activities
 
-import android.accounts.Account
 import android.annotation.SuppressLint
-import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
-import android.widget.Button
-import android.widget.EditText
-import android.widget.Toast
 import androidx.activity.viewModels
 import com.example.svbookmarket.R
 import com.example.svbookmarket.activities.common.AppUtil
 import com.example.svbookmarket.activities.model.AppAccount
 import com.example.svbookmarket.activities.model.User
-import com.example.svbookmarket.activities.viewmodel.HomeViewModel
 import com.example.svbookmarket.activities.viewmodel.UserViewModel
 import com.example.svbookmarket.databinding.ActivityProfileBinding
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
 import dagger.hilt.android.AndroidEntryPoint
-import kotlin.math.log
 
 @AndroidEntryPoint
 class ProfileActivity() : AppCompatActivity() {

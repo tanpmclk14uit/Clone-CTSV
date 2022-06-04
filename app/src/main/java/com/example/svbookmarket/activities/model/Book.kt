@@ -1,6 +1,5 @@
 package com.example.svbookmarket.activities.model
 
-import android.net.Uri
 import android.os.Parcel
 import android.os.Parcelable
 

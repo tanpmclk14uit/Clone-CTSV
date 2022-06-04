@@ -1,8 +1,6 @@
 package com.example.svbookmarket.activities.viewmodel
 
-import android.net.Uri
 import android.util.Log
-import android.widget.Toast
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.SavedStateHandle
 import androidx.lifecycle.ViewModel
@@ -14,12 +12,10 @@ import com.example.svbookmarket.activities.data.CartRepository
 import com.example.svbookmarket.activities.data.CommentRepository
 import com.example.svbookmarket.activities.model.Book
 import com.example.svbookmarket.activities.model.Comment
-import com.google.common.base.Objects
 import com.google.firebase.firestore.*
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
 import dagger.hilt.android.lifecycle.HiltViewModel
-import dagger.hilt.android.scopes.ViewModelScoped
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 import kotlin.math.roundToInt

@@ -7,10 +7,8 @@ import com.example.svbookmarket.R
 import com.example.svbookmarket.activities.common.AppUtil.checkAddress
 import com.example.svbookmarket.activities.common.AppUtil.checkName
 import com.example.svbookmarket.activities.common.AppUtil.checkPhoneNumber
-import com.example.svbookmarket.activities.common.Constants.VMTAG
 import com.example.svbookmarket.activities.model.CreateAddressFormState
 import com.example.svbookmarket.activities.model.UserDeliverAddress
-import kotlin.math.log
 
 
 class CreateAddressViewModel : ViewModel() {

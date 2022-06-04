@@ -1,2 +1,2 @@
 include ':app'
-rootProject.name = "SvBookMarket"
+rootProject.name = "Clone-CTSV"

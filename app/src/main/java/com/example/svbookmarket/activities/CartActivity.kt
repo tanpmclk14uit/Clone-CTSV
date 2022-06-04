@@ -18,8 +18,6 @@ import com.example.svbookmarket.activities.adapter.CartItemAdapter
 import com.example.svbookmarket.activities.model.Cart
 import com.example.svbookmarket.activities.viewmodel.CartViewModel
 import com.example.svbookmarket.databinding.ActivityCartBinding
-import com.example.svbookmarket.databinding.DialogEmptyNotiBinding
-import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import dagger.hilt.android.AndroidEntryPoint
 import it.xabaras.android.recyclerview.swipedecorator.RecyclerViewSwipeDecorator
 

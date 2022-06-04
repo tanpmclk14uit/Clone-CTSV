@@ -3,14 +3,11 @@ package com.example.svbookmarket.activities
 import android.app.DatePickerDialog
 import android.content.Intent
 import android.os.Bundle
-import android.util.Log
 import android.widget.ArrayAdapter
-import android.widget.AutoCompleteTextView
 import android.widget.DatePicker
 import android.widget.Toast
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.content.ContentProviderCompat.requireContext
 import com.example.svbookmarket.R
 import com.example.svbookmarket.activities.model.User
 import com.example.svbookmarket.activities.viewmodel.UserViewModel

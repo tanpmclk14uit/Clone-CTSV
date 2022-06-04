@@ -3,14 +3,12 @@ package com.example.svbookmarket.activities
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
-import android.view.View
 import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.AppCompatImageView
 import com.example.svbookmarket.R
 import com.example.svbookmarket.activities.model.AppAccount
 import com.example.svbookmarket.activities.model.User
-import com.example.svbookmarket.activities.model.UserDeliverAddress
 import com.example.svbookmarket.activities.viewmodel.LoadDialog
 import com.google.android.material.textfield.TextInputLayout
 import com.google.firebase.auth.FirebaseAuth

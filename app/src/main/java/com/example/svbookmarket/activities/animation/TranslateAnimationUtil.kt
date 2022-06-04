@@ -1,13 +1,11 @@
 package com.example.svbookmarket.activities.animation
 
-import android.animation.Animator
 import android.view.GestureDetector
 import android.view.MotionEvent
 import android.view.View
 import android.view.animation.Animation
 import android.view.animation.AnimationUtils
 import com.example.svbookmarket.R
-import com.google.api.Context
 
 class TranslateAnimationUtil(context: android.content.Context, viewAnimation: View) :View.OnTouchListener {
 

@@ -7,16 +7,14 @@ import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.DialogFragment.STYLE_NORMAL
-import com.example.svbookmarket.R
 import com.example.svbookmarket.activities.adapter.AddressAdapter
-import com.example.svbookmarket.activities.common.Constants.DEFAULT_ADDRESS_POS
 import com.example.svbookmarket.activities.common.SimpleCustomSnackbar
 import com.example.svbookmarket.activities.model.UserDeliverAddress
 import com.example.svbookmarket.activities.viewmodel.AddressViewModel
 import com.example.svbookmarket.databinding.ActivityAddressBinding
+import com.example.svbookmarket.R
 import com.google.android.material.snackbar.Snackbar
 import dagger.hilt.android.AndroidEntryPoint
-import kotlin.random.Random
 
 @AndroidEntryPoint
 class AddressActivity : AppCompatActivity(), OnCreateAddressListener, OnEditAddressListener,

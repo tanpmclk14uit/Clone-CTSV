@@ -6,7 +6,6 @@ import androidx.navigation.findNavController
 import androidx.navigation.ui.setupWithNavController
 import com.example.svbookmarket.R
 import com.example.svbookmarket.databinding.ActivityDeliveringBinding
-import com.example.svbookmarket.databinding.ActivityProfileBinding
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint

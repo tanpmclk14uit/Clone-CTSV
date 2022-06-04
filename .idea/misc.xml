@@ -1,16 +1,34 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="11" project-jdk-type="JavaSDK">
+  <component name="DesignSurface">
+    <option name="filePathToZoomLevelMap">
+      <map>
+        <entry key="app/src/main/res/layout/activity_cancel_confirmation.xml" value="0.24375" />
+        <entry key="app/src/main/res/layout/activity_cancel_order.xml" value="0.24375" />
+        <entry key="app/src/main/res/layout/activity_category_detail.xml" value="0.24375" />
+        <entry key="app/src/main/res/layout/activity_checkout.xml" value="0.24375" />
+        <entry key="app/src/main/res/layout/activity_confirmation.xml" value="0.24375" />
+        <entry key="app/src/main/res/layout/activity_delivering.xml" value="0.24375" />
+        <entry key="app/src/main/res/layout/activity_feature.xml" value="0.24375" />
+        <entry key="app/src/main/res/layout/activity_load_screen.xml" value="0.14722222222222223" />
+        <entry key="app/src/main/res/layout/dialog_checkout.xml" value="0.10625" />
+        <entry key="app/src/main/res/layouts/activity/layout/action_bar.xml" value="0.1" />
+        <entry key="app/src/main/res/layouts/activity/layout/activity_address.xml" value="0.24375" />
+        <entry key="app/src/main/res/layouts/activity/layout/activity_cart.xml" value="0.24375" />
+        <entry key="app/src/main/res/layouts/activity/layout/activity_category.xml" value="0.24375" />
+        <entry key="app/src/main/res/layouts/activity/layout/activity_edit_adress.xml" value="0.24375" />
+        <entry key="app/src/main/res/layouts/activity/layout/activity_edit_profile.xml" value="0.24375" />
+        <entry key="app/src/main/res/layouts/activity/layout/activity_main.xml" value="0.24375" />
+        <entry key="app/src/main/res/layouts/activity/layout/activity_splash.xml" value="0.24375" />
+        <entry key="app/src/main/res/layouts/activity/layout/activity_welcome.xml" value="0.24375" />
+        <entry key="app/src/main/res/layouts/component/drawable/ic_baseline_school_24.xml" value="0.1645" />
+      </map>
+    </option>
+  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="Android Studio default JDK" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/build/classes" />
   </component>
   <component name="ProjectType">
     <option name="id" value="Android" />
-  </component>
-  <component name="VisualizationToolProject">
-    <option name="state">
-      <ProjectState>
-        <option name="scale" value="0.35846153846153844" />
-      </ProjectState>
-    </option>
   </component>
 </project>

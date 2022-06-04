@@ -4,7 +4,6 @@ import CurrentUserInfo
 import android.content.Context
 import android.os.Handler
 import android.os.Looper
-import android.util.Log
 import android.widget.Toast
 import com.example.svbookmarket.activities.model.AppAccount
 import com.example.svbookmarket.activities.model.Book
@@ -14,7 +13,6 @@ import dagger.hilt.android.qualifiers.ApplicationContext
 import kotlinx.coroutines.*
 import kotlinx.coroutines.tasks.await
 import javax.inject.Inject
-import javax.inject.Named
 import javax.inject.Singleton
 import com.example.svbookmarket.activities.model.UserDeliverAddress as MyAddress
 

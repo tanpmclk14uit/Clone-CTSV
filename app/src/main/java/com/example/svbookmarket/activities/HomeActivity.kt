@@ -1,21 +1,14 @@
 package com.example.svbookmarket.activities
 
 import android.annotation.SuppressLint
-import android.app.Activity
 import android.content.Intent
 import android.os.Bundle
 import android.os.Handler
-import android.util.Log
 import android.view.View
-import android.widget.ImageView
-import android.widget.SearchView
 import android.widget.TextView
 import android.widget.Toast
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
-import androidx.cardview.widget.CardView
-import androidx.core.view.marginTop
-import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -24,26 +17,17 @@ import androidx.recyclerview.widget.RecyclerView
 import com.etebarian.meowbottomnavigation.MeowBottomNavigation
 import com.example.svbookmarket.R
 import com.example.svbookmarket.activities.adapter.*
-import com.example.svbookmarket.activities.animation.TranslateAnimationUtil
 import com.example.svbookmarket.activities.common.AppUtil
 import com.example.svbookmarket.activities.common.Constants
 import com.example.svbookmarket.activities.common.Constants.ACTIVITY
 import com.example.svbookmarket.activities.common.Constants.ACTIVITY.*
 import com.example.svbookmarket.activities.common.Constants.ITEM
 import com.example.svbookmarket.activities.common.MarginItemDecoration
-import com.example.svbookmarket.activities.common.RecyclerViewItemMargin
-import com.example.svbookmarket.activities.data.DataSource
-import com.example.svbookmarket.activities.data.Response.*
-import com.example.svbookmarket.activities.model.AppAccount
 import com.example.svbookmarket.activities.model.Book
-import com.example.svbookmarket.activities.model.Cart
 import com.example.svbookmarket.activities.viewmodel.HomeViewModel
 import com.example.svbookmarket.databinding.ActivityHomeBinding
 import com.google.android.material.textfield.TextInputEditText
-import com.google.android.material.textfield.TextInputLayout
 import dagger.hilt.android.AndroidEntryPoint
-import io.grpc.InternalChannelz.id
-import java.lang.Thread.sleep
 
 
 @AndroidEntryPoint

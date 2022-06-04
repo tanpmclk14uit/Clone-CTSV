@@ -1,14 +1,14 @@
 <resources>
-    <string name="app_name">Book Market</string>
+    <string name="app_name">Công Tác Sinh Viên</string>
 
     <string name="wellcome_slogan">Wellcome to bookmaket</string>
 
-    <string name="register">Create account</string>
-    <string name="login">Login</string>
+    <string name="register">Tạo tài khoản</string>
+    <string name="login">Đăng nhâp</string>
     <string name="email">Email</string>
-    <string name="don_t_have_account">Don\'t have account?</string>
-    <string name="sign_in">Sign in</string>
-    <string name="sign_up">Sign up</string>
+    <string name="don_t_have_account">Chưa có tài khoản?</string>
+    <string name="sign_in">Đăng nhập</string>
+    <string name="sign_up">Đăng kí</string>
     <string name="cover">cover</string>
     <string name="author">author</string>
     <string name="price">price</string>
@@ -68,8 +68,8 @@
     <string name="add_an_address">Add an address</string>
     <string name="buy">buy</string>
     <string name="description">Description</string>
-    <string name="forgot_password">Forgot password?</string>
-    <string name="already_have_an_account">Already have an account ?</string>
+    <string name="forgot_password">Quên mật khẩu?</string>
+    <string name="already_have_an_account">Đã có tài khoản?</string>
     <string name="comment">Comment</string>
 
 </resources>

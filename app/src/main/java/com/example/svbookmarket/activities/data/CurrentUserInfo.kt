@@ -1,11 +1,8 @@
-import android.net.Uri
 import android.util.Log
-import com.example.svbookmarket.activities.LoginActivity
 import com.example.svbookmarket.activities.common.AppUtil
 import com.example.svbookmarket.activities.common.Constants
 import com.example.svbookmarket.activities.model.*
 import com.google.firebase.firestore.*
-import com.google.firebase.ktx.Firebase
 import kotlin.math.roundToInt
 
 public class CurrentUserInfo private constructor(var currentProfile: AppAccount = AppAccount(),

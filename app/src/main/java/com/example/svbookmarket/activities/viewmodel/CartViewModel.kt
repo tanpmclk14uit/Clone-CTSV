@@ -6,12 +6,10 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.svbookmarket.activities.common.Constants
 import com.example.svbookmarket.activities.data.CartRepository
-import com.example.svbookmarket.activities.model.Book
 import com.example.svbookmarket.activities.model.Cart
 import com.google.firebase.firestore.*
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
-import javax.annotation.meta.When
 import javax.inject.Inject
 import kotlin.math.roundToInt
 

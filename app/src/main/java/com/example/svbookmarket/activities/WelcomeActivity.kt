@@ -4,9 +4,7 @@ import CurrentUserInfo
 import android.content.Intent
 import android.os.Bundle
 import android.os.Handler
-import android.util.Log
 import android.widget.Button
-import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.example.svbookmarket.R
@@ -18,7 +16,6 @@ import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
-import kotlin.system.exitProcess
 
 class WelcomeActivity : AppCompatActivity() {
     private lateinit var auth: FirebaseAuth

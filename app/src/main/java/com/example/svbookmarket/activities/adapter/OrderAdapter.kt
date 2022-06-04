@@ -3,9 +3,7 @@ package com.example.svbookmarket.activities.adapter
 import android.annotation.SuppressLint
 import android.content.Context
 import android.content.Intent
-import android.opengl.Visibility
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -18,13 +16,9 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.svbookmarket.R
 import com.example.svbookmarket.activities.CancelOrder
-import com.example.svbookmarket.activities.CheckoutDialog
 import com.example.svbookmarket.activities.ProfileActivity
-import com.example.svbookmarket.activities.RegisterActivity
 import com.example.svbookmarket.activities.common.AppUtil
-import com.example.svbookmarket.activities.model.Cart
 import com.example.svbookmarket.activities.model.Order
-import com.example.svbookmarket.databinding.ItemBillingBinding
 import java.text.DecimalFormat
 
 class OrderAdapter(

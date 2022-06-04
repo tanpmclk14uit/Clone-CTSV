@@ -1,10 +1,7 @@
 package com.example.svbookmarket.activities.data
 
-import androidx.lifecycle.MutableLiveData
 import com.example.svbookmarket.activities.common.AppUtil
 import com.example.svbookmarket.activities.common.Constants
-import com.example.svbookmarket.activities.model.Book
-import com.example.svbookmarket.activities.model.Order
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.firestore.CollectionReference
 import com.google.firebase.firestore.Query

@@ -11,7 +11,6 @@ import com.bumptech.glide.Glide
 import com.bumptech.glide.load.resource.drawable.DrawableTransitionOptions
 import com.example.svbookmarket.R
 import com.example.svbookmarket.activities.common.Constants
-import com.example.svbookmarket.activities.model.Book
 import com.example.svbookmarket.activities.model.Category
 
 class CategoryAdapter(private val items: MutableList<Category>, private val listener: onCategoryItemClick) :

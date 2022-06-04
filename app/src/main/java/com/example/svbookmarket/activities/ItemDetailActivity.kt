@@ -5,9 +5,6 @@ import android.net.Uri
 import android.os.Bundle
 import android.util.Log
 import android.view.View
-import android.widget.Button
-import android.widget.LinearLayout
-import android.widget.Toast
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
@@ -16,11 +13,9 @@ import com.bumptech.glide.Glide
 import com.bumptech.glide.load.resource.drawable.DrawableTransitionOptions
 import com.example.svbookmarket.R
 import com.example.svbookmarket.activities.adapter.CommentAdapter
-import com.example.svbookmarket.activities.adapter.OrderAdapter
 import com.example.svbookmarket.activities.common.AppUtil
 import com.example.svbookmarket.activities.common.Constants.DEFAULT_IMG_PLACEHOLDER
 import com.example.svbookmarket.activities.model.Book
-import com.example.svbookmarket.activities.model.Comment
 import com.example.svbookmarket.activities.viewmodel.ItemDetailViewModel
 import com.example.svbookmarket.databinding.ActivityItemDetailBinding
 import com.google.firebase.firestore.DocumentChange
