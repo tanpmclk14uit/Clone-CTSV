@@ -7,20 +7,12 @@
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:101443503174:android:e18826f829c9ec1cb07647",
+        "mobilesdk_app_id": "1:101443503174:android:1510dcf90e3691deb07647",
         "android_client_info": {
           "package_name": "com.example.svbookmarket"
         }
       },
       "oauth_client": [
-        {
-          "client_id": "101443503174-0nqohs5p8cjvru2so9qph0sirea4i71q.apps.googleusercontent.com",
-          "client_type": 1,
-          "android_info": {
-            "package_name": "com.example.svbookmarket",
-            "certificate_hash": "7f6761506398443ec1038de3ca0aac18773d91b4"
-          }
-        },
         {
           "client_id": "101443503174-t03oe9khvci0s6ub9lv04p15bmap1isn.apps.googleusercontent.com",
           "client_type": 3
