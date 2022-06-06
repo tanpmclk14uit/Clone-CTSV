@@ -3,8 +3,8 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/card_suggest"
-    android:layout_width="340dp"
-    android:layout_height="180dp"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
     app:cardCornerRadius="8dp"
     app:layout_constraintCircleRadius="14dp">
 
@@ -12,7 +12,6 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_gravity="center_vertical"
-        android:layout_marginHorizontal="12dp"
         android:padding="10dp"
         android:layout_marginVertical="6dp">
 
@@ -26,8 +25,8 @@
 
             <ImageView
                 android:id="@+id/imgSuggest"
-                android:layout_width="110dp"
-                android:layout_height="match_parent"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
                 android:layout_marginEnd="12dp"
                 android:scaleType="centerCrop"
                 android:src="@drawable/bg_button_white"/>
@@ -41,12 +40,12 @@
                 <TextView
                     android:id="@+id/tvBookSuggest"
                     android:layout_width="190dp"
-                    android:layout_height="40dp"
+                    android:layout_height="wrap_content"
                     android:ellipsize="end"
                     android:fontFamily="@font/roboto_bold"
-                    android:maxLines="2"
+                    android:maxLines="1"
                     android:text="@string/textTest"
-                    android:textColor="@color/white"
+                    android:textColor="@color/black"
                     android:textSize="16sp"
                     android:textStyle="bold" />
 
@@ -59,7 +58,7 @@
                     android:fontFamily="@font/roboto_medium"
                     android:maxLines="1"
                     android:text="by Tracy Bloom"
-                    android:textColor="#80FFFFFF"
+                    android:textColor="@color/blue_dark"
                     android:textStyle="bold" />
 
                 <TextView
@@ -67,7 +66,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:ellipsize="end"
-                    android:maxLines="5"
+                    android:maxLines="3"
                     android:text="@string/textTest"
                     android:textSize="13sp" />
 

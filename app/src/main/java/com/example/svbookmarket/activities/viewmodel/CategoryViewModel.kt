@@ -51,12 +51,12 @@ class CategoryViewModel @Inject constructor(
     // TODO: 16/06/2021 retrive data from db 
     private fun loadCategoryList() {
         _category.value = mutableListOf(
-            Category(R.drawable.img_art, "Art"),
-            Category(R.drawable.img_fiction, "Fiction"),
-            Category(R.drawable.img_comic, "Comic"),
-            Category(R.drawable.img_novel, "Novel"),
-            Category(R.drawable.img_business, "Business"),
-            Category(R.drawable.img_tech, "Technology"),
+            Category(R.drawable.img_art, Constants.CATEGORY.CHUNG),
+            Category(R.drawable.img_fiction, Constants.CATEGORY.HV),
+            Category(R.drawable.img_comic, Constants.CATEGORY.NB),
+            Category(R.drawable.img_novel, Constants.CATEGORY.PH),
+            Category(R.drawable.img_business, Constants.CATEGORY.LTCQ),
+            Category(R.drawable.img_tech, Constants.CATEGORY.VB2),
         )
     }
 

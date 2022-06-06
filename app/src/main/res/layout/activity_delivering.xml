@@ -18,7 +18,7 @@
             android:id="@+id/constraintLayout6"
             android:layout_width="match_parent"
             android:layout_height="100dp"
-            android:background="@drawable/bg_gradiant_user"
+            android:background="@drawable/bg_gradient_splash"
             android:elevation="12dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -48,7 +48,7 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Waiting for Delivery"
+                    android:text="Yêu cầu đang chờ"
                     android:textAllCaps="true"
                     android:textColor="@color/white"
                     android:textSize="20dp"

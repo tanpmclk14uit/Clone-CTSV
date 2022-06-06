@@ -47,10 +47,29 @@ object Constants {
     }
 
     enum class CATEGORY{
-        COMIC, FICTION, NOVEL, BUSINESS, TECHNOLOGY, ART;
-
+        CHUNG, HV, VB2, LTCQ, NB, PH;
         override fun toString(): String {
-            return name.toLowerCase().capitalize()
+            val result = when(this){
+                CHUNG -> "Chung"
+                HV -> "Học vụ"
+                VB2 -> "Văn bằng 2"
+                LTCQ -> "Liên thông chính quy"
+                NB -> "Nghỉ/ bù"
+                PH -> "Phòng học"
+            }
+            return result
+        }
+
+        fun getShortName(): String{
+            val result = when(this){
+                CHUNG -> "Chung"
+                HV -> "Học vụ"
+                VB2 -> "Văn bằng 2"
+                LTCQ -> "LTCQ"
+                NB -> "Nghỉ/ bù"
+                PH -> "Phòng học"
+            }
+            return result.toUpperCase()
         }
     }
 }

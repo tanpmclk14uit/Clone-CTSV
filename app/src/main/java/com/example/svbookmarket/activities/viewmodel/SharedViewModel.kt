@@ -5,6 +5,7 @@ import android.util.Log
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.example.svbookmarket.R
+import com.example.svbookmarket.activities.common.Constants
 import com.example.svbookmarket.activities.model.Advertise
 import com.example.svbookmarket.activities.model.Book
 import com.example.svbookmarket.activities.model.Category
@@ -57,12 +58,12 @@ class SharedViewModel : ViewModel() {
 
     private fun loadCategory() {
         _category.value = mutableListOf(
-            Category(R.drawable.img_art, "Art"),
-            Category(R.drawable.img_fiction, "Fiction"),
-            Category(R.drawable.img_comic, "Comic"),
-            Category(R.drawable.img_novel, "Novel"),
-            Category(R.drawable.img_business, "Business"),
-            Category(R.drawable.img_tech, "Technology"),
+            Category(R.drawable.img_art, Constants.CATEGORY.CHUNG),
+            Category(R.drawable.img_fiction, Constants.CATEGORY.VB2),
+            Category(R.drawable.img_comic, Constants.CATEGORY.LTCQ),
+            Category(R.drawable.img_novel, Constants.CATEGORY.NB),
+            Category(R.drawable.img_business, Constants.CATEGORY.PH),
+            Category(R.drawable.img_tech, Constants.CATEGORY.HV),
         )
     }
 

@@ -25,7 +25,6 @@ class BookRepository @Inject constructor(
         )
     }
 
-
     init {
         Log.i("WTF", "book repo created")
     }
@@ -33,30 +32,3 @@ class BookRepository @Inject constructor(
         bookCollRef.document(bookId).update("Counts", FieldValue.increment(1))
     }
 }
-
-
-// giu class nay de sau nay lam loader
-//    fun getBookFrom() = flow {
-//        emit(Loading())
-//        emit(
-//            Success(
-//                getBooksFromCloudFirestore()
-//            )
-//        )
-//    }.catch { error ->
-//        error.message?.let { errorMessage ->
-//            emit(Failure(errorMessage))
-//        }
-//    }
-
-
-// giu class nay de sau nay lam loader
-//    suspend fun getBooksFromCloudFirestore(): List<Book> {
-//        return bookCollRef.orderBy(
-//            "Name",
-//            Query.Direction.DESCENDING
-//        )
-//            .get().await().documents.mapNotNull { doc ->
-//                doc.toObject(Book::class.java)
-//            }
-//    }

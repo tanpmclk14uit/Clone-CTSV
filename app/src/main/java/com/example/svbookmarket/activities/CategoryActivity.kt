@@ -9,7 +9,6 @@ import com.bumptech.glide.Glide
 import com.bumptech.glide.load.engine.DiskCacheStrategy
 import com.bumptech.glide.load.resource.drawable.DrawableTransitionOptions
 import com.example.svbookmarket.R
-import com.example.svbookmarket.activities.common.BlurTransformation
 import com.example.svbookmarket.activities.common.Constants.ACTIVITY.CATEGORY_DETAIL
 import com.example.svbookmarket.activities.common.Constants.CATEGORY.*
 import com.example.svbookmarket.activities.model.Book
@@ -35,14 +34,13 @@ class CategoryActivity : AppCompatActivity() {
 
     private fun setupNavigation() {
         binding.apply {
-            cSearchView.setOnClickListener { onBackPressed() }
-            cBackButton.setOnClickListener { startIntent("back") }
-            cArt.setOnClickListener { startIntent(ART.toString()) }
-            cComic.setOnClickListener { startIntent(COMIC.toString()) }
-            cFiction.setOnClickListener { startIntent(FICTION.toString()) }
-            cNovel.setOnClickListener { startIntent(NOVEL.toString()) }
-            cBusiness.setOnClickListener { startIntent(BUSINESS.toString()) }
-            cTechnology.setOnClickListener { startIntent(TECHNOLOGY.toString()) }
+            cBackButton.setOnClickListener { onBackPressed() }
+            cArt.setOnClickListener { startIntent(CHUNG.toString()) }
+            cComic.setOnClickListener { startIntent(VB2.toString()) }
+            cFiction.setOnClickListener { startIntent(PH.toString()) }
+            cNovel.setOnClickListener { startIntent(HV.toString()) }
+            cBusiness.setOnClickListener { startIntent(LTCQ.toString()) }
+            cTechnology.setOnClickListener { startIntent(NB.toString()) }
         }
     }
 
@@ -55,12 +53,12 @@ class CategoryActivity : AppCompatActivity() {
         val tech = binding.cTechnologyI
 
         val list = listOf(
-            Pair(R.drawable.img_art, art),
-            Pair(R.drawable.img_comic, comic),
-            Pair(R.drawable.img_fiction, fiction),
-            Pair(R.drawable.img_business, bus),
-            Pair(R.drawable.img_tech, tech),
-            Pair(R.drawable.img_novel, novel),
+            Pair(R.drawable.bg_gradient_splash, art),
+            Pair(R.drawable.bg_gradient_splash, comic),
+            Pair(R.drawable.bg_gradient_splash, fiction),
+            Pair(R.drawable.bg_gradient_splash, bus),
+            Pair(R.drawable.bg_gradient_splash, tech),
+            Pair(R.drawable.bg_gradient_splash, novel),
         )
         loadImage(list)
 
@@ -72,9 +70,6 @@ class CategoryActivity : AppCompatActivity() {
                 .load(pair.first)
                 .centerCrop()
                 .override(500, 800)
-                .transform(BlurTransformation(binding.root.context))
-                .placeholder(R.drawable.bg_button_white)
-                .error(R.drawable.bg_button_white)
                 .transition(DrawableTransitionOptions.withCrossFade())
                 .diskCacheStrategy(DiskCacheStrategy.ALL)
                 .into(pair.second)

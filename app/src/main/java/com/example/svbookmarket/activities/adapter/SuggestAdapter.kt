@@ -55,36 +55,7 @@ class SuggestAdapter(
                     .centerCrop()
                     .placeholder(DEFAULT_IMG_PLACEHOLDER)
                     .transition(BitmapTransitionOptions.withCrossFade())
-                    .into(object : CustomViewTarget<ImageView, Bitmap>(it.thumbnail) {
-                        override fun onLoadFailed(errorDrawable: Drawable?) {}
-
-                        override fun onResourceReady(
-                            resource: Bitmap,
-                            transition: Transition<in Bitmap>?
-                        ) {
-
-                            if (resource != null) {
-                                //init viewholder palette
-                                it.getPaletteFromBitmap(resource)
-                                //set items color
-                                it.setColor()
-
-                                val didSucceedTransition = transition!!.transition(
-                                    resource,
-                                    BitmapImageViewTarget(it.thumbnail)
-                                )
-                                if (!didSucceedTransition) it.thumbnail.setImageBitmap(resource)
-                            }
-                        }
-
-                        override fun onResourceCleared(placeholder: Drawable?) {
-                            it.thumbnail.setImageDrawable(placeholder)
-                        }
-
-                    })
-
-
-
+                    .into(it.thumbnail)
 
             if (it.itemView is MaterialCardView) {
                 it.itemView.setOnClickListener {
@@ -121,49 +92,6 @@ inner class SuggestViewHolder(ViewHolder: View) : RecyclerView.ViewHolder(ViewHo
     private var dominantColor = DEFAULT_COLOR
 
 
-    @RequiresApi(Build.VERSION_CODES.O)
-    fun setColor() {
-        setMTextColor()
-        setBackgroundColor()
-    }
-
-    fun getPaletteFromBitmap(bitmap: Bitmap) {
-        this.palette = Palette.from(bitmap).generate()
-    }
-
-    @RequiresApi(Build.VERSION_CODES.O)
-    private fun setMTextColor() {
-        val color = this.computeTextColor()
-        title.setTextColor(color)
-        author.setTextColor(color)
-        des.setTextColor(color)
-    }
-
-    /**
-     * return text color based on background color
-     */
-    @RequiresApi(Build.VERSION_CODES.O)
-    private fun computeTextColor(): Int {
-        setDominantColor()
-        // use dominant color to compute color
-        return if (this.dominantColor.luminance > 0.5) Color.BLACK else Color.WHITE
-    }
-
-    private fun setDominantColor() {
-        this.dominantColor = palette?.getDominantColor(DEFAULT_COLOR)!!
-    }
-
-    private fun setBackgroundColor() {
-        // get muted color from image, if cannot, return default color (green)
-        var c = palette?.lightMutedSwatch?.rgb ?: DEFAULT_COLOR
-
-        // if cannot get light muted color, use dominant color
-        if (c.compareTo(DEFAULT_COLOR) == 0) {
-            Log.i("comparecolor", "true")
-            c = palette?.dominantSwatch?.rgb ?: DEFAULT_COLOR
-        }
-        (this.itemView as MaterialCardView).setCardBackgroundColor(c)
-    }
 }
 
 interface OnSuggestClickListener {

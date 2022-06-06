@@ -26,7 +26,7 @@ class CategoryAdapter(private val items: MutableList<Category>, private val list
         val startTime = System.currentTimeMillis()
         with(items[position]){
             holder.let {
-                it.name.text = name
+                it.name.text = name.getShortName()
                 Glide
                     .with(holder.itemView)
                     .load(backgroundResId)
@@ -35,7 +35,7 @@ class CategoryAdapter(private val items: MutableList<Category>, private val list
                     .transition(DrawableTransitionOptions.withCrossFade())
                     .into(it.background)
                 //setup listener
-                it.itemView.setOnClickListener { listener.onCategoryItemClick(this.name) }
+                it.itemView.setOnClickListener { listener.onCategoryItemClick(this.name.toString()) }
             }
         }
         Log.i("TAG", "bindView time: " + (System.currentTimeMillis() - startTime));

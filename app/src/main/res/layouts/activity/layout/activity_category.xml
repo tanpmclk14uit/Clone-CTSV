@@ -4,6 +4,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
+    tools:context=".activities.CategoryActivity"
     android:layout_height="match_parent">
 <LinearLayout
     android:orientation="vertical"
@@ -12,7 +13,7 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="120dp">
+        android:layout_height="90dp">
 
         <ImageButton
             android:id="@+id/c_backButton"
@@ -21,7 +22,7 @@
             android:layout_marginTop="29dp"
             android:backgroundTint="@android:color/transparent"
             android:src="@drawable/img_back_arrow"
-            android:tint="@color/black"
+            app:tint="@color/black"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
         <TextView
@@ -29,7 +30,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="29dp"
-            android:text="Category"
+            android:text="Tất cả loại thông báo"
             android:textColor="@android:color/black"
             android:textSize="21sp"
             android:textStyle="bold"
@@ -37,19 +38,6 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
-        <SearchView
-            android:id="@+id/c_searchView"
-            android:layout_width="220dp"
-            android:layout_height="40dp"
-            android:layout_marginTop="8dp"
-            android:autofillHints="Search book"
-            android:background="@drawable/bg_home_search"
-            android:elevation="8dp"
-            android:padding="8dp"
-            android:touchscreenBlocksFocus="true"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/c_textView" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
         <LinearLayout
@@ -78,19 +66,20 @@
                         <ImageView
                             android:id="@+id/c_art_i"
 
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:foreground="@color/dark_tint"
+                            android:layout_width="500dp"
+                            android:layout_height="800dp"
+                            android:background="@drawable/bg_gradient_splash"
                             android:foregroundTintMode="src_atop"
                             android:scaleType="centerCrop"/>
+
                         <TextView
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
+                            android:gravity="center"
+                            android:text="Thông báo\nchung"
                             android:textColor="@color/white"
                             android:textSize="22sp"
-                            android:gravity="center"
-                            android:textStyle="bold"
-                            android:text="Art" />
+                            android:textStyle="bold" />
                     </RelativeLayout>
                 </androidx.cardview.widget.CardView>
 
@@ -107,19 +96,20 @@
                         android:layout_height="match_parent">
                         <ImageView
                             android:id="@+id/c_comic_i"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:foreground="@color/dark_tint"
+                            android:layout_width="500dp"
+                            android:layout_height="800dp"
+                            android:background="@drawable/bg_gradient_splash"
                             android:foregroundTintMode="src_atop"
                             android:scaleType="centerCrop" />
+
                         <TextView
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
+                            android:gravity="center"
+                            android:text="Thông báo\nvăn bằng 2"
                             android:textColor="@color/white"
                             android:textSize="22sp"
-                            android:gravity="center"
-                            android:textStyle="bold"
-                            android:text="Comic" />
+                            android:textStyle="bold" />
                     </RelativeLayout>
                 </com.google.android.material.card.MaterialCardView>
             </LinearLayout>
@@ -144,9 +134,9 @@
                         android:layout_height="match_parent">
                         <ImageView
                             android:id="@+id/c_business_i"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:foreground="@color/dark_tint"
+                            android:layout_width="500dp"
+                            android:layout_height="800dp"
+                            android:background="@drawable/bg_gradient_splash"
                             android:foregroundTintMode="src_atop"
                             android:scaleType="centerCrop" />
                         <TextView
@@ -156,7 +146,7 @@
                             android:textSize="22sp"
                             android:gravity="center"
                             android:textStyle="bold"
-                            android:text="Business" />
+                            android:text="Thông báo liên thông chính quy" />
                     </RelativeLayout>
                 </com.google.android.material.card.MaterialCardView>
 
@@ -172,19 +162,20 @@
                         android:layout_height="match_parent">
                         <ImageView
                             android:id="@+id/c_technology_i"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:foreground="@color/dark_tint"
+                            android:layout_width="500dp"
+                            android:layout_height="800dp"
+                            android:background="@drawable/bg_gradient_splash"
                             android:foregroundTintMode="src_atop"
                             android:scaleType="centerCrop"/>
+
                         <TextView
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
+                            android:gravity="center"
+                            android:text="Thông báo\nnghỉ\/ bù"
                             android:textColor="@color/white"
                             android:textSize="22sp"
-                            android:gravity="center"
-                            android:textStyle="bold"
-                            android:text="Technology" />
+                            android:textStyle="bold" />
                     </RelativeLayout>
                 </com.google.android.material.card.MaterialCardView>
             </LinearLayout>
@@ -209,19 +200,20 @@
                         android:layout_height="match_parent">
                         <ImageView
                             android:id="@+id/c_fiction_i"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:foreground="@color/dark_tint"
+                            android:layout_width="500dp"
+                            android:layout_height="800dp"
+                            android:background="@drawable/bg_gradient_splash"
                             android:foregroundTintMode="src_atop"
                             android:scaleType="centerCrop"/>
+
                         <TextView
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
+                            android:gravity="center"
+                            android:text="Thông báo về phòng học"
                             android:textColor="@color/white"
                             android:textSize="22sp"
-                            android:gravity="center"
-                            android:textStyle="bold"
-                            android:text="Fiction" />
+                            android:textStyle="bold" />
                     </RelativeLayout>
                 </com.google.android.material.card.MaterialCardView>
 
@@ -237,19 +229,20 @@
                         android:layout_height="match_parent">
                         <ImageView
                             android:id="@+id/c_novel_i"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:foreground="@color/dark_tint"
+                            android:layout_width="500dp"
+                            android:layout_height="800dp"
+                            android:background="@drawable/bg_gradient_splash"
                             android:foregroundTintMode="src_atop"
                             android:scaleType="centerCrop"/>
+
                         <TextView
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
+                            android:gravity="center"
+                            android:text="Thông báo\nhọc vụ"
                             android:textColor="@color/white"
                             android:textSize="22sp"
-                            android:gravity="center"
-                            android:textStyle="bold"
-                            android:text="Novel" />
+                            android:textStyle="bold" />
                     </RelativeLayout>
                 </com.google.android.material.card.MaterialCardView>
             </LinearLayout>

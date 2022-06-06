@@ -3,24 +3,69 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="../../../../layout/custom_preview.xml" value="0.1" />
+        <entry key="app/src/main/res/drawable/bg_advertise_card.xml" value="0.1645" />
+        <entry key="app/src/main/res/drawable/bg_blue_rounded_outline_btn.xml" value="0.1645" />
+        <entry key="app/src/main/res/drawable/bg_button_cancel_order.xml" value="0.1645" />
+        <entry key="app/src/main/res/drawable/bg_button_gradient.xml" value="0.1645" />
+        <entry key="app/src/main/res/drawable/bg_button_gradient_3_colors.xml" value="0.1645" />
+        <entry key="app/src/main/res/drawable/bg_button_white.xml" value="0.1645" />
+        <entry key="app/src/main/res/drawable/bg_decreasebtn.xml" value="0.1645" />
+        <entry key="app/src/main/res/drawable/bg_edit_button.xml" value="0.1645" />
+        <entry key="app/src/main/res/drawable/bg_gradiant_user.xml" value="0.1645" />
+        <entry key="app/src/main/res/drawable/bg_gradient_splash.xml" value="0.1645" />
+        <entry key="app/src/main/res/drawable/bg_green_buton.xml" value="0.1645" />
+        <entry key="app/src/main/res/drawable/bg_home.xml" value="0.1645" />
+        <entry key="app/src/main/res/drawable/bg_home_search.xml" value="0.1" />
+        <entry key="app/src/main/res/drawable/bg_increasebtn.xml" value="0.1" />
+        <entry key="app/src/main/res/drawable/bg_linear_layout_item_info.xml" value="0.1" />
+        <entry key="app/src/main/res/drawable/bg_location.xml" value="0.1" />
+        <entry key="app/src/main/res/drawable/bg_round_blue_btn.xml" value="0.1" />
         <entry key="app/src/main/res/layout/activity_cancel_confirmation.xml" value="0.24375" />
         <entry key="app/src/main/res/layout/activity_cancel_order.xml" value="0.24375" />
-        <entry key="app/src/main/res/layout/activity_category_detail.xml" value="0.24375" />
+        <entry key="app/src/main/res/layout/activity_category_detail.xml" value="0.22625" />
         <entry key="app/src/main/res/layout/activity_checkout.xml" value="0.24375" />
         <entry key="app/src/main/res/layout/activity_confirmation.xml" value="0.24375" />
         <entry key="app/src/main/res/layout/activity_delivering.xml" value="0.24375" />
         <entry key="app/src/main/res/layout/activity_feature.xml" value="0.24375" />
+        <entry key="app/src/main/res/layout/activity_forgot_password.xml" value="0.14722222222222223" />
         <entry key="app/src/main/res/layout/activity_load_screen.xml" value="0.14722222222222223" />
+        <entry key="app/src/main/res/layout/activity_search.xml" value="0.24375" />
+        <entry key="app/src/main/res/layout/activity_user_manage.xml" value="0.24375" />
+        <entry key="app/src/main/res/layout/activity_user_order.xml" value="0.24375" />
+        <entry key="app/src/main/res/layout/card_checkout2.xml" value="0.24375" />
+        <entry key="app/src/main/res/layout/card_order.xml" value="0.24375" />
+        <entry key="app/src/main/res/layout/card_recent_search.xml" value="0.24375" />
+        <entry key="app/src/main/res/layout/card_suggest_search.xml" value="0.24375" />
+        <entry key="app/src/main/res/layout/comment_card.xml" value="0.24375" />
+        <entry key="app/src/main/res/layout/custom_snack_bar.xml" value="0.24375" />
         <entry key="app/src/main/res/layout/dialog_checkout.xml" value="0.10625" />
+        <entry key="app/src/main/res/layout/fragment_confirmed.xml" value="0.24375" />
+        <entry key="app/src/main/res/layout/fragment_delivering.xml" value="0.24375" />
+        <entry key="app/src/main/res/layout/fragment_waiting.xml" value="0.24375" />
+        <entry key="app/src/main/res/layout/menu.xml" value="0.24375" />
+        <entry key="app/src/main/res/layout/pager_item.xml" value="0.24375" />
         <entry key="app/src/main/res/layouts/activity/layout/action_bar.xml" value="0.1" />
         <entry key="app/src/main/res/layouts/activity/layout/activity_address.xml" value="0.24375" />
         <entry key="app/src/main/res/layouts/activity/layout/activity_cart.xml" value="0.24375" />
         <entry key="app/src/main/res/layouts/activity/layout/activity_category.xml" value="0.24375" />
         <entry key="app/src/main/res/layouts/activity/layout/activity_edit_adress.xml" value="0.24375" />
         <entry key="app/src/main/res/layouts/activity/layout/activity_edit_profile.xml" value="0.24375" />
+        <entry key="app/src/main/res/layouts/activity/layout/activity_home.xml" value="0.1894287109375" />
+        <entry key="app/src/main/res/layouts/activity/layout/activity_login.xml" value="0.24375" />
         <entry key="app/src/main/res/layouts/activity/layout/activity_main.xml" value="0.24375" />
+        <entry key="app/src/main/res/layouts/activity/layout/activity_profile.xml" value="0.24375" />
+        <entry key="app/src/main/res/layouts/activity/layout/activity_register.xml" value="0.24375" />
         <entry key="app/src/main/res/layouts/activity/layout/activity_splash.xml" value="0.24375" />
         <entry key="app/src/main/res/layouts/activity/layout/activity_welcome.xml" value="0.24375" />
+        <entry key="app/src/main/res/layouts/activity/layout/content_scrolling.xml" value="0.24375" />
+        <entry key="app/src/main/res/layouts/component/card/layout/billing_block.xml" value="0.24375" />
+        <entry key="app/src/main/res/layouts/component/card/layout/card_book.xml" value="0.24375" />
+        <entry key="app/src/main/res/layouts/component/card/layout/card_category.xml" value="0.24375" />
+        <entry key="app/src/main/res/layouts/component/card/layout/card_category_second.xml" value="0.24375" />
+        <entry key="app/src/main/res/layouts/component/card/layout/card_checkout.xml" value="0.24375" />
+        <entry key="app/src/main/res/layouts/component/card/layout/card_feature.xml" value="0.24375" />
+        <entry key="app/src/main/res/layouts/component/card/layout/card_suggest.xml" value="0.24375" />
         <entry key="app/src/main/res/layouts/component/drawable/ic_baseline_school_24.xml" value="0.1645" />
       </map>
     </option>

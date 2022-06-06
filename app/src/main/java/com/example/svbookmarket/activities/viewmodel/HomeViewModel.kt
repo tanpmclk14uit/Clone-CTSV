@@ -79,8 +79,10 @@ class HomeViewModel @Inject constructor(
     val category get() = _category
 
     fun getBooksOfCategory(categoryName: String): ArrayList<Book> {
+        Log.d("CATEGORY", categoryName)
+        Log.d("CATEGORY",  _books.value?.get(0)?.Kind.toString())
         val filted = _books.value?.filter { category ->
-            category.Kind == categoryName
+            category.Kind.equals(categoryName)
         }
         return ArrayList(filted)
     }

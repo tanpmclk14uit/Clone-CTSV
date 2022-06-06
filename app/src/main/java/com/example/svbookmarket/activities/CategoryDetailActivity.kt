@@ -17,6 +17,8 @@ import com.example.svbookmarket.activities.model.Book
 import com.example.svbookmarket.activities.viewmodel.CategoryDetailViewModel
 import com.example.svbookmarket.databinding.ActivityCategoryDetailBinding
 import dagger.hilt.android.AndroidEntryPoint
+import java.util.*
+import kotlin.collections.ArrayList
 
 @AndroidEntryPoint
 class CategoryDetailActivity : AppCompatActivity(), CategoryDetailAdapter.OnCategoryClickListener {
@@ -40,18 +42,15 @@ class CategoryDetailActivity : AppCompatActivity(), CategoryDetailAdapter.OnCate
     private fun setupView() {
         setDetailAdapter()
         displayCategory(getCategoryNameFromIntent())
-
     }
 
 
     @SuppressLint("SetTextI18n")
     private fun displayCategory(categoryName: String) {
 
-        binding.cdClName.text = "$categoryName Collection"
+        binding.cdClName.text = "Thông báo ${categoryName.toLowerCase(Locale.ROOT)}"
         binding.cdTitle.text = categoryName
         val backgroundResId = getCategorybg(categoryName)
-
-
         // load image
         Glide
             .with(baseContext)

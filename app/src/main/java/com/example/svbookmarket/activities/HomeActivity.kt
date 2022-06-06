@@ -37,10 +37,8 @@ class HomeActivity : AppCompatActivity(), FeaturedAdapter.OnBookClickLitener,
 
     val viewModel: HomeViewModel by viewModels()
 
-    private var adsAdapter = AdvertiseAdapter(mutableListOf())
     private var categoryAdapter = CategoryAdapter(mutableListOf(), this@HomeActivity)
     private var suggestAdapter = SuggestAdapter(mutableListOf(), this)
-    private var moreAdapter = FeaturedAdapter(mutableListOf(), this)
 
     var isBackPressedOnce = false
 
@@ -57,7 +55,6 @@ class HomeActivity : AppCompatActivity(), FeaturedAdapter.OnBookClickLitener,
 
         setCategoryAdapter()
         setSuggestAdapter() // feature
-        setMoreAdapter()
         setupNavigation()
         setUpBottomNavigationView()
 
@@ -69,20 +66,12 @@ class HomeActivity : AppCompatActivity(), FeaturedAdapter.OnBookClickLitener,
                binding.bottomNavigation.visibility = View.VISIBLE
            }
        }
-
-
     }
 
     private fun watchForDataChange() {
-        viewModel.getBookFrom().observe(this, { changes ->
-            // filter theo so luot mua
-            val b = changes.toList().sortedByDescending { it.rate }
-            val top15 = b.take(15)
-
-
-            suggestAdapter.addBooks(top15)
-            moreAdapter.addBooks(b)
-        })
+        viewModel.getBookFrom().observe(this) { changes ->
+            suggestAdapter.addBooks(changes)
+        }
 
     }
 
@@ -91,7 +80,7 @@ class HomeActivity : AppCompatActivity(), FeaturedAdapter.OnBookClickLitener,
             adapter = suggestAdapter
             layoutManager = LinearLayoutManager(
                 context,
-                RecyclerView.HORIZONTAL,
+                RecyclerView.VERTICAL,
                 false
             )
             addItemDecoration(MarginItemDecoration(spaceSize = 24, isHorizontalLayout = true))
@@ -113,13 +102,6 @@ class HomeActivity : AppCompatActivity(), FeaturedAdapter.OnBookClickLitener,
         })
     }
 
-    private fun setMoreAdapter() {
-        binding.hRcMore.apply {
-            adapter = moreAdapter
-            layoutManager = GridLayoutManager(context, 2, GridLayoutManager.VERTICAL, false)
-            addItemDecoration(MarginItemDecoration(spaceSize = 15, spanCount = 2))
-        }
-    }
 
     /**
      * navigate when click on screen
@@ -130,8 +112,6 @@ class HomeActivity : AppCompatActivity(), FeaturedAdapter.OnBookClickLitener,
         findViewById<TextInputEditText>(R.id.edtSearchText).setOnClickListener { startIntent(SEARCH) }
 //       findViewById<ImageView>(R.id.tb_cart).setOnClickListener { startIntent("cart") }
         findViewById<TextView>(R.id.h_allCategory).setOnClickListener { startIntent(CATEGORY) }
-        findViewById<TextView>(R.id.h_allFeature).setOnClickListener { startIntent(FEATURE) }
-
     }
 
 

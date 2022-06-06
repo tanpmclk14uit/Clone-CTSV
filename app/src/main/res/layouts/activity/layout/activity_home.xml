@@ -60,10 +60,10 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="12dp"
-                android:layout_marginTop="15dp"
                 android:orientation="horizontal">
 
                 <TextView
+                    android:layout_marginVertical="10dp"
                     android:id="@+id/textView6"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -79,7 +79,7 @@
                 <Button
                     android:id="@+id/h_allCategory"
                     style="@style/Widget.MaterialComponents.Button.TextButton"
-                    android:layout_width="60dp"
+                    android:layout_width="100dp"
                     android:layout_height="30dp"
                     android:fontFamily="@font/roboto_medium"
                     android:insetTop="0dp"
@@ -102,8 +102,6 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
-                android:paddingTop="16dp"
-                android:paddingBottom="24dp"
                 app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
                 tools:listitem="@layout/card_category" />
 
@@ -114,6 +112,7 @@
                 android:orientation="horizontal">
 
                 <TextView
+                    android:layout_marginVertical="10dp"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/roboto_medium"
@@ -124,29 +123,6 @@
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
-
-                <Button
-                    android:id="@+id/h_allFeature"
-                    style="@style/Widget.MaterialComponents.Button.TextButton"
-                    android:layout_width="60dp"
-                    android:layout_height="30dp"
-                    android:layout_marginEnd="10dp"
-                    android:fontFamily="@font/roboto_medium"
-                    android:gravity="end|center"
-                    android:insetTop="0dp"
-                    android:insetBottom="0dp"
-                    android:text="@string/see_all"
-                    android:textAllCaps="false"
-                    android:textAppearance="@style/TextAppearance.AppCompat.Body1"
-
-
-                    android:textColor="@color/disable"
-                    android:textSize="@dimen/see_all_text_size"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.95"
-                    app:layout_constraintTop_toTopOf="parent"
-                    app:rippleColor="@color/litle_gray" />
             </androidx.constraintlayout.widget.ConstraintLayout>
 
 
@@ -154,40 +130,9 @@
                 android:id="@+id/rc_Suggest"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="5dp"
-                android:orientation="horizontal"
-                android:paddingTop="16dp"
+                android:orientation="vertical"
                 app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
                 tools:listitem="@layout/card_suggest" />
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginHorizontal="12dp"
-                android:layout_marginTop="24dp"
-                android:orientation="horizontal">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:fontFamily="@font/roboto_medium"
-                    android:gravity="center"
-                    android:text="@string/more"
-                    android:textColor="@color/header_black"
-                    android:textSize="@dimen/home_title" />
-            </LinearLayout>
-
-
-            <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/h_rcMore"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_horizontal"
-                android:nestedScrollingEnabled="false"
-                android:paddingBottom="55dp"
-                app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
-                app:spanCount="2"
-                tools:listitem="@layout/card_book" />
         </LinearLayout>
 
     </androidx.core.widget.NestedScrollView>

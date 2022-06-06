@@ -11,7 +11,7 @@
         android:id="@+id/constraintLayout6"
         android:layout_width="match_parent"
         android:layout_height="200dp"
-        android:background="@drawable/bg_gradiant_user"
+        android:background="@drawable/bg_gradient_splash"
         android:elevation="12dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -161,7 +161,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="20dp"
-                    android:text="Delivery address"
+                    android:text="Thông tin cá nhân"
                     android:textColor="@color/blue_light"
                     android:textSize="20dp"/>
             </LinearLayout>
@@ -170,7 +170,7 @@
             android:layout_width="match_parent"
             android:layout_height="1dp"
             android:layout_marginHorizontal="30dp"
-            android:background="@drawable/bg_gradiant_user"
+            android:background="@drawable/bg_gradient_splash"
             />
         <LinearLayout
             android:id="@+id/waitingForDelivery"
@@ -200,7 +200,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="20dp"
-                    android:text="Waiting for delivery"
+                    android:text="Các yêu cầu đang chờ"
                     android:textColor="@color/blue_light"
                     android:textSize="20dp"/>
             </LinearLayout>
@@ -209,7 +209,7 @@
             android:layout_width="match_parent"
             android:layout_height="1dp"
             android:layout_marginHorizontal="30dp"
-            android:background="@drawable/bg_gradiant_user"
+            android:background="@drawable/bg_gradient_splash"
             />
         <LinearLayout
             android:layout_margin="5dp"
@@ -239,7 +239,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="20dp"
-                    android:text="All orders "
+                    android:text="Toàn bộ các yêu cầu"
                     android:textColor="@color/blue_light"
                     android:textSize="20dp"/>
             </LinearLayout>
@@ -248,7 +248,7 @@
             android:layout_marginHorizontal="30dp"
             android:layout_width="match_parent"
             android:layout_height="1dp"
-            android:background="@drawable/bg_gradiant_user"
+            android:background="@drawable/bg_gradient_splash"
             />
         <LinearLayout
             android:id="@+id/logout"
@@ -279,7 +279,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="20dp"
-                    android:text="Log out"
+                    android:text="Đăng xuất"
                     android:textColor="@color/blue_light"
                     android:textSize="20dp"/>
             </LinearLayout>
@@ -288,7 +288,7 @@
             android:layout_marginHorizontal="30dp"
             android:layout_width="match_parent"
             android:layout_height="1dp"
-            android:background="@drawable/bg_gradiant_user"
+            android:background="@drawable/bg_gradient_splash"
             />
 
     </LinearLayout>

@@ -61,16 +61,7 @@ class DataSource {
     // moved to home viewmodel
 
 
-    fun loadCategory(): ArrayList<Category> {
-        return arrayListOf(
-            Category(R.drawable.img_art, "Art"),
-            Category(R.drawable.img_fiction, "Fiction"),
-            Category(R.drawable.img_comic, "Comic"),
-            Category(R.drawable.img_novel, "Novel"),
-            Category(R.drawable.img_business, "Business"),
-            Category(R.drawable.img_tech, "Technology"),
-        )
-    }
+
 
     fun loadAdvertise(): ArrayList<Advertise> {
         return arrayListOf(
