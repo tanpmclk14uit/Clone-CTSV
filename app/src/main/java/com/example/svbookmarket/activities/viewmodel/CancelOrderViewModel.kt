@@ -17,9 +17,7 @@ class CancelOrderViewModel @Inject constructor(
             orderRepository.updateOrderStatus(orderId = order.id)
             orderRepository.updateReason(orderId = order.id, reason)
             for(book in order.listbooks){
-                for(i in 0 until book.numbers){
-                    bookRepository.updateBookCount(bookId = book.id)
-                }
+
             }
         }
 }

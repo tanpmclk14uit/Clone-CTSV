@@ -10,11 +10,11 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.svbookmarket.R
 import com.example.svbookmarket.activities.common.Constants
-import com.example.svbookmarket.activities.model.Cart
+import com.example.svbookmarket.activities.model.Book
 import com.google.android.material.card.MaterialCardView
 import java.text.DecimalFormat
 
-class CartItemAdapter(val listener: OnButtonClickListener, private var cartList:MutableList<Cart>):RecyclerView.Adapter<CartItemAdapter.VH>(){
+class CartItemAdapter(val listener: OnButtonClickListener, private var cartList:MutableList<Book>):RecyclerView.Adapter<CartItemAdapter.VH>(){
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): VH {
         val adapterLayout =
             LayoutInflater.from(parent.context).inflate(R.layout.card_checkout, parent, false)
@@ -22,82 +22,41 @@ class CartItemAdapter(val listener: OnButtonClickListener, private var cartList:
     }
 
     override fun onBindViewHolder(holder: VH, position: Int) {
-        holder.name.text = cartList[position].name
-        holder.author.text = cartList[position].author
+        holder.title.text = cartList[position].Name
+        holder.author.text = cartList[position].SalerName
 
         Glide
             .with(holder.itemView)
-            .load(cartList[position].imgUrl)
+            .load(cartList[position].Image)
             .centerCrop()
             .placeholder(Constants.DEFAULT_IMG_PLACEHOLDER)
-            .into(holder.coverimg);
-        val formatter = DecimalFormat("#,###")
-        holder.price.text = formatter.format(cartList[position].price) + " đ"
-
-        holder.number.text = cartList[position].numbers.toString()
-        holder.salerName.text = "Seller:" + cartList[position].salerName
-
-        (holder.itemView as MaterialCardView).isChecked = cartList[position].isChose
-        // increase and decrease button listenerc
-        holder.increaseButton.setOnClickListener {
-//            holder.number.text = (holder.number.text.toString().toInt() + 1).toString()
-            // TODO: may need reset cardList
-            listener.onButtonClick(cartList[position].id, true)
-        }
-        holder.decreaseButton.setOnClickListener {
-            if (cartList[position].numbers > 0) {
-//                holder.number.text = (holder.number.text.toString().toInt() - 1).toString()
-                listener.onButtonClick(cartList[position].id, false)
-            }
-        }
+            .into(holder.thumbnail);
+        holder.des.text = cartList[position].Description
         holder.itemView.setOnClickListener {
-            (it as MaterialCardView).isChecked = !it.isChecked
-            listener.onItemClick(cartList[position].id, it.isChecked)
+            listener.onItemClick(cartList[position])
         }
-
     }
 
     override fun getItemCount(): Int {
         return cartList.size
     }
-    fun removeItem(position: Int) {
-        cartList.removeAt(position)
-        notifyItemRemoved(position)
-    }
-    fun addItem(position: Int, model: Cart){
-        cartList.add(position,model )
-       notifyItemInserted(position)
-    }
-    fun onChange(newList: MutableList<Cart>)
+
+    fun onChange(newList: MutableList<Book>)
     {
         cartList = newList
         notifyDataSetChanged()
     }
 
-    class VH(view:View):RecyclerView.ViewHolder(view){
-        init {
-            // on selection -> highlight
-//            view.setOnClickListener{
-//                (it as MaterialCardView).isChecked = !it.isChecked
-//            }
-        }
-        val increaseButton:AppCompatImageButton = view.findViewById(R.id.increaseNumber)
-        val decreaseButton:AppCompatImageButton = view.findViewById(R.id.decreaseNumber)
-        var number : TextView = view.findViewById(R.id.tv_numbers)
-        var name : TextView = view.findViewById(R.id.tv_bookname)
-        var author : TextView = view.findViewById(R.id.tv_author)
-        var coverimg : ImageView = view.findViewById(R.id.img_cover)
-        var price : TextView = view.findViewById(R.id.tv_price)
-        var salerName: TextView = view.findViewById(R.id.tv_salerName)
-        fun toggleChecked(isChecked:Boolean){
-            (this.itemView as MaterialCardView).isChecked = isChecked
-        }
+    class VH(ViewHolder:View):RecyclerView.ViewHolder(ViewHolder){
+        val thumbnail: ImageView = ViewHolder.findViewById(R.id.imgSuggest)
+        val title: TextView = ViewHolder.findViewById(R.id.tvBookSuggest)
+        val author: TextView = ViewHolder.findViewById(R.id.tvAuthorSuggest)
+        val des: TextView = ViewHolder.findViewById(R.id.sg_description)
     }
 
     interface OnButtonClickListener
     {
-        fun onButtonClick(id: String, plusOrMinus: Boolean)
-        fun onItemClick(id: String, isChose: Boolean)
+        fun onItemClick(item: Book)
     }
 
 }

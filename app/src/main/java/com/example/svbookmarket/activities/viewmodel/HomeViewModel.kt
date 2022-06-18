@@ -11,7 +11,6 @@ import com.example.svbookmarket.activities.data.CartRepository
 import com.example.svbookmarket.activities.data.CategoryRepository
 import com.example.svbookmarket.activities.model.AppAccount
 import com.example.svbookmarket.activities.model.Book
-import com.example.svbookmarket.activities.model.Cart
 import com.google.firebase.firestore.EventListener
 import com.google.firebase.firestore.FirebaseFirestoreException
 import com.google.firebase.firestore.QuerySnapshot
@@ -27,18 +26,18 @@ class HomeViewModel @Inject constructor(
 ) : ViewModel() {
     private var _books = MutableLiveData<MutableList<Book>>()
     val books get() = _books
-    private var _carts = MutableLiveData<MutableList<Cart>>()
+    private var _carts = MutableLiveData<MutableList<Book>>()
     val carts get() = _carts
 
 
-    fun getCart(user: AppAccount): MutableLiveData<MutableList<Cart>> {
+    fun getCart(user: AppAccount): MutableLiveData<MutableList<Book>> {
         cartRepository.getCart(user).addSnapshotListener { value, error ->
             if (error != null) {
                 Log.w(Constants.VMTAG, "Listen failed.", error)
             } else {
-                val cartList: MutableList<Cart> = ArrayList()
+                val cartList: MutableList<Book> = ArrayList()
                 for (doc in value!!) {
-                    val bookItem = Cart(id = System.currentTimeMillis().toString())
+                    val bookItem = Book(id = System.currentTimeMillis().toString())
                     cartList.add(bookItem)
                 }
                 carts.value = cartList
@@ -57,11 +56,9 @@ class HomeViewModel @Inject constructor(
 
                val bookList: MutableList<Book> = ArrayList()
                for (doc in value!!) {
-                   if (doc["Counts"].toString().toDouble() != 0.0) {
                        val bookItem = doc.toObject(Book::class.java)
                        bookItem.id = doc.id
                        bookList.add(bookItem)
-                   }
                 }
                 books.value = bookList
             }

@@ -10,7 +10,6 @@ import android.widget.Toast
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
-import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.LinearSnapHelper
 import androidx.recyclerview.widget.RecyclerView
@@ -31,7 +30,7 @@ import dagger.hilt.android.AndroidEntryPoint
 
 
 @AndroidEntryPoint
-class HomeActivity : AppCompatActivity(), FeaturedAdapter.OnBookClickLitener,
+class HomeActivity : AppCompatActivity(),
     CategoryAdapter.onCategoryItemClick, SuggestAdapter.OnSuggestClickListener {
     lateinit var binding: ActivityHomeBinding
 
@@ -108,9 +107,7 @@ class HomeActivity : AppCompatActivity(), FeaturedAdapter.OnBookClickLitener,
      */
 
     private fun setupNavigation() {
-//        findViewById<ImageView>(R.id.tb_menu).setOnClickListener { startIntent(MENU) }
         findViewById<TextInputEditText>(R.id.edtSearchText).setOnClickListener { startIntent(SEARCH) }
-//       findViewById<ImageView>(R.id.tb_cart).setOnClickListener { startIntent("cart") }
         findViewById<TextView>(R.id.h_allCategory).setOnClickListener { startIntent(CATEGORY) }
     }
 
@@ -130,7 +127,6 @@ class HomeActivity : AppCompatActivity(), FeaturedAdapter.OnBookClickLitener,
             CATEGORY -> {
                 Intent(this, CategoryActivity::class.java)
             }
-            FEATURE -> Intent(this, FeatureActivity::class.java)
             CATEGORY_DETAIL -> Intent(this, CategoryDetailActivity::class.java)
                 .putExtra(CategoryDetailActivity.CATEGORY_TYPE, name)
         }
@@ -169,18 +165,6 @@ class HomeActivity : AppCompatActivity(), FeaturedAdapter.OnBookClickLitener,
     override fun onSuggestClick(book: Book) {
         val i = putBookIntoIntent(book)
         navigate(i)
-    }
-
-    /**
-     * put book to intent then start navigation
-     */
-    override fun onBookClick(book: Book) {
-        val intent =
-            Intent(binding.root.context, ItemDetailActivity::class.java)
-        val bundle = Bundle()
-        bundle.putParcelable(ITEM, book)
-        intent.putExtras(bundle)
-        binding.root.context.startActivity(intent)
     }
 
 

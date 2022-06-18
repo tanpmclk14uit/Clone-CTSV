@@ -15,7 +15,8 @@ import androidx.recyclerview.widget.RecyclerView
 import androidx.recyclerview.widget.RecyclerView.ViewHolder
 import com.example.svbookmarket.R
 import com.example.svbookmarket.activities.adapter.CartItemAdapter
-import com.example.svbookmarket.activities.model.Cart
+import com.example.svbookmarket.activities.common.Constants
+import com.example.svbookmarket.activities.model.Book
 import com.example.svbookmarket.activities.viewmodel.CartViewModel
 import com.example.svbookmarket.databinding.ActivityCartBinding
 import dagger.hilt.android.AndroidEntryPoint
@@ -27,11 +28,11 @@ class CartActivity : AppCompatActivity(), CartItemAdapter.OnButtonClickListener 
     private val viewModel: CartViewModel by viewModels()
     var cartAdapter: CartItemAdapter = CartItemAdapter(this, mutableListOf())
 
-    lateinit var dataCart: MutableList<Cart>
+    lateinit var dataCart: MutableList<Book>
     var deleteItem: View? = null
 
     //variable to save deleted item, later is used for redo action
-    lateinit var delete: Cart
+    lateinit var delete: Book
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -49,11 +50,11 @@ class CartActivity : AppCompatActivity(), CartItemAdapter.OnButtonClickListener 
             touchHelper.attachToRecyclerView(this)
         }
         binding.backButton.setOnClickListener { onBackPressed() }
-        binding.ctCheckout.setOnClickListener { navigateToCheckout() }
+
         binding.ctAddItem.setOnClickListener { onBackPressed() }
     }
 
-    private val changeObserver = Observer<MutableList<Cart>> { value ->
+    private val changeObserver = Observer<MutableList<Book>> { value ->
         // if have any item in cart. show cart recycler view, otherwise show empty notification
         if (value.size > 0) {
             //show guide text
@@ -63,17 +64,10 @@ class CartActivity : AppCompatActivity(), CartItemAdapter.OnButtonClickListener 
                 cartAdapter.onChange(value)
                 cartAdapter.notifyDataSetChanged()
                 showCartList()
-
-                val selectedItem = value.find { it.isChose }
-                if (selectedItem != null)
-                    setButtonColor(R.color.green, true)
-                else
-                    setButtonColor(R.color.disable, false)
             }
         } else {
             //hide guide text
             binding.ctGuide.visibility = View.GONE
-            setButtonColor(R.color.disable, false)
             showEmptyNotification()
         }
 
@@ -89,26 +83,8 @@ class CartActivity : AppCompatActivity(), CartItemAdapter.OnButtonClickListener 
         binding.ctChildContainer.visibility = GONE
     }
 
-    private fun setButtonColor(color: Int, clickable: Boolean) {
-        binding.ctCheckout.backgroundTintList = getColorStateList(color)
-        binding.ctCheckout.isClickable = clickable
-    }
-
-    private fun navigateToCheckout() {
-        val intent =
-            Intent(this, CheckoutActivity::class.java)
-        startActivity(intent)
-    }
 
 
-
-    override fun onButtonClick(id: String, plusOrMinus: Boolean) {
-        viewModel.updateQuantity(id, plusOrMinus)
-    }
-
-    override fun onItemClick(id: String, isChose: Boolean) {
-        viewModel.isChoseChange(id, isChose)
-    }
 
     private var touchHelper = ItemTouchHelper(
         object : ItemTouchHelper.SimpleCallback(
@@ -131,7 +107,7 @@ class CartActivity : AppCompatActivity(), CartItemAdapter.OnButtonClickListener 
                 delete = dataCart[itemPos]
                 deleteItem = viewHolder.itemView
                 // TODO: add delete on db
-                viewModel.deleteCart(dataCart[itemPos].id)
+                viewModel.deleteCart(dataCart[itemPos].id!!)
             }
 
             override fun onChildDraw(
@@ -173,6 +149,18 @@ class CartActivity : AppCompatActivity(), CartItemAdapter.OnButtonClickListener 
                     .decorate()
             }
         })
+    private fun navigate(mIntent: Intent) = this.binding.root.context.startActivity(mIntent)
+    override fun onItemClick(item: Book) {
+        val i = putBookIntoIntent(item)
+        navigate(i)
+    }
+    private fun putBookIntoIntent(item:Book):Intent{
+        val bundle = Bundle()
+        bundle.putParcelable(Constants.ITEM, item)
+        val i = Intent(this, ItemDetailActivity::class.java)
+        i.putExtras(bundle)
+        return i
+    }
 
 
 }

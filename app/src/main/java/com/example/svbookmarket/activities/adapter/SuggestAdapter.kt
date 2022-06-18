@@ -1,10 +1,6 @@
 package com.example.svbookmarket.activities.adapter
 
-import android.graphics.Bitmap
-import android.graphics.Color
-import android.graphics.drawable.Drawable
 import android.os.Build
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -12,15 +8,11 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.annotation.RequiresApi
 import androidx.core.content.ContextCompat
-import androidx.core.graphics.luminance
 import androidx.palette.graphics.Palette
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.engine.DiskCacheStrategy
 import com.bumptech.glide.load.resource.bitmap.BitmapTransitionOptions
-import com.bumptech.glide.request.target.BitmapImageViewTarget
-import com.bumptech.glide.request.target.CustomViewTarget
-import com.bumptech.glide.request.transition.Transition
 import com.example.svbookmarket.R
 import com.example.svbookmarket.activities.common.Constants.DEFAULT_IMG_PLACEHOLDER
 import com.example.svbookmarket.activities.model.Book
@@ -44,7 +36,7 @@ class SuggestAdapter(
         with(books[position]) {
             holder.let {
                 it.title.text = Name
-                it.author.text = Author
+                it.author.text = SalerName
                 it.des.text = Description
 
                 Glide
@@ -52,7 +44,7 @@ class SuggestAdapter(
                     .asBitmap()
                     .load(Image)
                     .diskCacheStrategy(DiskCacheStrategy.ALL)
-                    .centerCrop()
+                    .fitCenter()
                     .placeholder(DEFAULT_IMG_PLACEHOLDER)
                     .transition(BitmapTransitionOptions.withCrossFade())
                     .into(it.thumbnail)

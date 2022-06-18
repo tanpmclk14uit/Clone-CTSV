@@ -1,136 +1,75 @@
 <?xml version="1.0" encoding="utf-8"?>
 <com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:id="@+id/card"
+    android:id="@+id/card_suggest"
     android:layout_width="match_parent"
-    android:layout_height="114dp"
-    android:layout_marginBottom="8dp"
-    android:backgroundTintMode="multiply"
-    android:checkable="true"
-    android:focusable="true"
-    app:cardCornerRadius="14dp"
-    android:layout_marginHorizontal="24dp"
-    app:strokeColor="#A4858C94">
+    android:layout_height="wrap_content"
+    app:cardCornerRadius="8dp"
+    app:layout_constraintCircleRadius="14dp">
 <!--//346-->
-    <LinearLayout
-        android:layout_margin="5dp"
-        android:id="@+id/linearLayout"
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="horizontal">
-
-        <ImageView
-            android:id="@+id/img_cover"
-            android:layout_width="80dp"
-            android:layout_height="100dp"
-            android:layout_marginStart="17dp"
-            android:layout_marginLeft="17dp"
-            android:layout_marginTop="0dp"
-            android:contentDescription="book-cover"
-            android:src="@drawable/ic_login_rafiki" />
+        android:layout_gravity="center_vertical"
+        android:padding="10dp"
+        android:layout_marginVertical="6dp">
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_vertical"
-            android:layout_marginStart="19dp"
-            android:layout_marginRight="20dp"
-            android:orientation="vertical">
+            android:layout_height="match_parent"
+            android:orientation="horizontal"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
 
-            <TextView
-                android:id="@+id/tv_bookname"
-                android:layout_width="wrap_content"
-                android:maxWidth="250dp"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="2dp"
-                android:text="The Case for Trump"
-                android:layout_marginRight="20dp"
-                android:ellipsize="end"
-                android:maxLines="1"
-                android:textSize="16sp"
-                android:textStyle="bold" />
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical">
-            <TextView
-                android:id="@+id/tv_author"
+            <ImageView
+                android:id="@+id/imgSuggest"
                 android:layout_width="100dp"
-                android:singleLine="true"
-                android:ellipsize="end"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="2dp"
-                android:text="Lotto.LTD"
-                android:maxWidth="250dp"
-                android:textColor="@color/fade_gray" />
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    >
-                    <TextView
-                        android:textSize="12sp"
-                        android:textColor="@color/gray"
-                        android:gravity="start"
-                        android:ellipsize="end"
-                        android:singleLine="true"
-                        android:id="@+id/tv_salerName"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="ShopBook"/>
-                </LinearLayout>
+                android:layout_height="100dp"
+                android:layout_marginEnd="12dp"
+                android:src="@drawable/bg_button_white"/>
 
-            </LinearLayout>
-
-
-            <LinearLayout
-                android:layout_marginTop="15dp"
+            <androidx.appcompat.widget.LinearLayoutCompat
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal">
-                <ImageButton
-                    android:id="@+id/decreaseNumber"
-                    android:layout_width="26dp"
-                    android:layout_height="26dp"
-                    android:background="@drawable/bg_decreasebtn"
-                    android:elevation="4dp"
-                    android:src="@drawable/ic_subtract" />
+                android:layout_gravity="center_vertical"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
 
                 <TextView
-                    android:id="@+id/tv_numbers"
-                    android:textAlignment="center"
-                    android:layout_width="30dp"
-                    android:maxLines="1"
-                    android:maxWidth="50dp"
+                    android:id="@+id/tvBookSuggest"
+                    android:layout_width="190dp"
                     android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:text="99" />
-                <ImageButton
-                    android:id="@+id/increaseNumber"
-                    android:layout_width="26dp"
-                    android:layout_height="26dp"
-                    android:background="@drawable/bg_increasebtn"
-                    android:backgroundTintMode="add"
-                    android:elevation="4dp"
-                    android:src="@drawable/ic_plus" />
+                    android:ellipsize="end"
+                    android:fontFamily="@font/roboto_bold"
+                    android:maxLines="1"
+                    android:text="@string/textTest"
+                    android:textColor="@color/black"
+                    android:textSize="16sp"
+                    android:textStyle="bold" />
 
-                <LinearLayout
+                <TextView
+                    android:id="@+id/tvAuthorSuggest"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:gravity="right"
-                    android:layout_marginRight="20dp">
-                <TextView
-                    android:layout_marginTop="5dp"
-                    android:id="@+id/tv_price"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="20000đ"
-                    android:textColor="#0F52BA"
-                    android:textFontWeight="600"
-                    android:textSize="16dp" />
-                </LinearLayout>
-            </LinearLayout>
+                    android:layout_marginTop="4dp"
+                    android:ellipsize="end"
+                    android:fontFamily="@font/roboto_medium"
+                    android:maxLines="1"
+                    android:text="by Tracy Bloom"
+                    android:textColor="@color/blue_dark"
+                    android:textStyle="bold" />
 
+                <TextView
+                    android:id="@+id/sg_description"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:ellipsize="end"
+                    android:maxLines="3"
+                    android:text="@string/textTest"
+                    android:textSize="13sp" />
+
+
+            </androidx.appcompat.widget.LinearLayoutCompat>
         </LinearLayout>
-    </LinearLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
 </com.google.android.material.card.MaterialCardView>

@@ -18,7 +18,6 @@ import com.google.firebase.ktx.Firebase
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
 import javax.inject.Inject
-import kotlin.math.roundToInt
 
 @HiltViewModel
 class ItemDetailViewModel @Inject constructor (private val savedStateHandle: SavedStateHandle,
@@ -113,11 +112,7 @@ class ItemDetailViewModel @Inject constructor (private val savedStateHandle: Sav
                         _itemToDisplay.value?.id!!,
                         value?.data?.get("Image").toString(),
                         value?.data?.get("Name").toString(),
-                        value?.data?.get("Author").toString(),
-                        value?.data?.get("Price").toString().toDouble().roundToInt(),
-                        value?.data?.get("rate").toString().toDouble().roundToInt(),
                         value?.data?.get("Kind").toString(),
-                        value?.data?.get("Counts").toString().toDouble().roundToInt(),
                         value?.data?.get("Description").toString(),
                         value?.data?.get("Saler").toString(),
                         value?.data?.get("SalerName").toString(),

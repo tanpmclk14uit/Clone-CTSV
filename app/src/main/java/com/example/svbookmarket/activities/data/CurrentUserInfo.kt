@@ -6,7 +6,7 @@ import com.google.firebase.firestore.*
 import kotlin.math.roundToInt
 
 public class CurrentUserInfo private constructor(var currentProfile: AppAccount = AppAccount(),
-                                                 var lstUserCart: MutableList<Cart> = mutableListOf(),
+                                                 var lstUserCart: MutableList<Book> = mutableListOf(),
                                                  var lstUserDeliverAddress: MutableList<UserDeliverAddress> = mutableListOf())
 {
     init {
@@ -37,7 +37,6 @@ public class CurrentUserInfo private constructor(var currentProfile: AppAccount 
                 )
                 currentProfile.user = recentUser
             }
-
 
             // Snap for Delivery Address
             var refToDeliveryAddress = ref.collection("userDeliverAddresses")
@@ -80,20 +79,17 @@ public class CurrentUserInfo private constructor(var currentProfile: AppAccount 
                         return
                     }
 
-                    val cartList: MutableList<Cart> = ArrayList()
+                    val cartList: MutableList<Book> = ArrayList()
                     for (doc in value!!) {
-                        if (doc.data["title"] != null) {
-                            var bool = doc.data["isChose"].toString() == "true"
-                            var item = Cart(
+                        if (doc.data["Name"] != null) {
+                            var item = Book(
                                 "",
-                                doc.data["image"].toString(),
-                                doc.data["title"].toString(),
-                                doc.data["author"].toString(),
-                                (doc.data["Quantity"].toString().toDouble()).roundToInt(),
-                                doc.data["price"].toString().toLong(),
-                                doc.data["saler"].toString(),
-                                doc.data["salerName"].toString(),
-                                bool
+                                doc.data["Image"].toString(),
+                                doc.data["Name"].toString(),
+                                doc.data["Kind"].toString(),
+                                doc.data["Description"].toString(),
+                                doc.data["Saler"].toString(),
+                                doc.data["SalerName"].toString(),
                             )
                             item.id = doc.id
                             cartList.add(item)

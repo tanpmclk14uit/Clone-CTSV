@@ -29,10 +29,12 @@
         <entry key="app/src/main/res/layout/activity_delivering.xml" value="0.24375" />
         <entry key="app/src/main/res/layout/activity_feature.xml" value="0.24375" />
         <entry key="app/src/main/res/layout/activity_forgot_password.xml" value="0.14722222222222223" />
+        <entry key="app/src/main/res/layout/activity_item_detail.xml" value="0.24270833333333333" />
         <entry key="app/src/main/res/layout/activity_load_screen.xml" value="0.14722222222222223" />
         <entry key="app/src/main/res/layout/activity_search.xml" value="0.24375" />
         <entry key="app/src/main/res/layout/activity_user_manage.xml" value="0.24375" />
         <entry key="app/src/main/res/layout/activity_user_order.xml" value="0.24375" />
+        <entry key="app/src/main/res/layout/card_advertise.xml" value="0.24270833333333333" />
         <entry key="app/src/main/res/layout/card_checkout2.xml" value="0.24375" />
         <entry key="app/src/main/res/layout/card_order.xml" value="0.24375" />
         <entry key="app/src/main/res/layout/card_recent_search.xml" value="0.24375" />
@@ -40,18 +42,24 @@
         <entry key="app/src/main/res/layout/comment_card.xml" value="0.24375" />
         <entry key="app/src/main/res/layout/custom_snack_bar.xml" value="0.24375" />
         <entry key="app/src/main/res/layout/dialog_checkout.xml" value="0.10625" />
+        <entry key="app/src/main/res/layout/dialog_empty_noti.xml" value="0.24270833333333333" />
         <entry key="app/src/main/res/layout/fragment_confirmed.xml" value="0.24375" />
         <entry key="app/src/main/res/layout/fragment_delivering.xml" value="0.24375" />
         <entry key="app/src/main/res/layout/fragment_waiting.xml" value="0.24375" />
+        <entry key="app/src/main/res/layout/gender_item.xml" value="0.24270833333333333" />
+        <entry key="app/src/main/res/layout/home_toolbar.xml" value="0.24270833333333333" />
+        <entry key="app/src/main/res/layout/item_billing.xml" value="0.24270833333333333" />
         <entry key="app/src/main/res/layout/menu.xml" value="0.24375" />
         <entry key="app/src/main/res/layout/pager_item.xml" value="0.24375" />
+        <entry key="app/src/main/res/layout/search_bar.xml" value="0.24270833333333333" />
+        <entry key="app/src/main/res/layout/test.xml" value="0.24270833333333333" />
         <entry key="app/src/main/res/layouts/activity/layout/action_bar.xml" value="0.1" />
         <entry key="app/src/main/res/layouts/activity/layout/activity_address.xml" value="0.24375" />
         <entry key="app/src/main/res/layouts/activity/layout/activity_cart.xml" value="0.24375" />
         <entry key="app/src/main/res/layouts/activity/layout/activity_category.xml" value="0.24375" />
         <entry key="app/src/main/res/layouts/activity/layout/activity_edit_adress.xml" value="0.24375" />
         <entry key="app/src/main/res/layouts/activity/layout/activity_edit_profile.xml" value="0.24375" />
-        <entry key="app/src/main/res/layouts/activity/layout/activity_home.xml" value="0.1894287109375" />
+        <entry key="app/src/main/res/layouts/activity/layout/activity_home.xml" value="0.26228010389539935" />
         <entry key="app/src/main/res/layouts/activity/layout/activity_login.xml" value="0.24375" />
         <entry key="app/src/main/res/layouts/activity/layout/activity_main.xml" value="0.24375" />
         <entry key="app/src/main/res/layouts/activity/layout/activity_profile.xml" value="0.24375" />
@@ -61,6 +69,7 @@
         <entry key="app/src/main/res/layouts/activity/layout/content_scrolling.xml" value="0.24375" />
         <entry key="app/src/main/res/layouts/component/card/layout/billing_block.xml" value="0.24375" />
         <entry key="app/src/main/res/layouts/component/card/layout/card_book.xml" value="0.24375" />
+        <entry key="app/src/main/res/layouts/component/card/layout/card_book_2.xml" value="0.24270833333333333" />
         <entry key="app/src/main/res/layouts/component/card/layout/card_category.xml" value="0.24375" />
         <entry key="app/src/main/res/layouts/component/card/layout/card_category_second.xml" value="0.24375" />
         <entry key="app/src/main/res/layouts/component/card/layout/card_checkout.xml" value="0.24375" />

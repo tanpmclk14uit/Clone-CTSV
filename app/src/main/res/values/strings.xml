@@ -58,7 +58,7 @@
     <string name="best_selling">Best selling</string>
     <string name="for_you">For you</string>
     <string name="explore_more">Explore more</string>
-    <string name="your_cart_is_empty">Your cart is empty, </string>
+    <string name="your_cart_is_empty">Xem sau đang trống, </string>
     <string name="your_address_is_empty">Your address is empty, add an address</string>
     <string name="press_to_add_new_address">Press to add new address</string>
     <string name="continue_to_payment">Continue to payment</string>
@@ -67,9 +67,9 @@
     <string name="let_s_us_know_your_address">Let\'s us know your address</string>
     <string name="add_an_address">Add an address</string>
     <string name="buy">buy</string>
-    <string name="description">Description</string>
+    <string name="description">Chi tiết</string>
     <string name="forgot_password">Quên mật khẩu?</string>
     <string name="already_have_an_account">Đã có tài khoản?</string>
-    <string name="comment">Comment</string>
+    <string name="comment">Đặt câu hỏi</string>
 
 </resources>

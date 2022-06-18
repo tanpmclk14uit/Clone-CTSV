@@ -3,6 +3,7 @@ package com.example.svbookmarket.activities
 import android.content.Intent
 import android.os.Bundle
 import android.widget.ImageView
+import android.widget.Toast
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import com.bumptech.glide.Glide
@@ -21,12 +22,14 @@ import dagger.hilt.android.AndroidEntryPoint
 class CategoryActivity : AppCompatActivity() {
 
     lateinit var binding: ActivityCategoryBinding
+
     private val viewModel: CategoryViewModel by viewModels()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityCategoryBinding.inflate(layoutInflater)
         setContentView(binding.root)
+        viewModel.getBookFrom()
 
         setupView()
         setupNavigation()
@@ -77,18 +80,19 @@ class CategoryActivity : AppCompatActivity() {
     }
 
     private fun startIntent(type: String) {
-        val intent = if (type != "back" && type != "search") {
-
-            // get data for intent
-            val filteredColl = viewModel.getBooksOfCategory(type)
-            val i = Intent(this, CategoryDetailActivity::class.java)
-
-            putDataToIntent(i, filteredColl, type)
-
+        if (type != "back" && type != "search") {
+            if (viewModel.isBookLoaded.value!!) {
+                val filteredColl = viewModel.getBooksOfCategory(type)
+                val intent = Intent(this, CategoryDetailActivity::class.java)
+                putDataToIntent(intent, filteredColl, type)
+                startActivity(intent)
+            }else{
+                Toast.makeText(this, "Đang tải dữ liệu vui lòng đợi trong ít phút", Toast.LENGTH_LONG).show()
+            }
         } else {
-               Intent(this, SearchActivity::class.java)
+            Intent(this, SearchActivity::class.java)
+            startActivity(intent)
         }
-        startActivity(intent)
     }
 
     /**

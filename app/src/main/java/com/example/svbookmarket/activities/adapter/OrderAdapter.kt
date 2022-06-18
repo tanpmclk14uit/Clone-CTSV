@@ -70,8 +70,8 @@ class OrderAdapter(
             dateTime.text = currentOrder.dateTime
             val formatter = DecimalFormat("#,###")
             totalPrice.text = formatter.format(currentOrder.totalPrince.toString().toLong()) +" đ"
-            val billingItemAdapter = BillingItemAdapter(currentOrder.listbooks)
-            listItemOrder.adapter = billingItemAdapter
+           // val billingItemAdapter = BillingItemAdapter(currentOrder.listbooks)
+            //listItemOrder.adapter = billingItemAdapter
             listItemOrder.layoutManager = LinearLayoutManager(context)
             listItemOrder.visibility = View.GONE
             addressLayout.visibility = View.GONE

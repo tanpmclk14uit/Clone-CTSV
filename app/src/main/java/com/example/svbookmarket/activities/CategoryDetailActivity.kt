@@ -9,7 +9,7 @@ import androidx.appcompat.app.AppCompatActivity
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.resource.drawable.DrawableTransitionOptions
 import com.example.svbookmarket.R
-import com.example.svbookmarket.activities.adapter.CategoryDetailAdapter
+import com.example.svbookmarket.activities.adapter.SuggestAdapter
 import com.example.svbookmarket.activities.common.Constants.ACTIVITY.CATEGORY_DETAIL
 import com.example.svbookmarket.activities.common.Constants.ITEM
 import com.example.svbookmarket.activities.common.MarginItemDecoration
@@ -21,7 +21,7 @@ import java.util.*
 import kotlin.collections.ArrayList
 
 @AndroidEntryPoint
-class CategoryDetailActivity : AppCompatActivity(), CategoryDetailAdapter.OnCategoryClickListener {
+class CategoryDetailActivity : AppCompatActivity(), SuggestAdapter.OnSuggestClickListener {
     companion object {
         const val CATEGORY_TYPE = "CATEGORY"
     }
@@ -30,7 +30,7 @@ class CategoryDetailActivity : AppCompatActivity(), CategoryDetailAdapter.OnCate
     lateinit var items: ArrayList<Book>
     private val viewmodel: CategoryDetailViewModel by viewModels()
 
-    private val detailApt = CategoryDetailAdapter(mutableListOf(), this)
+    private val detailApt = SuggestAdapter(mutableListOf(), this)
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -86,11 +86,10 @@ class CategoryDetailActivity : AppCompatActivity(), CategoryDetailAdapter.OnCate
     private fun getCategoryNameFromIntent(): String = intent.getStringExtra(CATEGORY_TYPE)!!
 
 
-    override fun onCategoryItemClick(item: Book) {
-        val i = putBookIntoIntent(item)
+    override fun onSuggestClick(book: Book) {
+        val i = putBookIntoIntent(book)
         navigate(i)
     }
-
     private fun navigate(mIntent: Intent) = this.binding.root.context.startActivity(mIntent)
 
     private fun putBookIntoIntent(item: Book): Intent {

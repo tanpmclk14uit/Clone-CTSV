@@ -1,107 +1,73 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".activities.ItemDetailActivity">
-
-    <ScrollView
-        android:id="@+id/scrollView2"
+    <com.google.android.material.appbar.AppBarLayout
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        app:layout_constraintBottom_toTopOf="@id/id_btnContainer"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
-
-        <LinearLayout
+        android:id="@+id/appBar"
+        android:layout_height="wrap_content">
+        <androidx.appcompat.widget.Toolbar
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical">
-
-            <androidx.constraintlayout.widget.ConstraintLayout
-                android:id="@+id/ln_book_cover"
+            android:layout_height="wrap_content">
+            <LinearLayout
+                android:layout_marginHorizontal="20dp"
+                android:orientation="horizontal"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="@android:color/transparent">
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:alpha="0.5"
-                    android:background="@color/black"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent">
-
-                    <ImageView
-                        android:id="@+id/id_tnBackground"
-                        android:layout_width="match_parent"
-                        android:layout_height="380dp"
-                        android:alpha="0.5"
-                        android:background="@drawable/bookimage"
-                        android:scaleX="1"
-                        android:scaleY="1" />
-                </LinearLayout>
-
+                android:layout_height="wrap_content">
                 <ImageButton
                     android:id="@+id/id_back"
-                    android:layout_width="70dp"
-                    android:layout_height="40dp"
-                    android:layout_marginTop="16dp"
+                    android:layout_gravity="center_vertical"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
                     android:background="#00000000"
                     android:src="@drawable/vector"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
+                <TextView
+                    android:layout_gravity="center_vertical"
+                    android:textColor="@color/white"
+                    android:textSize="20sp"
+                    android:gravity="center"
+                    android:textStyle="bold"
+                    android:text="Chi tiết thông báo"
+                    android:layout_marginStart="5dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"/>
+            </LinearLayout>
+        </androidx.appcompat.widget.Toolbar>
+    </com.google.android.material.appbar.AppBarLayout>
 
-
+    <androidx.core.widget.NestedScrollView
+        android:layout_marginTop="10dp"
+        android:id="@+id/scrollView2"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@id/id_addCart"
+        android:layout_below="@id/appBar"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="10dp"
+                android:orientation="vertical">
 
                 <ImageView
                     android:id="@+id/id_thumbnail"
-                    android:layout_width="180dp"
-                    android:layout_height="260dp"
-                    android:src="@drawable/bookimage"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
-            </androidx.constraintlayout.widget.ConstraintLayout>
-
-            <androidx.constraintlayout.widget.ConstraintLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="@drawable/bg_linear_layout_item_info"
-                android:padding="20dp">
-                <LinearLayout
-                    android:layout_marginBottom="10dp"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent">
-                    <TextView
-                        android:id="@+id/tv_counts"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Number of books remaining: "
-                        app:layout_constraintHorizontal_bias="0"
-                        app:layout_constraintEnd_toStartOf="@+id/id_Count"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toTopOf="parent" />
+                    android:layout_height="200dp"
+                    android:scaleType="fitCenter"
+                    android:contentDescription="@string/app_name"
+                    android:src="@drawable/bookimage" />
 
-                    <TextView
-                        android:id="@+id/id_Count"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:gravity="top"
-                        android:text="5"
-                        android:singleLine="true"
-                        android:background="@android:color/transparent"
-                        android:textSize="14sp"
-                        />
-                </LinearLayout>
                 <TextView
                     android:id="@+id/id_title"
                     android:layout_width="match_parent"
@@ -116,97 +82,17 @@
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
 
-                <LinearLayout
-                    android:id="@+id/ln_author"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.0"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/id_title" >
                 <TextView
-                    android:id="@+id/id_author"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Thomas Harris"
-                    android:textColor="@color/fade_gray"/>
-
-                </LinearLayout>
-
-
-                <TextView
-                    android:id="@+id/id_price"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="5dp"
-                    android:text="10000"
-                    android:textSize="22sp"
-                    android:textStyle="bold"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/ln_author" />
-
-                <TextView
-                    android:layout_marginTop="5dp"
                     android:id="@+id/id_salerName"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
                     android:text="Saled by: "
                     android:textColor="#0F52BA"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="0"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/constraintLayout" />
-
-                <androidx.constraintlayout.widget.ConstraintLayout
-                    android:id="@+id/constraintLayout"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="5dp"
-                    android:gravity="end"
-                    android:orientation="horizontal"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="1"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/id_price">
-
-                    <TextView
-
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="start"
-                        android:layout_marginEnd="50dp"
-                        android:ellipsize="end"
-                        android:fontFamily="@font/roboto_regular"
-                        android:singleLine="true"
-                        android:text="Purchases"
-
-                        android:textSize="14sp"
-                        app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toTopOf="parent" />
-
-                    <TextView
-                        android:id="@+id/id_rate"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginRight="5dp"
-                        android:fontFamily="@font/roboto_regular"
-                        android:text="0"
-                        android:textColor="#FFC107"
-                        android:textSize="14sp"
-                        app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintEnd_toStartOf="@+id/imageView5"
-                        app:layout_constraintTop_toTopOf="parent" />
-
-                    <ImageView
-                        android:id="@+id/imageView5"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:src="@drawable/star"
-                        app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintTop_toTopOf="parent" />
-                </androidx.constraintlayout.widget.ConstraintLayout>
 
                 <androidx.constraintlayout.widget.ConstraintLayout
                     android:id="@+id/textView"
@@ -216,7 +102,7 @@
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="0"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/id_salerName" >
+                    app:layout_constraintTop_toBottomOf="@+id/id_salerName">
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -227,13 +113,13 @@
                         android:textStyle="bold"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toTopOf="parent">
-                    </TextView>
+                        app:layout_constraintTop_toTopOf="parent"/>
+
                     <androidx.appcompat.widget.AppCompatButton
-                        android:layout_width="25dp"
-                        android:background="@drawable/ic_baseline_expand_less_24"
-                        android:layout_height="25dp"
                         android:id="@+id/expandDes"
+                        android:layout_width="25dp"
+                        android:layout_height="25dp"
+                        android:background="@drawable/ic_baseline_expand_less_24"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintTop_toTopOf="parent" />
@@ -244,131 +130,85 @@
                     android:id="@+id/id_description"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:fontFamily="@font/roboto_regular"
                     android:justificationMode="inter_word"
                     android:text="@string/textTest"
                     android:textColor="@color/fade_gray"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.525"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/textView" />
-
-                <TextView
-                    android:layout_marginTop="5dp"
-                    android:id="@+id/textView13"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:fontFamily="@font/roboto_regular"
-                    android:text="@string/comment"
-                    android:textSize="16sp"
-                    android:textStyle="bold"
-                    app:layout_constraintBottom_toTopOf="@+id/comment"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/id_description" />
-
-                <TextView
-                    android:layout_marginTop="5dp"
-                    android:id="@+id/commentCount"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="5dp"
-                    android:fontFamily="@font/roboto_regular"
-                    android:text="(8)"
-                    app:layout_constraintBottom_toTopOf="@+id/comment"
-                    app:layout_constraintStart_toEndOf="@+id/textView13"
-                    app:layout_constraintTop_toBottomOf="@+id/id_description" />
-
-                    <EditText
-                        android:id="@+id/comment"
-                        android:hint="Leave your comment here"
-                        android:layout_width="match_parent"
+                    />
+                <LinearLayout
+                    android:layout_marginVertical="5dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                    <TextView
+                        android:id="@+id/textView13"
+                        android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        app:layout_constraintEnd_toEndOf="parent"
+                        android:fontFamily="@font/roboto_regular"
+                        android:text="@string/comment"
+                        android:gravity="center_vertical"
+                        android:textSize="16sp"
+                        android:textStyle="bold"
+                        app:layout_constraintBottom_toTopOf="@+id/comment"
                         app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/commentCount" />
+                        app:layout_constraintTop_toBottomOf="@+id/id_description" />
+                    <TextView
+                        android:layout_marginStart="5dp"
+                        android:layout_gravity="center_vertical"
+                        android:id="@+id/commentCount"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/roboto_regular"
+                        android:text="(8)"
+                        app:layout_constraintBottom_toTopOf="@+id/comment"
+                        app:layout_constraintStart_toEndOf="@+id/textView13"
+                        app:layout_constraintTop_toBottomOf="@+id/id_description" />
+                </LinearLayout>
+
+                <EditText
+                    android:id="@+id/comment"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Leave your comment here"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/commentCount" />
 
                 <Button
                     android:id="@+id/postComment"
                     android:layout_width="70dp"
                     android:layout_height="40dp"
                     android:text="Post"
+                    android:layout_gravity="end"
                     android:textAllCaps="true"
                     android:textAppearance="@style/TextAppearance.MaterialComponents.Body1"
                     android:textColor="@color/white"
                     android:textStyle="bold"
                     app:cornerRadius="7dp"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="1.0"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/comment">
+                    >
 
                 </Button>
-
-                <androidx.recyclerview.widget.RecyclerView
-                    android:id="@+id/recycleViewComment"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/postComment" />
-            </androidx.constraintlayout.widget.ConstraintLayout>
+            </LinearLayout>
+            <androidx.recyclerview.widget.RecyclerView
+                android:layout_marginHorizontal="10dp"
+                android:id="@+id/recycleViewComment"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:nestedScrollingEnabled="false"
+                />
         </LinearLayout>
-    </ScrollView>
-
-    <LinearLayout
-        android:id="@+id/id_btnContainer"
+    </androidx.core.widget.NestedScrollView>
+    <Button
+        android:layout_alignParentBottom="true"
+        android:id="@+id/id_addCart"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="8dp"
-        android:orientation="horizontal"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/scrollView2">
+        android:layout_height="@dimen/btn_height"
+        android:layout_marginHorizontal="20dp"
+        android:layout_marginVertical="5dp"
+        android:shadowColor="@color/trans"
+        android:text="Thêm vào xem sau"
+        android:textAllCaps="true"
+        android:textAppearance="@style/TextAppearance.MaterialComponents.Body1"
+        android:textColor="@color/white"
+        android:textStyle="bold"
+        app:cornerRadius="14dp" />
 
-
-<!--        <androidx.appcompat.widget.AppCompatButton-->
-<!--            android:id="@+id/id_addCart"-->
-<!--            android:layout_width="64dp"-->
-<!--            android:layout_height="48dp"-->
-<!--            android:layout_gravity="center"-->
-<!--            android:background="@drawable/bg_blue_rounded_outline_btn"-->
-<!--            android:drawableStart="@drawable/img_add_cart"-->
-<!--            android:paddingStart="20dp" />-->
-
-        <Button
-            android:shadowColor="@color/trans"
-            android:layout_marginStart="24dp"
-            android:id="@+id/id_addCart"
-            style="@style/Widget.MaterialComponents.Button.Icon"
-            android:layout_width="64dp"
-            android:layout_height="48dp"
-            android:backgroundTint="@color/white"
-            android:insetTop="0dp"
-            android:insetBottom="0dp"
-            app:cornerRadius="12dp"
-            app:icon="@drawable/img_add_cart"
-            app:iconGravity="textStart"
-            android:paddingStart="20dp"
-            app:iconTint="@color/blue_dark"
-            app:rippleColor="#bdd5fa"
-            app:strokeColor="@color/blue_dark"
-            app:strokeWidth="2dp" />
-
-        <Button
-            android:id="@+id/id_buy"
-            android:layout_width="match_parent"
-            android:layout_height="@dimen/btn_height"
-            android:layout_marginStart="18dp"
-            android:layout_marginEnd="24dp"
-            android:shadowColor="@color/trans"
-            android:text="Buy Now"
-            android:textAllCaps="true"
-            android:textAppearance="@style/TextAppearance.MaterialComponents.Body1"
-            android:textColor="@color/white"
-            android:textStyle="bold"
-            app:cornerRadius="14dp" />
-    </LinearLayout>
-
-</androidx.constraintlayout.widget.ConstraintLayout>
+</RelativeLayout>

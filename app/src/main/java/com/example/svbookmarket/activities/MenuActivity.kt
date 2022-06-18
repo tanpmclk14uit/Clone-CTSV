@@ -24,7 +24,6 @@ class MenuActivity:AppCompatActivity() {
             "home"-> Intent(this, HomeActivity::class.java)
             "profile"-> Intent(this, ProfileActivity::class.java)
             "cart"-> Intent(this, CartActivity::class.java)
-            "checkout"-> Intent(this, CheckoutActivity::class.java)
             "address"-> Intent(this, AddressActivity::class.java)
             else-> Intent(this, ItemDetailActivity::class.java)
         }

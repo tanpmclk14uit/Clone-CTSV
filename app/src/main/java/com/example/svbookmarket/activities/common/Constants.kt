@@ -33,7 +33,7 @@ object Constants {
 
 
     enum class ACTIVITY {
-       PROFILE, MENU, SEARCH, CART, CATEGORY, FEATURE, CATEGORY_DETAIL;
+       PROFILE, MENU, SEARCH, CART, CATEGORY, CATEGORY_DETAIL;
 
         override fun toString(): String {
             return name.toLowerCase().capitalize()

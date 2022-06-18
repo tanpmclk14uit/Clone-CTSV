@@ -5,7 +5,7 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.example.svbookmarket.activities.common.Constants
 import com.example.svbookmarket.activities.data.OrderRepository
-import com.example.svbookmarket.activities.model.Cart
+import com.example.svbookmarket.activities.model.Book
 import com.example.svbookmarket.activities.model.Order
 import com.google.firebase.Timestamp
 import dagger.hilt.android.lifecycle.HiltViewModel
@@ -30,12 +30,10 @@ class UserOrderViewModel @Inject constructor(private val orderRepository: OrderR
             if (error != null) {
                 Log.w(Constants.VMTAG, "Listen failed.", error)
             } else {
-                var billingList: ArrayList<Cart> = ArrayList()
+                var billingList: ArrayList<Book> = ArrayList()
                 for (doc in value!!) {
-                    var cart: Cart = Cart()
-                    cart.numbers = doc["Quantity"].toString().toDouble().roundToInt()
-                    cart.name = doc["title"].toString()
-                    cart.price = doc["price"].toString().toLong()
+                    var cart: Book = Book()
+                    cart.Name = doc["title"].toString()
                     cart.id = doc.id
                     billingList.add(cart)
                 }

@@ -26,8 +26,9 @@ class CategoryViewModel @Inject constructor(
     private var _books = MutableLiveData<MutableList<Book>>()
     val books get() = _books
 
+    var isBookLoaded = MutableLiveData<Boolean>()
 
-    private fun getBookFrom(): MutableLiveData<MutableList<Book>> {
+    fun getBookFrom(): MutableLiveData<MutableList<Book>> {
         bookRepository.getBooksFromCloudFirestore1().addSnapshotListener(object :
             EventListener<QuerySnapshot> {
             override fun onEvent(value: QuerySnapshot?, error: FirebaseFirestoreException?) {
@@ -35,20 +36,17 @@ class CategoryViewModel @Inject constructor(
                     Log.w(Constants.VMTAG, "Listen failed.", error)
                     return
                 }
-
                 val bookList: MutableList<Book> = ArrayList()
                 for (doc in value!!) {
                     val bookItem = doc.toObject(Book::class.java)
                     bookList.add(bookItem)
                 }
                 books.value = bookList
+                isBookLoaded.value = true
             }
         })
         return books
     }
-
-    //retrieve  fake data
-    // TODO: 16/06/2021 retrive data from db 
     private fun loadCategoryList() {
         _category.value = mutableListOf(
             Category(R.drawable.img_art, Constants.CATEGORY.CHUNG),
@@ -60,15 +58,10 @@ class CategoryViewModel @Inject constructor(
         )
     }
 
-    /**
-     * PUBLIC ZONE:
-     */
-
-    fun getBooksOfCategory(categoryName: String): ArrayList<Book>? {
+    fun getBooksOfCategory(categoryName: String): ArrayList<Book> {
         val filted = _books.value?.filter { category ->
             category.Kind == categoryName
         }
-        Log.i("WTF in category", "${_books.value}")
         return if (filted != null) ArrayList(filted) else ArrayList(mutableListOf())
     }
 
@@ -76,7 +69,6 @@ class CategoryViewModel @Inject constructor(
     init {
         getBookFrom()
         loadCategoryList()
-        Log.i("CATEGORY", "Conadsds")
-
+        isBookLoaded.value = false
     }
 }
