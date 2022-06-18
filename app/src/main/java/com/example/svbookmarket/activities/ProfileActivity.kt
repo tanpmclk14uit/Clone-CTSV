@@ -27,16 +27,16 @@ class ProfileActivity() : AppCompatActivity() {
         binding = ActivityProfileBinding.inflate(layoutInflater)
         setContentView(binding.root)
         setBackButtonClick()
-        loadData(AppUtil.currentSeller.email)
-
+        loadData(AppUtil.currentAccount.email)
     }
 
     override fun onBackPressed() {
         super.onBackPressed()
         finish()
     }
+
     private val db = Firebase.firestore
-    private val dbAccountsReference = db.collection("salerAccount")
+    private val dbAccountsReference = db.collection("accounts")
 
     private fun loadData(email: String) {
         dbAccountsReference.document(email).get()
@@ -46,34 +46,37 @@ class ProfileActivity() : AppCompatActivity() {
                     fullName = userMap["fullName"].toString(),
                     gender = userMap["gender"].toString(),
                     birthDay = userMap["birthDay"].toString(),
-                    phoneNumber = userMap["phoneNumber"].toString(),
-                    addressLane = userMap["addressLane"].toString(),
-                    city = userMap["city"].toString(),
-                    district = userMap["district"].toString(),
+                    studentId = userMap["studentId"].toString(),
+                    career = userMap["career"].toString(),
+                    studyClass = userMap["studyClass"].toString(),
+                    address = userMap["address"].toString(),
                 )
-                AppUtil.currentSeller.user = recentUser
-                setInfoView(AppUtil.currentSeller)
+                AppUtil.currentAccount.user = recentUser
+                setInfoView(AppUtil.currentAccount)
             }
     }
 
 
-
     @SuppressLint("SetTextI18n")
-    private fun setInfoView(seller: AppAccount){
-        binding.email.text = seller.email
-        binding.userName.text = seller.user.fullName
-        binding.birthday.text = seller.user.addressLane
-        binding.addressLane.text = seller.user.district
-        binding.phone.text = seller.user.phoneNumber
-        binding.city.text = seller.user.city
-        if(seller.user.gender =="Male"){
-            binding.avatar.setImageResource(R.drawable.ic_male)
-        }else{
+    private fun setInfoView(user: AppAccount){
+        binding.email.text = user.email
+        binding.userName.text = user.user.fullName
+        binding.address.text = user.user.address
+        binding.birthDay.text = user.user.birthDay
+        binding.studentId.text = user.user.studentId
+        binding.studentClass.text = user.user.studyClass
+        binding.career.text = user.user.career
+        if(user.user.gender =="Female"){
             binding.avatar.setImageResource(R.drawable.ic_female)
+        }else{
+            binding.avatar.setImageResource(R.drawable.ic_male)
+        }
+        if(user.user.isFullInformation()){
+            binding.editButton.text = "Chỉnh sửa thông tin cá nhân"
+        }else{
+            binding.editButton.text = "Bổ sung thông tin cá nhân"
         }
     }
-
-
 
     private  fun setBackButtonClick(){
         binding.imgBack.setOnClickListener {

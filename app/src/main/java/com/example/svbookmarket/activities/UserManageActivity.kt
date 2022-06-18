@@ -22,24 +22,29 @@ class UserManageActivity : AppCompatActivity() {
         setContentView(binding.root)
         setButtonBack()
         setLogout()
-//        setYourProfile()
+
         setUpUserInfoView()
         setDeliveryAddress()
         setAllOrderClick()
         setWaitingForDeliverRy()
+        setSavedNotificationClick()
+        setYourProfile()
     }
 
+    private fun setSavedNotificationClick(){
+        binding.savedNotification.setOnClickListener{
+            startActivity(Intent(baseContext, CartActivity::class.java))
+        }
+    }
     private fun setAllOrderClick() {
         binding.allOrders.setOnClickListener {
             startActivity(Intent(baseContext, UserOrder::class.java))
-            finish()
         }
     }
 
     private fun setDeliveryAddress() {
         binding.address.setOnClickListener {
-            startActivity(Intent(baseContext, AddressActivity::class.java))
-            finish()
+
         }
     }
 
@@ -56,12 +61,12 @@ class UserManageActivity : AppCompatActivity() {
         }
     }
 
-//    private fun setYourProfile() {
-//        binding.yourInfo.setOnClickListener {
-//            startActivity(Intent(baseContext, ProfileActivity::class.java))
-//            finish()
-//        }
-//    }
+    private fun setYourProfile() {
+        binding.yourInfo.setOnClickListener {
+            startActivity(Intent(baseContext, ProfileActivity::class.java))
+            finish()
+        }
+    }
 
     private lateinit var auth: FirebaseAuth
     private fun setLogout() {

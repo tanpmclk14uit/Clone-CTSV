@@ -39,9 +39,6 @@ class ItemDetailActivity : AppCompatActivity() {
         //getItemToDisplayFromBundle()
         setupOnlickListener()
         onDeleteListen()
-        binding.idSalerName.setOnClickListener {
-            startActivity(Intent(baseContext, ProfileActivity::class.java))
-        }
 
         binding.expandDes.setOnClickListener {
             onExpandClick()
@@ -77,8 +74,6 @@ class ItemDetailActivity : AppCompatActivity() {
                 getAllComment()
                 binding.idTitle.text = it.Name
                 binding.idDescription.text = it.Description
-                binding.idSalerName.text = "Sale by " + it.SalerName
-                AppUtil.currentSeller.email = it.Saler.toString()
                 it.Image?.let { uri -> loadImageFromUri(Uri.parse(uri)) }
 
             } else {

@@ -28,7 +28,6 @@
             <include
                 android:id="@+id/htb_homeToolBar"
                 layout="@layout/search_bar"
-
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="10dp"
@@ -143,7 +142,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:mbn_backgroundBottomColor="@color/blue_light"
+        app:mbn_backgroundBottomColor="@color/blue_dark"
         android:background="@color/white"
         app:mbn_countBackgroundColor="#ff6f00"
         app:mbn_countTextColor="@color/white"

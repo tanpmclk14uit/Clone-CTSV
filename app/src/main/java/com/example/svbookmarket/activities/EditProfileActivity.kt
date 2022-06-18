@@ -49,10 +49,10 @@ class EditProfileActivity : AppCompatActivity() {
                     fullName = binding.edtName.text.toString(),
                     gender = binding.gender.text.toString(),
                     birthDay = binding.edtBirthday.text.toString(),
-                    phoneNumber = binding.edtPhoneNumber.text.toString(),
-                    addressLane = binding.edtAddressLane.text.toString(),
-                    city = binding.edtCity.text.toString(),
-                    district = binding.edtDistrict.text.toString()
+//                    phoneNumber = binding.edtPhoneNumber.text.toString(),
+//                    addressLane = binding.edtAddressLane.text.toString(),
+//                    city = binding.edtCity.text.toString(),
+//                    district = binding.edtDistrict.text.toString()
                 )
                 viewModel.updateUserInfo(user)
                 Toast.makeText(this,"Saved",Toast.LENGTH_SHORT).show()
@@ -113,10 +113,10 @@ class EditProfileActivity : AppCompatActivity() {
     private fun setData(){
         binding.edtName.setText( viewModel.getUserInfo().fullName)
         binding.edtBirthday.setText(viewModel.getUserInfo().birthDay)
-        binding.edtAddressLane.setText(viewModel.getUserInfo().addressLane)
-        binding.edtDistrict.setText(viewModel.getUserInfo().district)
-        binding.edtCity.setText(viewModel.getUserInfo().city)
-        binding.edtPhoneNumber.setText(viewModel.getUserInfo().phoneNumber)
+//        binding.edtAddressLane.setText(viewModel.getUserInfo().addressLane)
+//        binding.edtDistrict.setText(viewModel.getUserInfo().district)
+//        binding.edtCity.setText(viewModel.getUserInfo().city)
+//        binding.edtPhoneNumber.setText(viewModel.getUserInfo().phoneNumber)
         binding.gender.setText(viewModel.getUserInfo().gender, false)
 
 

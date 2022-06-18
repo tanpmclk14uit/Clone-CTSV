@@ -23,7 +23,6 @@ class CartItemAdapter(val listener: OnButtonClickListener, private var cartList:
 
     override fun onBindViewHolder(holder: VH, position: Int) {
         holder.title.text = cartList[position].Name
-        holder.author.text = cartList[position].SalerName
 
         Glide
             .with(holder.itemView)
@@ -50,7 +49,6 @@ class CartItemAdapter(val listener: OnButtonClickListener, private var cartList:
     class VH(ViewHolder:View):RecyclerView.ViewHolder(ViewHolder){
         val thumbnail: ImageView = ViewHolder.findViewById(R.id.imgSuggest)
         val title: TextView = ViewHolder.findViewById(R.id.tvBookSuggest)
-        val author: TextView = ViewHolder.findViewById(R.id.tvAuthorSuggest)
         val des: TextView = ViewHolder.findViewById(R.id.sg_description)
     }
 

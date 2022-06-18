@@ -49,18 +49,7 @@
                     android:textStyle="bold" />
 
                 <TextView
-                    android:id="@+id/tvAuthorSuggest"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="4dp"
-                    android:ellipsize="end"
-                    android:fontFamily="@font/roboto_medium"
-                    android:maxLines="1"
-                    android:text="by Tracy Bloom"
-                    android:textColor="@color/blue_dark"
-                    android:textStyle="bold" />
-
-                <TextView
+                   android:layout_marginTop="22dp"
                     android:id="@+id/sg_description"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"

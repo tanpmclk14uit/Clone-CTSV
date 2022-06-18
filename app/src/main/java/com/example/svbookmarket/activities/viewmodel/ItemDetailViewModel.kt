@@ -114,8 +114,6 @@ class ItemDetailViewModel @Inject constructor (private val savedStateHandle: Sav
                         value?.data?.get("Name").toString(),
                         value?.data?.get("Kind").toString(),
                         value?.data?.get("Description").toString(),
-                        value?.data?.get("Saler").toString(),
-                        value?.data?.get("SalerName").toString(),
                     )
                     itemToDisplay.value = book
                 }

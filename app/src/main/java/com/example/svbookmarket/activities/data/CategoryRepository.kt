@@ -17,18 +17,18 @@ class CategoryRepository @Inject constructor( /*database */) {
 
     @DrawableRes
     fun getCollectionImgSource(categoryName: String): Int {
-        return R.drawable.bg_gradient_splash
+        return R.drawable.bg_increasebtn
     }
 
 
     private fun loadData() {
         _category.value = mutableListOf(
-            Category(R.drawable.bg_gradient_splash, CHUNG),
-            Category(R.drawable.bg_gradient_splash,  HV),
-            Category(R.drawable.bg_gradient_splash, VB2),
-            Category(R.drawable.bg_gradient_splash, LTCQ),
-            Category(R.drawable.bg_gradient_splash, NB),
-            Category(R.drawable.bg_gradient_splash, PH),
+            Category(R.drawable.bg_increasebtn, CHUNG),
+            Category(R.drawable.bg_increasebtn,  HV),
+            Category(R.drawable.bg_increasebtn, VB2),
+            Category(R.drawable.bg_increasebtn, LTCQ),
+            Category(R.drawable.bg_increasebtn, NB),
+            Category(R.drawable.bg_increasebtn, PH),
         )
     }
 

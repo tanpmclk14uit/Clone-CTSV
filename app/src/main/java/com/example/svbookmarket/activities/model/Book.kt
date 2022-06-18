@@ -7,13 +7,10 @@ data class Book(
     var id: String? = "",
     var Image: String? = "",
     var Name: String? = "",
-    var Kind: String? ="",
+    var Kind: String? = "",
     var Description: String? = "",
-    var Saler: String? = "",
-    var SalerName: String?=""):Parcelable {
+) : Parcelable {
     constructor(parcel: Parcel) : this(
-        parcel.readString(),
-        parcel.readString(),
         parcel.readString(),
         parcel.readString(),
         parcel.readString(),
@@ -28,8 +25,6 @@ data class Book(
         parcel.writeString(Name)
         parcel.writeString(Kind)
         parcel.writeString(Description)
-        parcel.writeString(Saler)
-        parcel.writeString(SalerName)
     }
 
     override fun describeContents(): Int {

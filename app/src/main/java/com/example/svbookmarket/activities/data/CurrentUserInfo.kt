@@ -30,10 +30,10 @@ public class CurrentUserInfo private constructor(var currentProfile: AppAccount 
                     fullName = userMap["fullName"].toString(),
                     gender = userMap["gender"].toString(),
                     birthDay = userMap["birthDay"].toString(),
-                    phoneNumber = userMap["phoneNumber"].toString(),
-                    addressLane = userMap["addressLane"].toString(),
-                    city = userMap["city"].toString(),
-                    district = userMap["district"].toString(),
+                    studentId = userMap["studentId"].toString(),
+                    career = userMap["career"].toString(),
+                    studyClass = userMap["studyClass"].toString(),
+                    address = userMap["address"].toString(),
                 )
                 currentProfile.user = recentUser
             }
@@ -88,8 +88,6 @@ public class CurrentUserInfo private constructor(var currentProfile: AppAccount 
                                 doc.data["Name"].toString(),
                                 doc.data["Kind"].toString(),
                                 doc.data["Description"].toString(),
-                                doc.data["Saler"].toString(),
-                                doc.data["SalerName"].toString(),
                             )
                             item.id = doc.id
                             cartList.add(item)

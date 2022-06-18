@@ -36,7 +36,6 @@ class SuggestAdapter(
         with(books[position]) {
             holder.let {
                 it.title.text = Name
-                it.author.text = SalerName
                 it.des.text = Description
 
                 Glide
@@ -72,7 +71,6 @@ override fun getItemCount() = books.size
 inner class SuggestViewHolder(ViewHolder: View) : RecyclerView.ViewHolder(ViewHolder) {
     val thumbnail: ImageView = ViewHolder.findViewById(R.id.imgSuggest)
     val title: TextView = ViewHolder.findViewById(R.id.tvBookSuggest)
-    val author: TextView = ViewHolder.findViewById(R.id.tvAuthorSuggest)
     val des: TextView = ViewHolder.findViewById(R.id.sg_description)
 
     val DEFAULT_COLOR = ContextCompat.getColor(

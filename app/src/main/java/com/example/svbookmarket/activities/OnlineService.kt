@@ -1,12 +1,12 @@
 package com.example.svbookmarket.activities
 
-import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
+import android.os.Bundle
 import com.example.svbookmarket.R
 
-class EditAdressActivity:AppCompatActivity() {
+class OnlineService : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_edit_adress)
+        setContentView(R.layout.activity_online_service)
     }
 }

@@ -51,8 +51,6 @@ class CartRepository @Inject constructor(
             var newCart: MutableMap<String, *> = mutableMapOf(
                 "Image" to book.Image,
                 "Name" to book.Name,
-                "Saler" to book.Saler,
-                "SalerName" to book.SalerName,
                 "Description" to book.Description,
                 "Kind" to book.Kind
             )

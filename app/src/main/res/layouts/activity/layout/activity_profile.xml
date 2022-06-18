@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/profile_background"
+    android:background="@color/blue_light"
     tools:context=".activities.ProfileActivity">
 
     <ImageView
@@ -28,7 +28,7 @@
         android:fontFamily="@font/roboto_bold"
         android:text="@string/profile"
         android:textColor="@color/white"
-        android:textSize="28dp"
+        android:textSize="28sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -93,6 +93,7 @@
     </LinearLayout>
 
     <androidx.cardview.widget.CardView
+        android:id="@+id/cardView3"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="30dp"
@@ -104,9 +105,9 @@
         app:layout_constraintTop_toBottomOf="@+id/linearLayout6">
 
         <LinearLayout
-            android:orientation="vertical"
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="match_parent"
+            android:orientation="vertical">
 
             <RelativeLayout
                 android:layout_width="match_parent"
@@ -114,29 +115,31 @@
                 android:layout_marginHorizontal="30dp"
                 android:layout_marginTop="20dp"
                 android:orientation="horizontal">
+
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Mobile:"
+                    android:text="MSSV: "
                     android:textColor="@color/blue_light"
                     android:textSize="16sp" />
+
                 <TextView
-                    android:id="@+id/phone"
+                    android:id="@+id/studentId"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignParentEnd="true"
-                    android:text=""
                     android:layout_marginTop="2dp"
+                    android:text=""
                     android:textColor="@color/info_gray"
                     android:textSize="@dimen/text_small" />
             </RelativeLayout>
+
             <View
-                android:layout_marginTop="5dp"
                 android:layout_width="match_parent"
                 android:layout_height="1dp"
                 android:layout_marginHorizontal="30dp"
-                android:background="@drawable/bg_gradiant_user"
-                />
+                android:layout_marginTop="5dp"
+                android:background="@color/blue_light" />
 
             <RelativeLayout
                 android:layout_width="match_parent"
@@ -144,72 +147,80 @@
                 android:layout_marginHorizontal="30dp"
                 android:layout_marginTop="20dp"
                 android:orientation="horizontal">
+
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Address lane"
+                    android:text="Ngành: "
                     android:textColor="@color/blue_light"
                     android:textSize="16sp" />
+
                 <TextView
-                    android:id="@+id/birthday"
+                    android:id="@+id/career"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="2dp"
                     android:layout_alignParentEnd="true"
+                    android:layout_marginTop="2dp"
                     android:text=""
                     android:textColor="@color/info_gray"
                     android:textSize="@dimen/text_small" />
             </RelativeLayout>
+
             <View
-                android:layout_marginTop="5dp"
                 android:layout_width="match_parent"
                 android:layout_height="1dp"
                 android:layout_marginHorizontal="30dp"
-                android:background="@drawable/bg_gradiant_user"
-                />
+                android:layout_marginTop="5dp"
+                android:background="@color/blue_light" />
+
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="30dp"
                 android:layout_marginTop="20dp"
                 android:orientation="horizontal">
+
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="District"
+                    android:text="Lớp: "
                     android:textColor="@color/blue_light"
                     android:textSize="16sp" />
+
                 <TextView
-                    android:id="@+id/addressLane"
+                    android:id="@+id/studentClass"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="2dp"
                     android:layout_alignParentEnd="true"
+                    android:layout_marginTop="2dp"
                     android:text=""
                     android:textColor="@color/info_gray"
                     android:textSize="@dimen/text_small" />
             </RelativeLayout>
+
             <View
-                android:layout_marginTop="5dp"
                 android:layout_width="match_parent"
                 android:layout_height="1dp"
                 android:layout_marginHorizontal="30dp"
-                android:background="@drawable/bg_gradiant_user"
-                />
+                android:layout_marginTop="5dp"
+                android:background="@color/blue_light" />
+
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="30dp"
                 android:layout_marginTop="20dp"
                 android:orientation="horizontal">
+
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="City:"
+                    android:text="Địa chỉ:"
                     android:textColor="@color/blue_light"
                     android:textSize="16sp" />
+
                 <TextView
-                    android:id="@+id/city"
+                    android:id="@+id/address"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignParentEnd="true"
@@ -218,16 +229,64 @@
                     android:textColor="@color/info_gray"
                     android:textSize="@dimen/text_small" />
             </RelativeLayout>
+
             <View
-                android:layout_marginTop="5dp"
                 android:layout_width="match_parent"
                 android:layout_height="1dp"
                 android:layout_marginHorizontal="30dp"
-                android:background="@drawable/bg_gradiant_user"
+                android:layout_marginTop="5dp"
+                android:background="@color/blue_light"
+
+                />
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="30dp"
+                android:layout_marginTop="20dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Ngày sinh: "
+                    android:textColor="@color/blue_light"
+                    android:textSize="16sp" />
+
+                <TextView
+                    android:id="@+id/birthDay"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:layout_marginTop="2dp"
+                    android:text=""
+                    android:textColor="@color/info_gray"
+                    android:textSize="@dimen/text_small" />
+            </RelativeLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginHorizontal="30dp"
+                android:layout_marginTop="5dp"
                 android:layout_marginBottom="30dp"
+                android:background="@color/blue_light"
+
                 />
         </LinearLayout>
 
     </androidx.cardview.widget.CardView>
 
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/editButton"
+        android:layout_marginTop="20dp"
+        android:layout_marginHorizontal="30dp"
+        android:text="Chỉnh sửa thông tin cá nhân"
+        android:textColor="@color/white"
+        android:textStyle="bold"
+        android:background="@drawable/rounded_button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@+id/cardView3" />
 </androidx.constraintlayout.widget.ConstraintLayout>

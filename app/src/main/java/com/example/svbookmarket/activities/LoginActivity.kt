@@ -119,10 +119,10 @@ class LoginActivity : AppCompatActivity() {
                     fullName = userMap["fullName"].toString(),
                     gender = userMap["gender"].toString(),
                     birthDay = userMap["birthDay"].toString(),
-                    phoneNumber = userMap["phoneNumber"].toString(),
-                    addressLane = userMap["addressLane"].toString(),
-                    city = userMap["city"].toString(),
-                    district = userMap["district"].toString(),
+                    studentId = userMap["studentId"].toString(),
+                    career = userMap["career"].toString(),
+                    studyClass = userMap["studyClass"].toString(),
+                    address = userMap["address"].toString(),
                 )
                 AppUtil.currentUser = recentUser
                 AppUtil.currentAccount = AppAccount(

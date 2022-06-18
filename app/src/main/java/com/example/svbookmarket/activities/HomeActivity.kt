@@ -121,7 +121,6 @@ class HomeActivity : AppCompatActivity(),
                 Intent(this, UserManageActivity::class.java)
 
             }
-            MENU -> Intent(this, MenuActivity::class.java)
             SEARCH -> Intent(this, SearchActivity::class.java)
             CART -> Intent(this, CartActivity::class.java)
             CATEGORY -> {
@@ -129,6 +128,7 @@ class HomeActivity : AppCompatActivity(),
             }
             CATEGORY_DETAIL -> Intent(this, CategoryDetailActivity::class.java)
                 .putExtra(CategoryDetailActivity.CATEGORY_TYPE, name)
+            ONLINE_SERVICE -> Intent(this, OnlineService::class.java)
         }
         startActivity(intent)
     }
@@ -200,7 +200,8 @@ class HomeActivity : AppCompatActivity(),
 
         binding.bottomNavigation.add(MeowBottomNavigation.Model(id= 1, R.drawable.ic_baseline_person_24))
         binding.bottomNavigation.add(MeowBottomNavigation.Model(id= 2, R.drawable.ic_home))
-        binding.bottomNavigation.add(MeowBottomNavigation.Model(id= 3, R.drawable.ic_baseline_shopping_cart_24))
+        binding.bottomNavigation.add(MeowBottomNavigation.Model(id= 3, R.drawable.ic_baseline_description_24))
+        binding.bottomNavigation.add(MeowBottomNavigation.Model(id = 4, R.drawable.ic_baseline_confirmed))
        setCountOfBottomMeow()
         binding.bottomNavigation.show(id = 2,   true)
         binding.bottomNavigation.setOnClickMenuListener {
@@ -209,7 +210,9 @@ class HomeActivity : AppCompatActivity(),
             }
             if(it.id ==1){
                 startIntent(Constants.ACTIVITY.PROFILE)
-
+            }
+            if(it.id ==4){
+                startIntent(Constants.ACTIVITY.ONLINE_SERVICE)
             }
 
         }
@@ -218,6 +221,9 @@ class HomeActivity : AppCompatActivity(),
                binding.bottomNavigation.show(2, true)
             }
             if(it.id ==1){
+                binding.bottomNavigation.show(2, true)
+            }
+            if(it.id ==4){
                 binding.bottomNavigation.show(2, true)
             }
         }

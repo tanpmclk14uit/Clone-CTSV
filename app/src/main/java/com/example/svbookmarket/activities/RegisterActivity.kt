@@ -114,7 +114,8 @@ class RegisterActivity : AppCompatActivity() {
         }
     }
     private fun updateData(){
-        user = User(fullName = edtName.text.toString())
+
+        user = User(fullName = edtName.text.toString(), studentId = email.substring(0, 8))
         appAccount = AppAccount(email, "", user)
         dbReference.document(appAccount.email).set(appAccount).addOnSuccessListener {
             Toast.makeText(this, "Register Success", Toast.LENGTH_SHORT).show()
@@ -195,14 +196,18 @@ class RegisterActivity : AppCompatActivity() {
                     + "([a-zA-Z]+[\\w-]+\\.)+[a-zA-Z]{2,4})$"
         ).matcher(email).matches()
     }
-
+    private val emailLength = "19520261@gm.uit.edu.vn".length
+    private fun isUITEmail(email: String):Boolean{
+        return email.contains("@gm.uit.edu.vn") && email.length == emailLength
+    }
 
     private fun isValidEmail(): Boolean {
+        val email = edtEmail.text.toString().trim()
         return if (edtEmail.text.isEmpty()) {
             edtEmailLayout.error = "Email can not empty"
             false
         } else {
-            if (isEmailRightFormat(edtEmail.text.toString().trim())) {
+            if (isEmailRightFormat(email) && isUITEmail(email)) {
                 edtEmailLayout.error = null
                 true
             } else {

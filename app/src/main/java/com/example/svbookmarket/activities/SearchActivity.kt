@@ -114,7 +114,7 @@ class SearchActivity : AppCompatActivity() {
                 for (i in 0 until FullBookList.getInstance().lstFullBook.size-1)
                 {
                     dataset.add(FullBookList.getInstance().lstFullBook[i].Name!!)
-                    adapter.add(FullBookList.getInstance().lstFullBook[i].Name!! + "\n" + "Selled by: "+ FullBookList.getInstance().lstFullBook[i].SalerName!!)
+                    adapter.add(FullBookList.getInstance().lstFullBook[i].Name!!)
                 }
                 adapter.notifyDataSetChanged()
                 var newString: String = searchBar.query.toString()
