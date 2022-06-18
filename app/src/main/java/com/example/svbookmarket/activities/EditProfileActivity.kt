@@ -44,22 +44,34 @@ class EditProfileActivity : AppCompatActivity() {
 
     private fun setSaveButtonCommand(){
         binding.btnSaveProfile.setOnClickListener {
-            if(isValidName() && isValidPhoneNumber()){
-                var user: User = User(
-                    fullName = binding.edtName.text.toString(),
-                    gender = binding.gender.text.toString(),
-                    birthDay = binding.edtBirthday.text.toString(),
-//                    phoneNumber = binding.edtPhoneNumber.text.toString(),
-//                    addressLane = binding.edtAddressLane.text.toString(),
-//                    city = binding.edtCity.text.toString(),
-//                    district = binding.edtDistrict.text.toString()
-                )
-                viewModel.updateUserInfo(user)
-                Toast.makeText(this,"Saved",Toast.LENGTH_SHORT).show()
-                startActivity(Intent(baseContext, ProfileActivity::class.java))
-                finish()
+            if(isNotEmptyInformation()){
+                if(isValidName()) {
+                    val user: User = User(
+                        fullName = binding.edtName.text.toString(),
+                        gender = binding.gender.text.toString(),
+                        birthDay = binding.edtBirthday.text.toString(),
+                        career = binding.edtCareer.text.toString(),
+                        studyClass = binding.edtStudentClass.text.toString(),
+                        address = binding.edtAddress.text.toString(),
+                        studentId = viewModel.getUserInfo().studentId
+                    )
+                    viewModel.updateUserInfo(user)
+                    Toast.makeText(this, "Saved", Toast.LENGTH_SHORT).show()
+                    startActivity(Intent(baseContext, ProfileActivity::class.java))
+                    finish()
+                }
+            }else{
+                Toast.makeText(this, "Tất cả thông tin không được trống!", Toast.LENGTH_LONG).show()
             }
         }
+    }
+    private fun isNotEmptyInformation(): Boolean{
+        return binding.edtName.text.isNotBlank() &&
+        binding.edtBirthday.text.isNotBlank() &&
+        binding.edtCareer.text.isNotBlank() &&
+        binding.edtStudentClass.text.isNotBlank() &&
+        binding.edtAddress.text.isNotBlank() &&
+        binding.gender.text.isNotBlank()
     }
 
     private fun isValidName(): Boolean {
@@ -85,19 +97,6 @@ class EditProfileActivity : AppCompatActivity() {
         ).matcher(name).find()
         return hasNumber || hasSpecialCharacter
     }
-    private fun isValidPhoneNumber():Boolean{
-        var result = false
-        if(binding.edtPhoneNumber.text.isNotEmpty()){
-            result = Pattern.compile(
-                "^[+]?[0-9]{10,13}\$"
-            ).matcher(binding.edtPhoneNumber.text).find()
-            if(!result){
-                binding.edtPhoneNumber.error ="Please enter right phone number!"
-            }
-        }
-
-        return result
-    }
     override fun onBackPressed() {
         super.onBackPressed()
         finish()
@@ -111,15 +110,13 @@ class EditProfileActivity : AppCompatActivity() {
         binding.gender.setAdapter(adapter)
     }
     private fun setData(){
-        binding.edtName.setText( viewModel.getUserInfo().fullName)
-        binding.edtBirthday.setText(viewModel.getUserInfo().birthDay)
-//        binding.edtAddressLane.setText(viewModel.getUserInfo().addressLane)
-//        binding.edtDistrict.setText(viewModel.getUserInfo().district)
-//        binding.edtCity.setText(viewModel.getUserInfo().city)
-//        binding.edtPhoneNumber.setText(viewModel.getUserInfo().phoneNumber)
+        val user =  viewModel.getUserInfo()
+        binding.edtName.setText( user.fullName)
+        binding.edtBirthday.setText(user.birthDay)
+        binding.edtCareer.setText(user.career)
+        binding.edtStudentClass.setText(user.studyClass)
+        binding.edtAddress.setText(user.address)
         binding.gender.setText(viewModel.getUserInfo().gender, false)
-
-
 
     }
     private fun pickDateSetting(){

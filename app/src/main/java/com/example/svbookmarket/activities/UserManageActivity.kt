@@ -24,7 +24,6 @@ class UserManageActivity : AppCompatActivity() {
         setLogout()
 
         setUpUserInfoView()
-        setDeliveryAddress()
         setAllOrderClick()
         setWaitingForDeliverRy()
         setSavedNotificationClick()
@@ -39,12 +38,6 @@ class UserManageActivity : AppCompatActivity() {
     private fun setAllOrderClick() {
         binding.allOrders.setOnClickListener {
             startActivity(Intent(baseContext, UserOrder::class.java))
-        }
-    }
-
-    private fun setDeliveryAddress() {
-        binding.address.setOnClickListener {
-
         }
     }
 
@@ -64,7 +57,6 @@ class UserManageActivity : AppCompatActivity() {
     private fun setYourProfile() {
         binding.yourInfo.setOnClickListener {
             startActivity(Intent(baseContext, ProfileActivity::class.java))
-            finish()
         }
     }
 

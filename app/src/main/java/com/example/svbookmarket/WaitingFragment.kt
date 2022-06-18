@@ -37,10 +37,6 @@ class WaitingFragment : Fragment() {
         viewModel.setWaitingOrder()
         val waitingOrderView: RecyclerView = view.findViewById(R.id.waitingOrder)
 
-        val goToHomeButton: Button = view.findViewById(R.id.goToBuy)
-        goToHomeButton.setOnClickListener {
-            startActivity(Intent(view.context,HomeActivity::class.java))
-        }
         noItemLayout = view.findViewById(R.id.dontHaveWaitingOrderLayout)
         noItemLayout.visibility = View.GONE
         waitingOrderView.apply {

@@ -1,6 +1,7 @@
 package com.example.svbookmarket.activities
 
 import android.annotation.SuppressLint
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.activity.viewModels
@@ -27,9 +28,15 @@ class ProfileActivity() : AppCompatActivity() {
         binding = ActivityProfileBinding.inflate(layoutInflater)
         setContentView(binding.root)
         setBackButtonClick()
+        setEditButtonClick()
         loadData(AppUtil.currentAccount.email)
     }
-
+    private fun setEditButtonClick(){
+        binding.editButton.setOnClickListener {
+            startActivity(Intent(this, EditProfileActivity::class.java))
+            finish()
+        }
+    }
     override fun onBackPressed() {
         super.onBackPressed()
         finish()

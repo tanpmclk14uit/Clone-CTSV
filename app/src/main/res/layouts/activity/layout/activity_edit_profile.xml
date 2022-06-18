@@ -53,7 +53,7 @@
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-
+            android:paddingBottom="20dp"
             android:layout_height="match_parent"
             android:layout_marginHorizontal="20dp">
 
@@ -63,7 +63,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="30dp"
                 android:fontFamily="@font/roboto_bold"
-                android:text="Name"
+                android:text="Họ và tên"
                 android:textColor="@color/black"
                 android:textSize="16dp"
                 android:textStyle="bold"
@@ -106,7 +106,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/roboto_medium"
-                        android:text="Gender"
+                        android:text="Giới tính"
                         android:textColor="@color/black"
                         android:textSize="16dp"
                         android:textStyle="bold" />
@@ -147,7 +147,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="15dp"
                         android:fontFamily="@font/roboto_bold"
-                        android:text="Birthday"
+                        android:text="Ngày sinh"
                         android:textColor="@color/black"
                         android:textSize="16dp"
                         android:textStyle="bold" />
@@ -172,7 +172,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/roboto_bold"
-                android:text="Phone Number"
+                android:text="Địa chỉ"
                 android:textColor="@color/black"
                 android:textSize="16dp"
                 android:textStyle="bold"
@@ -182,12 +182,12 @@
                 app:layout_constraintTop_toBottomOf="@+id/llGenderAndBirth" />
 
             <EditText
-                android:id="@+id/edtPhoneNumber"
+                android:id="@+id/edtAddress"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:autofillHints="Phone Number"
                 android:fontFamily="@font/roboto_regular"
-                android:inputType="phone"
+                android:inputType="text"
                 android:textColor="@color/less_black"
                 android:textSize="16dp"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -200,17 +200,17 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
                 android:fontFamily="@font/roboto_bold"
-                android:text="Address Lane"
+                android:text="Ngành"
                 android:textColor="@color/black"
                 android:textSize="16dp"
                 android:textStyle="bold"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/edtPhoneNumber" />
+                app:layout_constraintTop_toBottomOf="@+id/edtAddress" />
 
             <EditText
-                android:id="@+id/edtAddressLane"
+                android:id="@+id/edtCareer"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:autofillHints="Address Lane"
@@ -221,74 +221,33 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/tvAddressLane" />
+            <TextView
+                android:id="@+id/tvStudentClass"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:fontFamily="@font/roboto_bold"
+                android:text="Lớp"
+                android:textColor="@color/black"
+                android:textSize="16dp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/edtCareer" />
 
-            <LinearLayout
-                android:id="@+id/llDistrictAndCity"
+            <EditText
+                android:id="@+id/edtStudentClass"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:autofillHints="Address Lane"
+                android:fontFamily="@font/roboto_regular"
+                android:inputType="text"
+                android:textColor="@color/less_black"
+                android:textSize="16dp"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.068"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/edtAddressLane">
-
-                <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical">
-
-                    <TextView
-                        android:id="@+id/tvCity"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:fontFamily="@font/roboto_bold"
-                        android:text="City"
-                        android:textColor="@color/black"
-                        android:textSize="16dp"
-                        android:textStyle="bold" />
-
-                    <EditText
-                        android:id="@+id/edtCity"
-                        android:layout_width="150dp"
-                        android:layout_height="wrap_content"
-                        android:autofillHints="City"
-                        android:fontFamily="@font/roboto_regular"
-                        android:inputType="text"
-                        android:textColor="@color/less_black"
-                        android:textSize="16dp" />
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="30dp"
-                    android:orientation="vertical">
-
-                    <TextView
-                        android:id="@+id/tvDistrict"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="32dp"
-                        android:fontFamily="@font/roboto_bold"
-                        android:inputType="text"
-                        android:text="District"
-                        android:textColor="@color/black"
-                        android:textSize="16dp"
-                        android:textStyle="bold" />
-
-                    <EditText
-                        android:id="@+id/edtDistrict"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:layout_marginHorizontal="25dp"
-                        android:layout_marginStart="32dp"
-                        android:autofillHints="District"
-                        android:fontFamily="@font/roboto_regular"
-                        android:inputType="text"
-
-                        android:textColor="@color/less_black"
-                        android:textSize="16dp" />
-                </LinearLayout>
-            </LinearLayout>
+                app:layout_constraintTop_toBottomOf="@+id/tvStudentClass" />
         </androidx.constraintlayout.widget.ConstraintLayout>
 
     </androidx.cardview.widget.CardView>
@@ -314,7 +273,7 @@
             android:text="Save"
             android:textAllCaps="false"
             android:textColor="@color/white"
-            app:backgroundTint="@color/green"
+            app:backgroundTint="@color/blue_light"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"

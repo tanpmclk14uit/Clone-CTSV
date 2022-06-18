@@ -24,20 +24,8 @@
             android:alpha="0.5"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="You don't have any waiting order"
+            android:text="Bạn không có yêu cầu nào"
             />
-        <androidx.appcompat.widget.AppCompatButton
-            android:id="@+id/goToBuy"
-            android:layout_marginVertical="10dp"
-            android:layout_marginHorizontal="40dp"
-            android:layout_width="match_parent"
-            android:textColor="@color/white"
-            android:text="Go to buy now..."
-            android:background="@drawable/bg_gradient_splash"
-            android:layout_height="wrap_content">
-
-        </androidx.appcompat.widget.AppCompatButton>
-
     </LinearLayout>
 
 </FrameLayout>
