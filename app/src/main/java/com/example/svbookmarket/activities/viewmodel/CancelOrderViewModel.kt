@@ -15,6 +15,6 @@ class CancelOrderViewModel @Inject constructor(
     ViewModel() {
         fun updateData(order: Order, reason: String){
             orderRepository.updateOrderStatus(orderId = order.id)
-            orderRepository.updateReason(orderId = order.id, reason)
+            orderRepository.updateReason(orderId = order.id, "Sinh viên hủy: $reason")
         }
 }

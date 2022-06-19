@@ -3,6 +3,7 @@ package com.example.svbookmarket.activities
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.ImageButton
 import androidx.activity.viewModels
 import androidx.appcompat.widget.AppCompatImageView
 import com.example.svbookmarket.activities.common.AppUtil
@@ -22,7 +23,7 @@ class CancelOrder : AppCompatActivity() {
         binding = ActivityCancelOrderBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        val imgBackArrow: AppCompatImageView = findViewById(R.id.imgBackArrow)
+        val imgBackArrow: ImageButton = findViewById(R.id.backButton)
         imgBackArrow.setOnClickListener {
             onBackPressed()
             finish()
@@ -39,7 +40,7 @@ class CancelOrder : AppCompatActivity() {
             startActivity(Intent(baseContext,CancelConfirmation::class.java))
             finish()
         }else{
-            binding.LoginEmailLayout.error = "Please enter the reason"
+            binding.LoginEmailLayout.error = "Bắt buộc nhập lý do!"
         }
 
     }

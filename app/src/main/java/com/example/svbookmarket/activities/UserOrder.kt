@@ -29,9 +29,9 @@ class UserOrder : AppCompatActivity() {
     }
 
     private fun getOrder() {
-        viewModel.orders.observe(this, { changes ->
+        viewModel.orders.observe(this) { changes ->
             orderListAdapter.addOrder(changes)
-        })
+        }
     }
 
     private fun setUpView() {

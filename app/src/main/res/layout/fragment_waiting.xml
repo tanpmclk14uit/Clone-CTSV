@@ -24,7 +24,7 @@
             android:alpha="0.5"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Bạn không có yêu cầu nào"
+            android:text="Hiện không có yêu cầu nào ở trạng thái này"
             />
     </LinearLayout>
 

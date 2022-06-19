@@ -76,13 +76,15 @@ object Constants {
         GXNSV, GXNVVNH
     }
     enum class OrderStatus{
-        WAITING, CONFIRMED, PRINTED;
+        WAITING, CONFIRMED, PRINTED, CANCEL, COMPLETE;
 
         override fun toString(): String {
             return when(this){
                 WAITING -> "Chờ duyệt"
                 CONFIRMED -> "Đã duyệt"
                 PRINTED -> "Đã in"
+                CANCEL -> "Đã hủy"
+                COMPLETE -> "Đã nhận"
             }
         }
     }

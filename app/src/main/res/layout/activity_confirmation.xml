@@ -15,19 +15,7 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Confirmation"
+        android:text="Đăng kí thành công"
         android:textSize="32dp"
         android:fontFamily="@font/roboto_bold"/>
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="You have successfully"
-        android:fontFamily="@font/roboto_regular"
-        android:textSize="14dp"/>
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="completed your payment procedure"
-        android:fontFamily="@font/roboto_regular"
-        android:scrollbarSize="14dp"/>
 </LinearLayout>

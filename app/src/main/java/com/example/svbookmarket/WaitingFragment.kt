@@ -30,11 +30,11 @@ class WaitingFragment : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         // Inflate the layout for this fragment
         val view: View = inflater.inflate(R.layout.fragment_waiting, container, false)
         val orderListAdapter: OrderAdapter = OrderAdapter(mutableListOf(), this.requireContext())
-        //viewModel.setWaitingOrder()
+        viewModel.setWaitingOrder()
         val waitingOrderView: RecyclerView = view.findViewById(R.id.waitingOrder)
 
         noItemLayout = view.findViewById(R.id.dontHaveWaitingOrderLayout)
@@ -48,13 +48,13 @@ class WaitingFragment : Fragment() {
     }
 
     private fun getOrder(orderAdapter: OrderAdapter) {
-        viewModel.waitingOrders.observe(this.viewLifecycleOwner, { changes ->
+        viewModel.waitingOrders.observe(this.viewLifecycleOwner) { changes ->
             orderAdapter.addOrder(changes)
-            if(changes.size == 0){
+            if (changes.size == 0) {
                 noItemLayout.visibility = View.VISIBLE
-            }else{
+            } else {
                 noItemLayout.visibility = View.GONE
             }
-        })
+        }
     }
 }

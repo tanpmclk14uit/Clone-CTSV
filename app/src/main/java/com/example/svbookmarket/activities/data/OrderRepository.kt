@@ -24,11 +24,11 @@ class  OrderRepository @Inject constructor(
     }
 
     fun updateOrderStatus(orderId: String){
-        userCollRef.document(AppUtil.currentAccount.email).collection(TAG).document(orderId).update("status","CANCEL")
+        userCollRef.document(AppUtil.currentAccount.email).collection(TAG).document(orderId).update("status",Constants.OrderStatus.CANCEL.toString())
     }
 
     fun updateReason(orderId: String, reason: String){
-        userCollRef.document(AppUtil.currentAccount.email).collection(TAG).document(orderId).update("reason",reason)
+        userCollRef.document(AppUtil.currentAccount.email).collection(TAG).document(orderId).update("cancelReason",reason)
     }
 
 

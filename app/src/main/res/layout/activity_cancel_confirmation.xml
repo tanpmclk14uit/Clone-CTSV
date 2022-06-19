@@ -15,35 +15,8 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Cancel Confirmation"
+        android:text="Hủy thành công"
         android:textSize="32dp"
         android:fontFamily="@font/roboto_bold"/>
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="We sincerely apologize"
-        android:fontFamily="@font/roboto_regular"
-        android:textSize="14sp"/>
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textSize="14sp"
-        android:text=" for any inconvenience during the purchase process."
-        android:fontFamily="@font/roboto_regular"
-        />
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textSize="14sp"
-        android:text="Hope you will have a better experience next time!"
-        android:fontFamily="@font/roboto_regular"
-        android:scrollbarSize="14sp"/>
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textSize="14sp"
-        android:text="Thanks you."
-        android:fontFamily="@font/roboto_regular"
-        android:scrollbarSize="14dp"/>
 
 </LinearLayout>

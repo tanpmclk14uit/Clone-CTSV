@@ -4,6 +4,7 @@ import android.annotation.SuppressLint
 import android.content.Intent
 import android.os.Bundle
 import android.os.Handler
+import android.util.Log
 import android.view.View
 import android.widget.TextView
 import android.widget.Toast
@@ -27,6 +28,7 @@ import com.example.svbookmarket.activities.viewmodel.HomeViewModel
 import com.example.svbookmarket.databinding.ActivityHomeBinding
 import com.google.android.material.textfield.TextInputEditText
 import dagger.hilt.android.AndroidEntryPoint
+import java.lang.Exception
 
 
 @AndroidEntryPoint
@@ -192,9 +194,14 @@ class HomeActivity : AppCompatActivity(),
         Handler().postDelayed(Runnable { isBackPressedOnce = false }, 2000)
     }
     private fun setCountOfBottomMeow() {
-        viewModel.getCart(AppUtil.currentAccount).observe(this, Observer { change ->
-            binding.bottomNavigation.setCount(id = 3, change.size.toString())
-        })
+        try {
+            viewModel.getCart(AppUtil.currentAccount).observe(this, Observer { change ->
+                binding.bottomNavigation.setCount(id = 3, change.size.toString())
+            })
+        }catch (e: Exception){
+            Log.d("error", e.toString())
+        }
+
     }
     private fun setUpBottomNavigationView(){
 

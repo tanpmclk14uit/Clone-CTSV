@@ -1,5 +1,6 @@
 package com.example.svbookmarket.activities
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
@@ -65,7 +66,7 @@ class OnlineServiceActivity : AppCompatActivity() {
             .addOnCompleteListener {
                 loadingDialog.dismissDialog()
             }.addOnSuccessListener {
-                Toast.makeText(this, "Đăng kí thành công", Toast.LENGTH_SHORT).show()
+                startActivity(Intent(this, ConfirmationActivity::class.java))
             }.addOnFailureListener {
                 Toast.makeText(this, "Lỗi: $it", Toast.LENGTH_SHORT).show()
             }

@@ -76,12 +76,4 @@ class CartRepository @Inject constructor(
         FirebaseFirestore.getInstance().collection("accounts").document(user.email)
             .collection("userCart").document(id).delete()
     }
-
-
-    suspend fun clickBuy() {
-
-    }
-
-    init {
-    }
 }
