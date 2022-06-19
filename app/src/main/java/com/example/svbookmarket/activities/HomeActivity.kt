@@ -128,7 +128,7 @@ class HomeActivity : AppCompatActivity(),
             }
             CATEGORY_DETAIL -> Intent(this, CategoryDetailActivity::class.java)
                 .putExtra(CategoryDetailActivity.CATEGORY_TYPE, name)
-            ONLINE_SERVICE -> Intent(this, OnlineService::class.java)
+            ONLINE_SERVICE -> Intent(this, OnlineServiceActivity::class.java)
         }
         startActivity(intent)
     }

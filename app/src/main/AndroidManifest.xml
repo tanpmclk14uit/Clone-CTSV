@@ -10,7 +10,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.SvBookMarket">
         <activity
-            android:name=".activities.OnlineService"
+            android:name=".activities.OnlineServiceActivity"
             android:exported="false" />
         <activity android:name=".activities.CancelConfirmation" />
         <activity android:name=".activities.CancelOrder" />

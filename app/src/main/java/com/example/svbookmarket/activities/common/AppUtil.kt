@@ -9,7 +9,7 @@ import com.google.firebase.firestore.QueryDocumentSnapshot
 object AppUtil {
     var currentUser: User = User()
     var currentAccount: AppAccount = AppAccount("", "", currentUser)
-    var currentOrder: Order = Order()
+    lateinit var currentOrder: Order
     var currentSeller: AppAccount =AppAccount("","", User())
 
     fun toBook(doc: QueryDocumentSnapshot): Book {

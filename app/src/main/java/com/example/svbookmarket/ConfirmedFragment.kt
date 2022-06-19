@@ -28,7 +28,7 @@ class ConfirmedFragment : Fragment() {
         // Inflate the layout for this fragment
         val view: View = inflater.inflate(R.layout.fragment_confirmed, container, false)
         val orderListAdapter: OrderAdapter = OrderAdapter(mutableListOf(), this.requireContext())
-        viewModel.setConfirmedOrder()
+        //viewModel.setConfirmedOrder()
         val confirmedOrder: RecyclerView = view.findViewById(R.id.confirmedOrderList)
         confirmedOrder.apply {
             adapter = orderListAdapter

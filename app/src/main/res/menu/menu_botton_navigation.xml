@@ -2,9 +2,9 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
 
-    <item android:title="Waiting" android:id="@+id/waiting" android:icon="@drawable/ic_baseline_waiting"/>
-    <item android:title="Confirmed"  android:id="@+id/confirmed" android:icon="@drawable/ic_baseline_confirmed" />
-    <item android:title="Delivering" android:id="@+id/delivering" android:icon="@drawable/ic_baseline_delivering" />
+    <item android:title="Chờ duyệt" android:id="@+id/waiting" android:icon="@drawable/ic_baseline_waiting"/>
+    <item android:title="Đã duyệt"  android:id="@+id/confirmed" android:icon="@drawable/ic_baseline_confirmed" />
+    <item android:title="Đã in" android:id="@+id/delivering" android:icon="@drawable/ic_baseline_printed" />
 
 
 </menu>

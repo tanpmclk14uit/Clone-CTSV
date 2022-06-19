@@ -28,7 +28,7 @@ class DeliveringFragment : Fragment() {
         // Inflate the layout for this fragment
         val view: View= inflater.inflate(R.layout.fragment_delivering, container, false)
         val orderListAdapter: OrderAdapter = OrderAdapter(mutableListOf(), this.requireContext())
-        viewModel.setDeliveringOrder()
+        //viewModel.setDeliveringOrder()
         val deliveringOrder: RecyclerView = view.findViewById(R.id.deliveringOrder)
         deliveringOrder.apply {
             adapter = orderListAdapter

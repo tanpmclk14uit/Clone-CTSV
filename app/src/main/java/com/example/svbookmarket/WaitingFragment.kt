@@ -34,7 +34,7 @@ class WaitingFragment : Fragment() {
         // Inflate the layout for this fragment
         val view: View = inflater.inflate(R.layout.fragment_waiting, container, false)
         val orderListAdapter: OrderAdapter = OrderAdapter(mutableListOf(), this.requireContext())
-        viewModel.setWaitingOrder()
+        //viewModel.setWaitingOrder()
         val waitingOrderView: RecyclerView = view.findViewById(R.id.waitingOrder)
 
         noItemLayout = view.findViewById(R.id.dontHaveWaitingOrderLayout)

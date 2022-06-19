@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:id="@+id/identifyStudentService" android:title="GXN sinh viên" android:icon="@drawable/ic_baseline_confirmed"/>
+    <item android:id="@+id/identifyBankLoanService" android:title="GXN vay vốn ngân hàng" android:icon="@drawable/ic_baseline_confirmed"/>
+</menu>

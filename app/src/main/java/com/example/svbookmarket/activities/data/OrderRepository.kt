@@ -2,6 +2,7 @@ package com.example.svbookmarket.activities.data
 
 import com.example.svbookmarket.activities.common.AppUtil
 import com.example.svbookmarket.activities.common.Constants
+import com.example.svbookmarket.activities.model.Order
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.firestore.CollectionReference
 import com.google.firebase.firestore.Query
@@ -22,15 +23,10 @@ class  OrderRepository @Inject constructor(
         )
     }
 
-    fun getAllBillingIem(docId: String): Query{
-        return userCollRef.document(Firebase.auth.currentUser?.email.toString()).collection(TAG).document(docId).collection("books").orderBy(
-            "price",
-            Query.Direction.ASCENDING
-        )
-    }
     fun updateOrderStatus(orderId: String){
         userCollRef.document(AppUtil.currentAccount.email).collection(TAG).document(orderId).update("status","CANCEL")
     }
+
     fun updateReason(orderId: String, reason: String){
         userCollRef.document(AppUtil.currentAccount.email).collection(TAG).document(orderId).update("reason",reason)
     }

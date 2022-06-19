@@ -62,16 +62,9 @@ class OrderAdapter(
             if(currentOrder.status == "WAITING" || currentOrder.status == "CONFIRMED"){
                 cancelOrderLayout.visibility = View.VISIBLE
             }
-            sellerName.text = currentOrder.seller
             status.text = currentOrder.status
-            name.text = currentOrder.userDeliverAddress.fullName
-            phone.text = currentOrder.userDeliverAddress.phoneNumber
-            address.text = currentOrder.userDeliverAddress.addressLane +", "+ currentOrder.userDeliverAddress.district +", "+ currentOrder.userDeliverAddress.city+"."
             dateTime.text = currentOrder.dateTime
             val formatter = DecimalFormat("#,###")
-            totalPrice.text = formatter.format(currentOrder.totalPrince.toString().toLong()) +" đ"
-           // val billingItemAdapter = BillingItemAdapter(currentOrder.listbooks)
-            //listItemOrder.adapter = billingItemAdapter
             listItemOrder.layoutManager = LinearLayoutManager(context)
             listItemOrder.visibility = View.GONE
             addressLayout.visibility = View.GONE
@@ -85,11 +78,6 @@ class OrderAdapter(
                 AppUtil.currentOrder = currentOrder
                gotoOrderCancel()
             }
-            sellerName.setOnClickListener {
-                AppUtil.currentSeller.email = currentOrder.sellerId
-                startActivity(context,Intent(context, ProfileActivity::class.java), Bundle())
-            }
-
         }
     }
     private fun gotoOrderCancel(){

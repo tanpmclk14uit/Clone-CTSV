@@ -33,6 +33,7 @@
         <entry key="app/src/main/res/layout/activity_forgot_password.xml" value="0.14722222222222223" />
         <entry key="app/src/main/res/layout/activity_item_detail.xml" value="0.24270833333333333" />
         <entry key="app/src/main/res/layout/activity_load_screen.xml" value="0.14722222222222223" />
+        <entry key="app/src/main/res/layout/activity_online_service.xml" value="0.24270833333333333" />
         <entry key="app/src/main/res/layout/activity_search.xml" value="0.24375" />
         <entry key="app/src/main/res/layout/activity_user_manage.xml" value="0.24375" />
         <entry key="app/src/main/res/layout/activity_user_order.xml" value="0.24375" />
@@ -47,6 +48,10 @@
         <entry key="app/src/main/res/layout/dialog_empty_noti.xml" value="0.24270833333333333" />
         <entry key="app/src/main/res/layout/fragment_confirmed.xml" value="0.24375" />
         <entry key="app/src/main/res/layout/fragment_delivering.xml" value="0.24375" />
+        <entry key="app/src/main/res/layout/fragment_identify_bank_loan_service.xml" value="0.22864583333333333" />
+        <entry key="app/src/main/res/layout/fragment_identify_student_service.xml" value="0.24270833333333333" />
+        <entry key="app/src/main/res/layout/fragment_identify_traing_point_service.xml" value="0.24270833333333333" />
+        <entry key="app/src/main/res/layout/fragment_identify_training_point_service.xml" value="0.24270833333333333" />
         <entry key="app/src/main/res/layout/fragment_waiting.xml" value="0.24375" />
         <entry key="app/src/main/res/layout/gender_item.xml" value="0.24270833333333333" />
         <entry key="app/src/main/res/layout/home_toolbar.xml" value="0.24270833333333333" />
@@ -79,6 +84,7 @@
         <entry key="app/src/main/res/layouts/component/card/layout/card_suggest.xml" value="0.24375" />
         <entry key="app/src/main/res/layouts/component/drawable/ic_baseline_school_24.xml" value="0.1645" />
         <entry key="app/src/main/res/menu/menu_botton_navigation.xml" value="0.24270833333333333" />
+        <entry key="app/src/main/res/menu/menu_online_service.xml" value="0.24166666666666667" />
       </map>
     </option>
   </component>

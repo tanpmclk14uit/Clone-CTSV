@@ -72,4 +72,18 @@ object Constants {
             return result.toUpperCase()
         }
     }
+    enum class OrderKind{
+        GXNSV, GXNVVNH
+    }
+    enum class OrderStatus{
+        WAITING, CONFIRMED, PRINTED;
+
+        override fun toString(): String {
+            return when(this){
+                WAITING -> "Chờ duyệt"
+                CONFIRMED -> "Đã duyệt"
+                PRINTED -> "Đã in"
+            }
+        }
+    }
 }

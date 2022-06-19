@@ -25,124 +25,75 @@ class WaitingForDeliveryViewModel @Inject constructor(private val orderRepositor
     private var _confirmedOrder = MutableLiveData<MutableList<Order>>()
     val confirmOrder get() = _confirmedOrder
 
-    private fun setBillingItem(docID: String, mutableLiveData: MutableLiveData<MutableList<Order>>) {
-        orderRepository.getAllBillingIem(docID).addSnapshotListener { value, error ->
-            if (error != null) {
-                Log.w(Constants.VMTAG, "Listen failed.", error)
-            } else {
-                var billingList: ArrayList<Book> = ArrayList()
-                for (doc in value!!) {
-                    var cart: Book = Book()
-                    cart.Name = doc["title"].toString()
-                    cart.id = doc.id
-                    billingList.add(cart)
-                }
-                var orderList: MutableList<Order> = ArrayList()
-                for(order in mutableLiveData.value!!){
-                    if(order.id == docID){
-                        order.listbooks = billingList
-                    }
-                    orderList.add(order)
-                }
-                mutableLiveData.value = orderList
-            }
-        }
-    }
-    fun setDeliveringOrder(): MutableLiveData<MutableList<Order>> {
-        orderRepository.getAllOrderFromCloudFireStore().addSnapshotListener { value, error ->
-            if (error != null) {
-                Log.w(Constants.VMTAG, "Listen failed.", error)
-            } else {
-                var orderList: MutableList<Order> = ArrayList()
-                for (doc in value!!) {
-                    val order = Order()
-                    if(doc["status"].toString() == "DELIVERING"){
-                        order.id = doc.id
-                        val timeStamp = doc["dateTime"] as Timestamp
-                        order.dateTime = getFormatDate(timeStamp.toDate())
-                        order.status = doc["status"].toString()
-                        order.totalPrince = doc["totalPrince"].toString()
-                        order.userDeliverAddress.addressLane = doc["addressLane"].toString()
-                        order.userDeliverAddress.fullName = doc["fullName"].toString()
-                        order.userDeliverAddress.phoneNumber = doc["phoneNumber"].toString()
-                        order.userDeliverAddress.city = doc["city"].toString()
-                        order.userDeliverAddress.district = doc["district"].toString()
-                        order.seller = doc["salerName"].toString()
-                        order.sellerId = doc["Saler"].toString()
-                        setBillingItem( order.id, deliveryOrder )
-                        orderList.add(order)
-                    }
-                }
-                deliveryOrder.value = orderList
-            }
-        }
-        return deliveryOrder
-    }
-
-    fun setConfirmedOrder(): MutableLiveData<MutableList<Order>> {
-        orderRepository.getAllOrderFromCloudFireStore().addSnapshotListener { value, error ->
-            if (error != null) {
-                Log.w(Constants.VMTAG, "Listen failed.", error)
-            } else {
-                var orderList: MutableList<Order> = ArrayList()
-                for (doc in value!!) {
-                    if(doc["status"].toString() == "CONFIRMED"){
-                        val order = Order()
-                        order.id = doc.id
-                        val timeStamp = doc["dateTime"] as Timestamp
-                        order.dateTime = getFormatDate(timeStamp.toDate())
-                        order.status = doc["status"].toString()
-                        order.totalPrince = doc["totalPrince"].toString()
-                        order.userDeliverAddress.addressLane = doc["addressLane"].toString()
-                        order.userDeliverAddress.fullName = doc["fullName"].toString()
-                        order.userDeliverAddress.phoneNumber = doc["phoneNumber"].toString()
-                        order.userDeliverAddress.city = doc["city"].toString()
-                        order.userDeliverAddress.district = doc["district"].toString()
-                        order.seller = doc["salerName"].toString()
-                        order.sellerId = doc["Saler"].toString()
-                        setBillingItem( order.id, confirmOrder )
-                        orderList.add(order)
-                    }
-                }
-                confirmOrder.value = orderList
-            }
-        }
-        return confirmOrder
-    }
-    private fun getFormatDate(date: Date):String{
-        val sdf = SimpleDateFormat("HH:mm:ss dd-MM-yyyy ")
-        return sdf.format(date)
-    }
-    fun setWaitingOrder(): MutableLiveData<MutableList<Order>> {
-        orderRepository.getAllOrderFromCloudFireStore().addSnapshotListener { value, error ->
-            if (error != null) {
-                Log.w(Constants.VMTAG, "Listen failed.", error)
-            } else {
-                var orderList: MutableList<Order> = ArrayList()
-                for (doc in value!!) {
-                    if(doc["status"].toString() == "WAITING"){
-                        val order = Order()
-                        order.id = doc.id
-                        val timeStamp = doc["dateTime"] as Timestamp
-                        order.dateTime = getFormatDate(timeStamp.toDate())
-                        order.status = doc["status"].toString()
-                        order.totalPrince = doc["totalPrince"].toString()
-                        order.userDeliverAddress.addressLane = doc["addressLane"].toString()
-                        order.userDeliverAddress.fullName = doc["fullName"].toString()
-                        order.userDeliverAddress.phoneNumber = doc["phoneNumber"].toString()
-                        order.userDeliverAddress.city = doc["city"].toString()
-                        order.userDeliverAddress.district = doc["district"].toString()
-                        order.seller = doc["salerName"].toString()
-                        order.sellerId = doc["Saler"].toString()
-                        setBillingItem( order.id, waitingOrders )
-                        orderList.add(order)
-                    }
-                }
-                waitingOrders.value = orderList
-            }
-        }
-        return waitingOrders
-    }
+//    fun setDeliveringOrder(): MutableLiveData<MutableList<Order>> {
+//        orderRepository.getAllOrderFromCloudFireStore().addSnapshotListener { value, error ->
+//            if (error != null) {
+//                Log.w(Constants.VMTAG, "Listen failed.", error)
+//            } else {
+//                var orderList: MutableList<Order> = ArrayList()
+//                for (doc in value!!) {
+//                    val order = Order()
+//                    if(doc["status"].toString() == "DELIVERING"){
+//                        order.id = doc.id
+//                        val timeStamp = doc["dateTime"] as Timestamp
+//                        order.dateTime = getFormatDate(timeStamp.toDate())
+//                        order.status = doc["status"].toString()
+//                        orderList.add(order)
+//                    }
+//                }
+//                deliveryOrder.value = orderList
+//            }
+//        }
+//        return deliveryOrder
+//    }
+//
+//    fun setConfirmedOrder(): MutableLiveData<MutableList<Order>> {
+//        orderRepository.getAllOrderFromCloudFireStore().addSnapshotListener { value, error ->
+//            if (error != null) {
+//                Log.w(Constants.VMTAG, "Listen failed.", error)
+//            } else {
+//                var orderList: MutableList<Order> = ArrayList()
+//                for (doc in value!!) {
+//                    if(doc["status"].toString() == "CONFIRMED"){
+//                        val order = Order()
+//                        order.id = doc.id
+//                        val timeStamp = doc["dateTime"] as Timestamp
+//                        order.dateTime = getFormatDate(timeStamp.toDate())
+//                        order.status = doc["status"].toString()
+//                        orderList.add(order)
+//                    }
+//                }
+//                confirmOrder.value = orderList
+//            }
+//        }
+//        return confirmOrder
+//    }
+//    private fun getFormatDate(date: Date):String{
+//        val sdf = SimpleDateFormat("HH:mm:ss dd-MM-yyyy ")
+//        return sdf.format(date)
+//    }
+//
+//    fun setWaitingOrder(): MutableLiveData<MutableList<Order>> {
+//        orderRepository.getAllOrderFromCloudFireStore().addSnapshotListener { value, error ->
+//            if (error != null) {
+//                Log.w(Constants.VMTAG, "Listen failed.", error)
+//            } else {
+//                var orderList: MutableList<Order> = ArrayList()
+//                for (doc in value!!) {
+//                    if(doc["status"].toString() == "WAITING"){
+//                        val order = Order()
+//                        order.id = doc.id
+//                        val timeStamp = doc["dateTime"] as Timestamp
+//                        order.dateTime = getFormatDate(timeStamp.toDate())
+//                        order.status = doc["status"].toString()
+//                        orderList.add(order)
+//                    }
+//                }
+//                waitingOrders.value = orderList
+//            }
+//        }
+//        return waitingOrders
+//    }
 
 
 }

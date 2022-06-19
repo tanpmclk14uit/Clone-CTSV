@@ -12,12 +12,13 @@
         <androidx.appcompat.widget.Toolbar
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
-            <LinearLayout
+            <RelativeLayout
                 android:layout_marginHorizontal="20dp"
                 android:orientation="horizontal"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
                 <ImageButton
+                    android:layout_centerVertical="true"
                     android:id="@+id/id_back"
                     android:layout_gravity="center_vertical"
                     android:layout_width="wrap_content"
@@ -36,7 +37,7 @@
                     android:layout_marginStart="5dp"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"/>
-            </LinearLayout>
+            </RelativeLayout>
         </androidx.appcompat.widget.Toolbar>
     </com.google.android.material.appbar.AppBarLayout>
 
@@ -163,9 +164,9 @@
 
                 <Button
                     android:id="@+id/postComment"
-                    android:layout_width="70dp"
+                    android:layout_width="wrap_content"
                     android:layout_height="40dp"
-                    android:text="Post"
+                    android:text="Đăng"
                     android:layout_gravity="end"
                     android:textAllCaps="true"
                     android:textAppearance="@style/TextAppearance.MaterialComponents.Body1"
