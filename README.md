@@ -46,7 +46,6 @@
 ## Tác giả
 
 - Phạm Minh Tân (19520261@gm.uit.edu.vn)
-- Bùi Dương Duy Khang (19520618@gm.uit.edu.vn)
 
 ## Giấy phép
 
