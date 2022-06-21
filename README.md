@@ -1,5 +1,5 @@
 # Công tác sinh viên
-Đây 
+Đây là ứng dụng cho phép sinh viên theo dõi các thông báo của phòng công tác sinh viên.
 
 ## Nội Dung
 
@@ -9,33 +9,23 @@
 
 - Đăng nhập
 - Đăng ký
+- Quên mật khẩu
 
 ### Trang Chủ
 
 - Trang chủ
-- Search sách theo tên
+- Search thông báo theo tiêu đề
 
-### Các sách bestselling
+### Lưu thông báo về xem sau
 
-- Các loại Top
+- Lưu các thông báo quan trọng vào xem sau
 
-### Giỏ hàng
+### Đăng kí dịch vụ online
 
-- Thông tin sách và số lượng các sản phẩm đã chọn.
-- Thông tin sách và số lượng đã chọn để thanh toán.
+- Thông tin về dịch vụ
+- Đăng kí dịch vụ (giấy xác nhận sinh viên, giấy xác nhận vay vốn ngân hàng)
 
-### Đặt hàng
-
-- Thông tin tổng tiền.
-- Thông tin sách đac họn và số lượng.
-
-### Đơn hàng
-
-- Thông tin và tình trạng đơn hàng
-
-### Địa chỉ
-
-- Danh sách các địa chỉ giao hàng và người nhận.
+- Thông tin và tình trạng của phiếu đăng kí 
 
 ## Yêu cầu thiết bị
 
