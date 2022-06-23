@@ -70,7 +70,7 @@ class WaitingForDeliveryViewModel @Inject constructor(private val orderRepositor
             } else {
                 val orderList: MutableList<Order> = ArrayList()
                 for (doc in value!!) {
-                    if (doc["status"].toString() == "CONFIRMED") {
+                    if (doc["status"].toString() == Constants.OrderStatus.CONFIRMED.toString()) {
                         if (doc["kind"].toString() == Constants.OrderKind.GXNSV.toString()) {
                             val order = OrderStudentIdentify(
                                 doc.id,
