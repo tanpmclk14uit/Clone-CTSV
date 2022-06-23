@@ -10,6 +10,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.SvBookMarket">
         <activity
+            android:name=".activities.ContactActivity"
+            android:exported="false" />
+        <activity
             android:name=".activities.OnlineServiceActivity"
             android:exported="false" />
         <activity android:name=".activities.CancelConfirmation" />
@@ -28,10 +31,7 @@
         <activity android:name=".activities.WelcomeActivity" />
         <activity android:name=".activities.RegisterActivity" />
         <activity android:name=".activities.MainActivity" />
-        <activity android:name=".activities.EditAdressActivity" />
-        <activity android:name=".activities.MenuActivity" />
         <activity android:name=".activities.CartActivity" />
-        <activity android:name=".activities.AddressActivity" />
         <activity
             android:name=".activities.HomeActivity"
             android:screenOrientation="locked"

@@ -43,35 +43,35 @@ class ItemDetailActivity : AppCompatActivity() {
         binding.expandDes.setOnClickListener {
             onExpandClick()
         }
-        setUpComment()
-        binding.postComment.setOnClickListener {
-            postComment()
-        }
+//        setUpComment()
+//        binding.postComment.setOnClickListener {
+//            postComment()
+//        }
     }
     private val commentAdapter: CommentAdapter = CommentAdapter(mutableListOf())
-    private fun setUpComment(){
-
-        binding.recycleViewComment.apply {
-            adapter = commentAdapter
-            layoutManager = LinearLayoutManager(binding.root.context, RecyclerView.VERTICAL, false)
-            setHasFixedSize(true)
-            LinearSnapHelper().attachToRecyclerView(this)
-        }
-    }
-    private fun getAllComment(){
-        if(currentBookId != null){
-            viewModel.loadComment(currentBookId!!).observe(this) { changes ->
-                commentAdapter.onChange(changes)
-                binding.commentCount.text = "(${changes.size.toString()})"
-            }
-        }
-    }
+//    private fun setUpComment(){
+//
+//        binding.recycleViewComment.apply {
+//            adapter = commentAdapter
+//            layoutManager = LinearLayoutManager(binding.root.context, RecyclerView.VERTICAL, false)
+//            setHasFixedSize(true)
+//            LinearSnapHelper().attachToRecyclerView(this)
+//        }
+//    }
+//    private fun getAllComment(){
+//        if(currentBookId != null){
+//            viewModel.loadComment(currentBookId!!).observe(this) { changes ->
+//                commentAdapter.onChange(changes)
+//                binding.commentCount.text = "(${changes.size.toString()})"
+//            }
+//        }
+//    }
     private var currentBookId: String? = null
     private val changeObserver = Observer<Book> { value ->
         value?.let {
             if (value.Name != "null") {
                 currentBookId = it.id
-                getAllComment()
+                //getAllComment()
                 binding.idTitle.text = it.Name
                 binding.idDescription.text = it.Description
                 it.Image?.let { uri -> loadImageFromUri(Uri.parse(uri)) }
@@ -92,12 +92,12 @@ class ItemDetailActivity : AppCompatActivity() {
             binding.expandDes.setBackgroundResource(R.drawable.ic_baseline_expand_more_24)
         }
     }
-    private fun postComment(){
-        if(binding.comment.text.isNotBlank() && currentBookId != null){
-            viewModel.postComment(currentBookId!!, AppUtil.currentAccount.email,binding.comment.text.toString())
-            binding.comment.text.clear()
-        }
-    }
+//    private fun postComment(){
+//        if(binding.comment.text.isNotBlank() && currentBookId != null){
+//            viewModel.postComment(currentBookId!!, AppUtil.currentAccount.email,binding.comment.text.toString())
+//            binding.comment.text.clear()
+//        }
+//    }
     private fun addItemToCart() {
         viewModel.addToCart()
     }

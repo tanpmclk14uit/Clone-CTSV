@@ -28,6 +28,9 @@ class UserManageActivity : AppCompatActivity() {
         setWaitingForDeliverRy()
         setSavedNotificationClick()
         setYourProfile()
+        binding.contact.setOnClickListener {
+            startActivity(Intent(this, ContactActivity::class.java))
+        }
     }
 
     private fun setSavedNotificationClick(){

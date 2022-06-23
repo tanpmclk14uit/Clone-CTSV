@@ -27,16 +27,17 @@
                     android:src="@drawable/vector"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
+
                 <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
                     android:layout_gravity="center_vertical"
+                    android:layout_marginStart="5dp"
+                    android:gravity="center"
+                    android:text="Chi tiết thông báo"
                     android:textColor="@color/white"
                     android:textSize="20sp"
-                    android:gravity="center"
-                    android:textStyle="bold"
-                    android:text="Chi tiết thông báo"
-                    android:layout_marginStart="5dp"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"/>
+                    android:textStyle="bold" />
             </RelativeLayout>
         </androidx.appcompat.widget.Toolbar>
     </com.google.android.material.appbar.AppBarLayout>
@@ -124,66 +125,7 @@
                     android:text="@string/textTest"
                     android:textColor="@color/fade_gray"
                     />
-                <LinearLayout
-                    android:layout_marginVertical="5dp"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
-                    <TextView
-                        android:id="@+id/textView13"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:fontFamily="@font/roboto_regular"
-                        android:text="@string/comment"
-                        android:gravity="center_vertical"
-                        android:textSize="16sp"
-                        android:textStyle="bold"
-                        app:layout_constraintBottom_toTopOf="@+id/comment"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/id_description" />
-                    <TextView
-                        android:layout_marginStart="5dp"
-                        android:layout_gravity="center_vertical"
-                        android:id="@+id/commentCount"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:fontFamily="@font/roboto_regular"
-                        android:text="(8)"
-                        app:layout_constraintBottom_toTopOf="@+id/comment"
-                        app:layout_constraintStart_toEndOf="@+id/textView13"
-                        app:layout_constraintTop_toBottomOf="@+id/id_description" />
-                </LinearLayout>
-
-                <EditText
-                    android:id="@+id/comment"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:hint="Leave your comment here"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/commentCount" />
-
-                <Button
-                    android:id="@+id/postComment"
-                    android:layout_width="wrap_content"
-                    android:layout_height="40dp"
-                    android:text="Đăng"
-                    android:layout_gravity="end"
-                    android:textAllCaps="true"
-                    android:textAppearance="@style/TextAppearance.MaterialComponents.Body1"
-                    android:textColor="@color/white"
-                    android:textStyle="bold"
-                    app:cornerRadius="7dp"
-                    >
-
-                </Button>
             </LinearLayout>
-            <androidx.recyclerview.widget.RecyclerView
-                android:layout_marginHorizontal="10dp"
-                android:id="@+id/recycleViewComment"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:nestedScrollingEnabled="false"
-                />
         </LinearLayout>
     </androidx.core.widget.NestedScrollView>
     <Button
