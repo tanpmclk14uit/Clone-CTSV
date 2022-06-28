@@ -4,7 +4,7 @@
     <string name="wellcome_slogan">Wellcome to bookmaket</string>
 
     <string name="register">Tạo tài khoản</string>
-    <string name="login">Đăng nhâp</string>
+    <string name="login">Đăng nhập</string>
     <string name="email">Email</string>
     <string name="don_t_have_account">Chưa có tài khoản?</string>
     <string name="sign_in">Đăng nhập</string>
