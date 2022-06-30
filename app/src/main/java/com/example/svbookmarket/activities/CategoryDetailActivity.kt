@@ -3,6 +3,7 @@ package com.example.svbookmarket.activities
 import android.annotation.SuppressLint
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import androidx.activity.viewModels
 import androidx.annotation.DrawableRes
 import androidx.appcompat.app.AppCompatActivity
@@ -88,6 +89,7 @@ class CategoryDetailActivity : AppCompatActivity(), SuggestAdapter.OnSuggestClic
 
     override fun onSuggestClick(book: Book) {
         val i = putBookIntoIntent(book)
+
         navigate(i)
     }
     private fun navigate(mIntent: Intent) = this.binding.root.context.startActivity(mIntent)

@@ -166,6 +166,7 @@ class HomeActivity : AppCompatActivity(),
 
     override fun onSuggestClick(book: Book) {
         val i = putBookIntoIntent(book)
+
         navigate(i)
     }
 
