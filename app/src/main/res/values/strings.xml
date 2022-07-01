@@ -35,8 +35,8 @@
     <string name="price_format_vn">%s VND</string>
 
     <string-array name="gender">
-        <item>Male</item>
-        <item>Female</item>
+        <item>Nam</item>
+        <item>Nữ</item>
 
     </string-array>
     <string name="title_activity_login">LoginActivity</string>
